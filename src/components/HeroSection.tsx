@@ -1,9 +1,65 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useMemo, useEffect } from "react";
+import { useSound } from "@/hooks/use-sound";
 import heroBg from "@/assets/hero-bg.jpg";
+
+// Ambient dust particles component
+const DustParticles = () => {
+  // Generate random particles
+  const particles = useMemo(() => {
+    return Array.from({ length: 25 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 3 + 1,
+      duration: Math.random() * 20 + 15,
+      delay: Math.random() * 10,
+      opacity: Math.random() * 0.4 + 0.1,
+    }));
+  }, []);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((particle) => (
+        <motion.div
+          key={particle.id}
+          className="absolute rounded-full bg-primary"
+          style={{
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+            width: particle.size,
+            height: particle.size,
+            opacity: particle.opacity,
+            filter: "blur(1px)",
+          }}
+          animate={{
+            y: [0, -30, 0],
+            x: [0, Math.random() * 20 - 10, 0],
+            opacity: [particle.opacity, particle.opacity * 1.5, particle.opacity],
+          }}
+          transition={{
+            duration: particle.duration,
+            delay: particle.delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { playAmbient } = useSound();
+
+  // Auto-play ambient sound when hero mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      playAmbient();
+    }, 1000); // Delay to let page load complete
+    return () => clearTimeout(timer);
+  }, [playAmbient]);
 
   // Track scroll over 2x viewport height for the parallax effect
   const { scrollYProgress } = useScroll({
@@ -44,6 +100,9 @@ const HeroSection = () => {
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Parallax Wine Cellar Background */}
         <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           style={{ y: bgY, opacity: bgOpacity }}
           className="absolute inset-0 -top-20"
         >
@@ -53,6 +112,15 @@ const HeroSection = () => {
             className="w-full h-[120%] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background/80" />
+          {/* Vignette overlay to focus attention toward center */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: "radial-gradient(ellipse at center, transparent 0%, hsl(0 0% 7% / 0.4) 100%)"
+            }}
+          />
+          {/* Ambient dust particles */}
+          <DustParticles />
         </motion.div>
 
         {/* Text Content Layer - fades out on scroll */}
@@ -60,34 +128,77 @@ const HeroSection = () => {
           style={{ opacity: textOpacity, y: textY }}
           className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center"
         >
-          <p className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-6">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+            className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-6"
+          >
             Argentine Heritage · Global Reach
-          </p>
+          </motion.p>
 
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-wide leading-tight mb-8">
-            The Argentine
+          <motion.h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-wide leading-tight mb-8">
+            {"The Argentine".split("").map((char, i) => (
+              <motion.span
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.8 + i * 0.03, ease: "easeOut" }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
             <br />
-            <span className="text-gradient-gold">Bridge</span>
-          </h1>
+            <motion.span
+              className="text-gradient-gold inline-block"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.4, ease: "easeOut" }}
+            >
+              Bridge
+            </motion.span>
+          </motion.h1>
 
           <motion.div
-            className="gold-line w-32 mb-8"
-            animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
-            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          />
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 1.6, ease: "easeOut" }}
+            className="gold-line w-32 mb-8 origin-center"
+          >
+            <motion.div
+              className="w-full h-full"
+              style={{
+                background: "linear-gradient(90deg, transparent, hsl(39 52% 56%), transparent)",
+              }}
+              animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
+              transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut", delay: 1.8 }}
+            />
+          </motion.div>
 
-          <p className="font-sans text-sm md:text-base tracking-wider text-muted-foreground max-w-2xl leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.9, ease: "easeOut" }}
+            className="font-sans text-sm md:text-base tracking-wider text-muted-foreground max-w-2xl leading-relaxed"
+          >
             Financial Security in the USA. Balkans entry point in Montenegro.
             <br className="hidden md:block" />
             Cultural access to Asia's most refined markets.
-          </p>
+          </motion.p>
 
           {/* Scroll indicator */}
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="absolute bottom-10 w-[1px] h-10 bg-gradient-to-b from-primary to-transparent"
-          />
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.8 }}
+            className="absolute bottom-10"
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 2, delay: 2 }}
+              className="w-[1px] h-10 bg-gradient-to-b from-primary to-transparent"
+            />
+          </motion.div>
         </motion.div>
 
         {/* Map Layer - fades in from bottom on scroll */}

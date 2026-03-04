@@ -1,8 +1,59 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import img1 from "../assets/1.png";
 import img2 from "../assets/2.png";
 import img3 from "../assets/3.png";
+
+// Parallax Image Component
+interface ParallaxImageProps {
+  src: string;
+  alt: string;
+  delay?: number;
+}
+
+const ParallaxImage = ({ src, alt, delay = 0 }: ParallaxImageProps) => {
+  const imageRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(imageRef, { once: true, margin: "-100px" });
+
+  // Track scroll progress for this element
+  const { scrollYProgress } = useScroll({
+    target: imageRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Parallax: move at 0.8x scroll speed (slower than scroll)
+  // Reduced range to prevent truncation (-5% to 5% instead of 0% to 20%)
+  const y = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
+
+  // Scale: 1.0 → 1.03 as section enters viewport (reduced from 1.05)
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.03]);
+
+  return (
+    <motion.div
+      ref={imageRef}
+      initial={{ opacity: 0, clipPath: "inset(100% 0 0 0)" }}
+      animate={isInView ? { opacity: 1, clipPath: "inset(0% 0 0 0)" } : {}}
+      transition={{ delay: 0.4 + delay, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      className="w-full md:w-1/2 overflow-hidden rounded-sm"
+      style={{
+        filter: "drop-shadow(0 0 20px hsla(39, 52%, 56%, 0.15))",
+        border: "1px solid hsla(39, 52%, 56%, 0.1)",
+      }}
+    >
+      <motion.div
+        style={{ y, scale }}
+        className="w-full h-full"
+      >
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-auto scale-110 paragraph-image"
+          style={{ transformOrigin: "center center" }}
+        />
+      </motion.div>
+    </motion.div>
+  );
+};
 
 const NarrativeSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,8 +71,8 @@ const NarrativeSection = () => {
       image: img2,
     },
     {
-      title: "Three Continents, One Vision",
-      text: "From the financial infrastructure of the United States to the Balkan's gateway of Montenegro, every node in our operation is designed for one purpose: delivering Argentina's finest wines to the world's most discerning palates.",
+      title: "Four Continents, One Vision",
+      text: "From the financial infrastructure of the United States to the Balkan's gateway of Montenegro and the premium markets in Asia, every node in our operation is designed for one purpose: delivering Argentina's finest wines to the world's most discerning palates.",
       image: img3,
     },
   ];
@@ -59,23 +110,12 @@ const NarrativeSection = () => {
                 i % 2 === 1 ? "md:flex-row-reverse" : ""
               }`}
             >
-              {/* Image */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.4 + i * 0.2, duration: 0.8 }}
-                className="w-full md:w-1/2"
-              >
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="w-full h-auto rounded-sm"
-                  style={{
-                    filter: "drop-shadow(0 0 20px hsla(39, 52%, 56%, 0.15))",
-                    border: "1px solid hsla(39, 52%, 56%, 0.1)",
-                  }}
-                />
-              </motion.div>
+              {/* Image with Parallax */}
+              <ParallaxImage
+                src={p.image}
+                alt={p.title}
+                delay={i * 0.2}
+              />
 
               {/* Text Content */}
               <div className={`w-full md:w-1/2 flex flex-col ${i % 2 === 1 ? "md:items-end md:text-right" : ""}`}>

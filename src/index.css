@@ -88,13 +88,18 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     letter-spacing: 0.02em;
+    font-size: 15px;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     letter-spacing: 0.04em;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
 }
 
@@ -184,5 +189,97 @@
   @keyframes pulse-glow {
     0%, 100% { opacity: 0.2; transform: scale(1); }
     50% { opacity: 0.6; transform: scale(1.15); }
+  }
+
+  /* Narrative image hover effects */
+  .paragraph-image {
+    transition: transform 0.6s ease-out, filter 0.6s ease-out;
+  }
+
+  .paragraph-image:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 30px hsla(39, 52%, 56%, 0.2));
+  }
+
+  /* Section transition dividers */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsla(39, 52%, 56%, 0.3), transparent);
+    margin: 0 auto;
+    max-width: 200px;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: all 0.8s ease;
+  }
+
+  .section-divider.visible {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  /* Volume slider styling */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: hsl(0, 0%, 20%);
+    border-radius: 2px;
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: hsl(39, 52%, 56%);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: hsl(39, 52%, 56%);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+  }
+
+  input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.2);
+  }
+
+  /* Map connection line pulse animation */
+  .animate-pulse-flow {
+    animation: pulse-flow 3s ease-in-out infinite;
+    stroke-dasharray: 20 30;
+  }
+
+  @keyframes pulse-flow {
+    0% {
+      stroke-dashoffset: 50;
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0.3;
+    }
+  }
+
+  /* Hide default cursor on fine pointer devices */
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
   }
 }

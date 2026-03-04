@@ -1,11 +1,145 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import SoundToggle from "./SoundToggle";
+import { useHoverSound } from "@/hooks/use-sound";
 import logo from "../assets/logo 1.svg";
+
+// Magnetic Button Component for CTA
+interface MagneticButtonProps {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+}
+
+const MagneticButton = ({ children, href, className = "" }: MagneticButtonProps) => {
+  const buttonRef = useRef<HTMLAnchorElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const { onMouseEnter: playHoverSound } = useHoverSound();
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const springConfig = { damping: 15, stiffness: 150 };
+  const xSpring = useSpring(x, springConfig);
+  const ySpring = useSpring(y, springConfig);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!buttonRef.current) return;
+    const rect = buttonRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const distanceX = e.clientX - centerX;
+    const distanceY = e.clientY - centerY;
+
+    // Stronger 0.15x multiplier for CTA button
+    x.set(distanceX * 0.15);
+    y.set(distanceY * 0.15);
+  }, [x, y]);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    x.set(0);
+    y.set(0);
+  }, [x, y]);
+
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+    playHoverSound();
+  }, [playHoverSound]);
+
+  return (
+    <motion.a
+      ref={buttonRef}
+      href={href}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+      style={{ x: xSpring, y: ySpring }}
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.2 }}
+      className={className}
+    >
+      {children}
+    </motion.a>
+  );
+};
+
+// Magnetic Link Component - subtle pull effect for nav items
+interface MagneticLinkProps {
+  children: React.ReactNode;
+  href: string;
+  className?: string;
+  isActive?: boolean;
+}
+
+const MagneticLink = ({ children, href, className = "", isActive }: MagneticLinkProps) => {
+  const linkRef = useRef<HTMLAnchorElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const { onMouseEnter: playHoverSound } = useHoverSound();
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const springConfig = { damping: 20, stiffness: 300 };
+  const xSpring = useSpring(x, springConfig);
+  const ySpring = useSpring(y, springConfig);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!linkRef.current) return;
+    const rect = linkRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const distanceX = e.clientX - centerX;
+    const distanceY = e.clientY - centerY;
+
+    // Subtler 0.1x multiplier for nav links (vs 0.15x for buttons)
+    x.set(distanceX * 0.1);
+    y.set(distanceY * 0.1);
+  }, [x, y]);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    x.set(0);
+    y.set(0);
+  }, [x, y]);
+
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+    playHoverSound();
+  }, [playHoverSound]);
+
+  return (
+    <motion.a
+      ref={linkRef}
+      href={href}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+      style={{ x: xSpring, y: ySpring }}
+      className={className}
+    >
+      {children}
+      {isActive && (
+        <motion.span
+          layoutId="activeNav"
+          className="absolute bottom-0 left-0 right-0 h-[1px] bg-primary"
+          style={{
+            background: "linear-gradient(90deg, transparent, hsl(39 52% 56%), transparent)",
+          }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+        />
+      )}
+    </motion.a>
+  );
+};
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -13,10 +147,40 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Scroll spy - track active section
+  useEffect(() => {
+    const sections = navItems.map(item => item.href.replace("#", ""));
+
+    const observerOptions = {
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
+    };
+
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    sections.forEach((sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const navItems = [
     { label: "The Bridge", href: "#narrative" },
     { label: "The Vault", href: "#vault" },
     { label: "Operations", href: "#operations" },
+    { label: "Access", href: "#contact" },
   ];
 
   return (
@@ -29,31 +193,46 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center">
+        {/* Logo with magnetic effect */}
+        <MagneticLink href="#" className="flex items-center">
           <img src={logo} alt="GC Wines" className="h-10 w-auto" />
-        </a>
+        </MagneticLink>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="font-sans-nav text-xs tracking-[0.2em] uppercase text-secondary-foreground gold-underline pb-1 transition-colors duration-300 hover:text-primary"
-            >
-              {item.label}
-            </a>
-          ))}
+          {navItems.map((item) => {
+            const sectionId = item.href.replace("#", "");
+            const isActive = activeSection === sectionId;
+
+            return (
+              <MagneticLink
+                key={item.label}
+                href={item.href}
+                isActive={isActive}
+                className={`font-sans-nav text-xs tracking-[0.2em] uppercase pb-1 transition-colors duration-300 relative ${
+                  isActive
+                    ? "text-primary"
+                    : "text-secondary-foreground hover:text-primary gold-underline"
+                }`}
+              >
+                {item.label}
+              </MagneticLink>
+            );
+          })}
         </nav>
 
+        {/* Sound Toggle - Desktop */}
+        <div className="hidden md:flex items-center">
+          <SoundToggle />
+        </div>
+
         {/* CTA */}
-        <a
+        <MagneticButton
           href="#contact"
           className="hidden md:inline-block font-sans-nav text-xs tracking-[0.2em] uppercase border border-primary text-primary px-6 py-2.5 transition-all duration-500 hover:bg-primary hover:text-primary-foreground"
         >
           Private Inquiry
-        </a>
+        </MagneticButton>
 
         {/* Mobile Toggle */}
         <button
@@ -65,34 +244,94 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full Screen Overlay */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-glass-strong overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 z-40 bg-background/95 backdrop-blur-xl"
           >
-            <div className="px-6 py-8 flex flex-col gap-6">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="font-sans-nav text-sm tracking-[0.2em] uppercase text-secondary-foreground hover:text-primary transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-              <a
+            {/* Gold accent line that draws on open */}
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              exit={{ scaleX: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="absolute top-20 left-6 right-6 h-[1px] origin-left"
+              style={{
+                background: "linear-gradient(90deg, hsl(39 52% 56%), transparent)",
+              }}
+            />
+
+            <div className="flex flex-col items-center justify-center h-full gap-8 px-6">
+              {navItems.map((item, index) => {
+                const sectionId = item.href.replace("#", "");
+                const isActive = activeSection === sectionId;
+
+                return (
+                  <motion.a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: 0.1 + index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    className={`font-sans-nav text-lg tracking-[0.3em] uppercase transition-colors ${
+                      isActive ? "text-primary" : "text-secondary-foreground hover:text-primary"
+                    }`}
+                  >
+                    {item.label}
+                    {isActive && (
+                      <motion.span
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        className="block h-[1px] mt-2 origin-center"
+                        style={{
+                          background: "linear-gradient(90deg, transparent, hsl(39 52% 56%), transparent)",
+                        }}
+                      />
+                    )}
+                  </motion.a>
+                );
+              })}
+
+              <motion.a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="font-sans-nav text-sm tracking-[0.2em] uppercase border border-primary text-primary px-6 py-3 text-center hover:bg-primary hover:text-primary-foreground transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.1 + navItems.length * 0.1,
+                  ease: "easeOut",
+                }}
+                className="font-sans-nav text-sm tracking-[0.2em] uppercase border border-primary text-primary px-8 py-4 mt-4 hover:bg-primary hover:text-primary-foreground transition-all duration-500"
               >
                 Private Inquiry
-              </a>
+              </motion.a>
             </div>
+
+            {/* Close button positioned at bottom */}
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ delay: 0.5 }}
+              onClick={() => setMobileOpen(false)}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Close menu"
+            >
+              <X size={24} />
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
