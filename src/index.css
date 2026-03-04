@@ -176,4 +176,13 @@
   .section-padding {
     @apply px-6 md:px-12 lg:px-24 py-20 md:py-32;
   }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.15); }
+  }
 }
