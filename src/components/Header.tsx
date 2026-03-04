@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logo from "../assets/logo 1.svg";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,13 +30,8 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex flex-col">
-          <span className="font-serif text-2xl tracking-[0.15em] text-primary">
-            GC WINES
-          </span>
-          <span className="text-[10px] tracking-[0.35em] uppercase text-muted-foreground">
-            Global Curation
-          </span>
+        <a href="#" className="flex items-center">
+          <img src={logo} alt="GC Wines" className="h-10 w-auto" />
         </a>
 
         {/* Desktop Nav */}

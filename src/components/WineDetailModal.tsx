@@ -97,7 +97,99 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
                   <Target size={14} className="text-primary" />
                   <h3 className="font-serif text-lg text-primary">Market Rationale</h3>
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{wine.rationale}</p>
+                <div className="text-sm text-muted-foreground leading-relaxed space-y-6">
+                  {(() => {
+                    // Parse the structured rationale format
+                    const lines = wine.rationale.split('\n');
+                    const sections = [];
+                    let currentSection = null;
+                    let currentSubsection = null;
+
+                    for (const line of lines) {
+                      const trimmed = line.trim();
+                      const indent = line.search(/\S/); // Count leading spaces
+
+                      if (!trimmed) continue; // Skip empty lines
+
+                      // Main section heading (no indent, no colon at end typically)
+                      if (indent <= 4 && !trimmed.startsWith('•') && !trimmed.startsWith('-')) {
+                        // Check if it's a main heading vs a bullet
+                        if (!trimmed.includes(':') || indent === 0) {
+                          if (currentSection) sections.push(currentSection);
+                          currentSection = {
+                            heading: trimmed,
+                            subsections: []
+                          };
+                          currentSubsection = null;
+                        } else {
+                          // Subheading with colon
+                          currentSubsection = {
+                            heading: trimmed.replace(/:$/, ''),
+                            bullets: []
+                          };
+                          if (currentSection) {
+                            currentSection.subsections.push(currentSubsection);
+                          }
+                        }
+                      }
+                      // Bullet points (indented)
+                      else if (indent > 4 || trimmed.startsWith('•') || trimmed.startsWith('-')) {
+                        const bulletText = trimmed.replace(/^[•\-\s]+/, '');
+                        if (currentSubsection) {
+                          currentSubsection.bullets.push(bulletText);
+                        } else if (currentSection) {
+                          // Direct bullets under section
+                          if (!currentSection.subsections.length) {
+                            currentSection.subsections.push({
+                              heading: '',
+                              bullets: [bulletText]
+                            });
+                          } else {
+                            currentSection.subsections[0].bullets.push(bulletText);
+                          }
+                        }
+                      }
+                      // Regular content
+                      else {
+                        if (currentSubsection) {
+                          currentSubsection.bullets.push(trimmed);
+                        }
+                      }
+                    }
+
+                    if (currentSection) sections.push(currentSection);
+
+                    return sections.map((section, i) => (
+                      <div key={i} className="space-y-4">
+                        {/* Main Section Heading */}
+                        <h4 className="font-sans-nav text-[10px] tracking-[0.25em] uppercase text-primary font-medium">
+                          {section.heading}
+                        </h4>
+
+                        {/* Subsections */}
+                        {section.subsections.map((sub, j) => (
+                          <div key={j} className="space-y-2 pl-1">
+                            {sub.heading && (
+                              <h5 className="font-sans text-xs text-primary/70 font-medium">
+                                {sub.heading}
+                              </h5>
+                            )}
+                            {sub.bullets.length > 0 && (
+                              <ul className="space-y-2">
+                                {sub.bullets.map((bullet, k) => (
+                                  <li key={k} className="flex items-start gap-3 text-muted-foreground leading-relaxed">
+                                    <span className="w-1 h-1 rounded-full bg-primary/50 mt-2 flex-shrink-0" />
+                                    <span>{bullet}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ));
+                  })()}
+                </div>
               </div>
 
               {/* Winemaker */}

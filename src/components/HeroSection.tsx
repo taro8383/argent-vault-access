@@ -19,26 +19,26 @@ const HeroSection = () => {
   const textOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.4], ["0px", "-60px"]);
 
-  // Map: fades in and rises from bottom
-  const mapOpacity = useTransform(scrollYProgress, [0.15, 0.5], [0, 1]);
-  const mapY = useTransform(scrollYProgress, [0.15, 0.55], ["120px", "0px"]);
+  // Map: fades in and rises from bottom, stays visible for full animation
+  const mapOpacity = useTransform(scrollYProgress, [0.1, 0.35, 0.8, 0.95], [0, 1, 1, 0]);
+  const mapY = useTransform(scrollYProgress, [0.1, 0.4], ["120px", "0px"]);
 
-  // Sequential reveals for map elements (scroll-driven)
-  const usaOpacity = useTransform(scrollYProgress, [0.3, 0.42], [0, 1]);
-  const pathProgress1 = useTransform(scrollYProgress, [0.38, 0.52], [0, 1]);
-  const montenegroOpacity = useTransform(scrollYProgress, [0.48, 0.58], [0, 1]);
-  const pathProgress2 = useTransform(scrollYProgress, [0.55, 0.68], [0, 1]);
-  const asiaOpacity = useTransform(scrollYProgress, [0.64, 0.74], [0, 1]);
+  // Sequential reveals for map elements (scroll-driven) - earlier timing
+  const usaOpacity = useTransform(scrollYProgress, [0.2, 0.32], [0, 1]);
+  const pathProgress1 = useTransform(scrollYProgress, [0.28, 0.42], [0, 1]);
+  const montenegroOpacity = useTransform(scrollYProgress, [0.38, 0.48], [0, 1]);
+  const pathProgress2 = useTransform(scrollYProgress, [0.45, 0.58], [0, 1]);
+  const asiaOpacity = useTransform(scrollYProgress, [0.52, 0.64], [0, 1]);
 
-  // Pulse glow for nodes
-  const nodeGlow1 = useTransform(scrollYProgress, [0.42, 0.5], [0, 1]);
-  const nodeGlow2 = useTransform(scrollYProgress, [0.58, 0.65], [0, 1]);
-  const nodeGlow3 = useTransform(scrollYProgress, [0.74, 0.8], [0, 1]);
+  // Pulse glow for nodes - adjusted for earlier timing
+  const nodeGlow1 = useTransform(scrollYProgress, [0.32, 0.4], [0, 1]);
+  const nodeGlow2 = useTransform(scrollYProgress, [0.48, 0.55], [0, 1]);
+  const nodeGlow3 = useTransform(scrollYProgress, [0.64, 0.72], [0, 1]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative h-[200vh]"
+      className="relative h-[280vh]"
     >
       {/* Sticky container */}
       <div className="sticky top-0 h-screen overflow-hidden">
@@ -70,12 +70,16 @@ const HeroSection = () => {
             <span className="text-gradient-gold">Bridge</span>
           </h1>
 
-          <div className="gold-line w-32 mb-8" />
+          <motion.div
+            className="gold-line w-32 mb-8"
+            animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+          />
 
           <p className="font-sans text-sm md:text-base tracking-wider text-muted-foreground max-w-2xl leading-relaxed">
-            Financial Security in the USA. Logistical Precision in Montenegro.
+            Financial Security in the USA. Balkans entry point in Montenegro.
             <br className="hidden md:block" />
-            Cultural Access to Asia & The Balkans.
+            Cultural access to Asia's most refined markets.
           </p>
 
           {/* Scroll indicator */}
@@ -267,7 +271,7 @@ const HeroSection = () => {
                 fontWeight="300"
                 letterSpacing="2"
               >
-                Logistical Hub
+                Balkan Market
               </text>
             </motion.g>
 
@@ -313,7 +317,7 @@ const HeroSection = () => {
                 fontWeight="300"
                 letterSpacing="2"
               >
-                Target Markets
+                Japanese, Chinese and Singaporean markets
               </text>
             </motion.g>
           </svg>

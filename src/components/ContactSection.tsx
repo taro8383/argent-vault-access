@@ -36,7 +36,11 @@ const ContactSection = () => {
             Access
           </p>
           <h2 className="font-serif text-4xl md:text-6xl">Private Concierge</h2>
-          <div className="gold-line w-16 mx-auto mt-6 mb-6" />
+          <motion.div
+            className="gold-line w-16 mx-auto mt-6 mb-6"
+            animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+          />
           <p className="text-sm text-muted-foreground tracking-wider">
             Request private access to our curated portfolio
           </p>

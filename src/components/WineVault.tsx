@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import { Wine, Mountain, Star } from "lucide-react";
+import { Wine, Mountain, Star, GripHorizontal } from "lucide-react";
 import WineDetailModal from "./WineDetailModal";
 import { supabase } from "@/lib/supabase";
 import type { Wine as WineType, Category } from "@/lib/types";
@@ -27,7 +27,62 @@ const WineVault = () => {
   const [selectedWine, setSelectedWine] = useState<WineItem | null>(null);
   const [activeCategory, setActiveCategory] = useState("All");
   const ref = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Drag to scroll state
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [showHint, setShowHint] = useState(true);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!carouselRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+    setShowHint(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !carouselRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5; // Scroll speed multiplier
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  // Touch support
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!carouselRef.current) return;
+    setStartX(e.touches[0].pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+    setShowHint(false);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!carouselRef.current) return;
+    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Reset hint when section comes back into view
+  useEffect(() => {
+    if (isInView) {
+      setShowHint(true);
+      const timer = setTimeout(() => setShowHint(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -86,7 +141,11 @@ const WineVault = () => {
             The Portfolio
           </p>
           <h2 className="font-serif text-4xl md:text-6xl">The Curated Vault</h2>
-          <div className="gold-line w-16 mx-auto mt-6" />
+          <motion.div
+            className="gold-line w-16 mx-auto mt-6"
+            animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+          />
         </motion.div>
 
         {/* Category filters */}
@@ -111,8 +170,31 @@ const WineVault = () => {
           ))}
         </motion.div>
 
-        {/* Horizontal scroll carousel */}
-        <div className="overflow-x-auto scrollbar-hide">
+        {/* Horizontal scroll carousel - Drag to explore */}
+        <div
+          ref={carouselRef}
+          className={`overflow-x-hidden select-none ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleMouseUp}
+        >
+          {/* Drag hint */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: showHint && isInView ? 1 : 0, y: showHint && isInView ? 0 : 10 }}
+            transition={{ delay: 1, duration: 0.6 }}
+            className="flex items-center justify-center gap-3 mb-6 text-primary/60"
+          >
+            <GripHorizontal size={16} className="animate-pulse" />
+            <span className="font-sans-nav text-[10px] tracking-[0.3em] uppercase">
+              Drag to explore
+            </span>
+          </motion.div>
+
           <div className="flex gap-8 px-6 md:px-12 lg:px-24 pb-8" style={{ minWidth: "max-content" }}>
             {filteredWines.map((wine, i) => (
               <motion.div
@@ -120,8 +202,8 @@ const WineVault = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.4 + i * 0.1, duration: 0.7 }}
-                onClick={() => setSelectedWine(wine)}
-                className="group cursor-pointer w-[280px] md:w-[320px] flex-shrink-0"
+                onClick={() => !isDragging && setSelectedWine(wine)}
+                className="group w-[280px] md:w-[320px] flex-shrink-0"
               >
                 {/* Wine bottle visualization */}
                 <div className="relative h-[380px] md:h-[440px] rounded-sm overflow-hidden bg-secondary mb-6 flex items-center justify-center glow-burgundy transition-all duration-700 group-hover:glow-gold">

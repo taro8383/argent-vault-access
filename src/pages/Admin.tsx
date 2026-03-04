@@ -25,11 +25,13 @@ const Admin = () => {
   const [expandedWineId, setExpandedWineId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"wines" | "categories">("wines");
   const [newCategoryName, setNewCategoryName] = useState("");
+  const [editingCategories, setEditingCategories] = useState<Record<string, string>>({});
+  const [editingWines, setEditingWines] = useState<Record<string, Partial<Wine>>>({});
 
   // --- Wine handlers ---
   const handleAddWine = async () => {
     const defaultCat = categories[0];
-    await upsertWine({
+    const newWine = await upsertWine({
       name: "New Wine",
       category_id: defaultCat?.id ?? "",
       region: "",
@@ -42,11 +44,35 @@ const Admin = () => {
       color: WINE_COLORS[0].value,
       image_url: null,
     });
-    toast({ title: "Wine added" });
+    if (newWine?.id) {
+      setExpandedWineId(newWine.id);
+      // Pre-populate editing state so save button shows
+      setEditingWines(prev => ({ ...prev, [newWine.id]: { name: "New Wine" } }));
+    }
+    toast({ title: "Wine added - click to edit" });
   };
 
-  const handleUpdateWine = async (wine: Wine, field: keyof Wine, value: string) => {
-    await upsertWine({ ...wine, [field]: value });
+  const handleWineChange = (wineId: string, field: keyof Wine, value: string) => {
+    setEditingWines(prev => ({
+      ...prev,
+      [wineId]: { ...prev[wineId], [field]: value }
+    }));
+  };
+
+  const handleSaveWine = async (wine: Wine) => {
+    const changes = editingWines[wine.id];
+    if (!changes) return;
+    await upsertWine({ ...wine, ...changes });
+    setEditingWines(prev => {
+      const next = { ...prev };
+      delete next[wine.id];
+      return next;
+    });
+    toast({ title: "Wine saved" });
+  };
+
+  const getWineValue = (wine: Wine, field: keyof Wine): string => {
+    return (editingWines[wine.id]?.[field] as string) ?? (wine[field] as string) ?? "";
   };
 
   const handleMoveWine = async (index: number, direction: -1 | 1) => {
@@ -100,6 +126,22 @@ const Admin = () => {
     const updated = [...categories];
     [updated[index], updated[newIndex]] = [updated[newIndex], updated[index]];
     await reorderCategories(updated);
+  };
+
+  const handleCategoryNameChange = (catId: string, value: string) => {
+    setEditingCategories(prev => ({ ...prev, [catId]: value }));
+  };
+
+  const handleSaveCategory = async (cat: Category) => {
+    const newName = editingCategories[cat.id];
+    if (!newName || newName === cat.name) return;
+    await upsertCategory({ ...cat, name: newName.trim() });
+    setEditingCategories(prev => {
+      const next = { ...prev };
+      delete next[cat.id];
+      return next;
+    });
+    toast({ title: "Category saved" });
   };
 
   const isLoading = winesLoading || catsLoading;
@@ -177,10 +219,19 @@ const Admin = () => {
                     </button>
                   </div>
                   <Input
-                    value={cat.name}
-                    onChange={(e) => upsertCategory({ ...cat, name: e.target.value })}
+                    value={editingCategories[cat.id] ?? cat.name}
+                    onChange={(e) => handleCategoryNameChange(cat.id, e.target.value)}
                     className="flex-1 font-serif"
                   />
+                  {editingCategories[cat.id] && editingCategories[cat.id] !== cat.name && (
+                    <Button
+                      onClick={() => handleSaveCategory(cat)}
+                      size="sm"
+                      className="gap-2 shrink-0"
+                    >
+                      <Save size={14} /> Save
+                    </Button>
+                  )}
                   <span className="text-xs text-muted-foreground whitespace-nowrap">
                     {wines.filter(w => w.category_id === cat.id).length} wines
                   </span>
@@ -284,15 +335,15 @@ const Admin = () => {
                         <div className="space-y-2">
                           <Label className="text-xs">Name</Label>
                           <Input
-                            value={wine.name}
-                            onChange={(e) => handleUpdateWine(wine, "name", e.target.value)}
+                            value={getWineValue(wine, "name")}
+                            onChange={(e) => handleWineChange(wine.id, "name", e.target.value)}
                           />
                         </div>
                         <div className="space-y-2">
                           <Label className="text-xs">Category</Label>
                           <select
-                            value={wine.category_id}
-                            onChange={(e) => handleUpdateWine(wine, "category_id", e.target.value)}
+                            value={getWineValue(wine, "category_id") || wine.category_id}
+                            onChange={(e) => handleWineChange(wine.id, "category_id", e.target.value)}
                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
                           >
                             {categories.map((c) => (
@@ -302,25 +353,25 @@ const Admin = () => {
                         </div>
                         <div className="space-y-2">
                           <Label className="text-xs">Region</Label>
-                          <Input value={wine.region} onChange={(e) => handleUpdateWine(wine, "region", e.target.value)} />
+                          <Input value={getWineValue(wine, "region")} onChange={(e) => handleWineChange(wine.id, "region", e.target.value)} />
                         </div>
                         <div className="space-y-2">
                           <Label className="text-xs">Altitude</Label>
-                          <Input value={wine.altitude} onChange={(e) => handleUpdateWine(wine, "altitude", e.target.value)} />
+                          <Input value={getWineValue(wine, "altitude")} onChange={(e) => handleWineChange(wine.id, "altitude", e.target.value)} />
                         </div>
                         <div className="space-y-2">
                           <Label className="text-xs">Score</Label>
-                          <Input value={wine.score} onChange={(e) => handleUpdateWine(wine, "score", e.target.value)} />
+                          <Input value={getWineValue(wine, "score")} onChange={(e) => handleWineChange(wine.id, "score", e.target.value)} />
                         </div>
                         <div className="space-y-2">
                           <Label className="text-xs">Vintage</Label>
-                          <Input value={wine.vintage} onChange={(e) => handleUpdateWine(wine, "vintage", e.target.value)} />
+                          <Input value={getWineValue(wine, "vintage")} onChange={(e) => handleWineChange(wine.id, "vintage", e.target.value)} />
                         </div>
                         <div className="space-y-2">
                           <Label className="text-xs">Bottle Color (fallback)</Label>
                           <select
-                            value={wine.color}
-                            onChange={(e) => handleUpdateWine(wine, "color", e.target.value)}
+                            value={getWineValue(wine, "color") || wine.color}
+                            onChange={(e) => handleWineChange(wine.id, "color", e.target.value)}
                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
                           >
                             {WINE_COLORS.map((c) => (
@@ -330,15 +381,25 @@ const Admin = () => {
                         </div>
                         <div className="space-y-2">
                           <Label className="text-xs">Winemaker</Label>
-                          <Input value={wine.winemaker} onChange={(e) => handleUpdateWine(wine, "winemaker", e.target.value)} />
+                          <Input value={getWineValue(wine, "winemaker")} onChange={(e) => handleWineChange(wine.id, "winemaker", e.target.value)} />
                         </div>
                         <div className="space-y-2 md:col-span-2">
                           <Label className="text-xs">Description</Label>
-                          <Textarea value={wine.description} onChange={(e) => handleUpdateWine(wine, "description", e.target.value)} rows={2} />
+                          <Textarea value={getWineValue(wine, "description")} onChange={(e) => handleWineChange(wine.id, "description", e.target.value)} rows={2} />
                         </div>
                         <div className="space-y-2 md:col-span-2">
                           <Label className="text-xs">Market Rationale</Label>
-                          <Textarea value={wine.rationale} onChange={(e) => handleUpdateWine(wine, "rationale", e.target.value)} rows={2} />
+                          <Textarea value={getWineValue(wine, "rationale")} onChange={(e) => handleWineChange(wine.id, "rationale", e.target.value)} rows={2} />
+                        </div>
+                        <div className="md:col-span-2 flex justify-end">
+                          <Button
+                            onClick={() => handleSaveWine(wine)}
+                            size="sm"
+                            className="gap-2"
+                            disabled={!editingWines[wine.id] || Object.keys(editingWines[wine.id]).length === 0}
+                          >
+                            <Save size={14} /> Save Wine
+                          </Button>
                         </div>
                       </div>
                     </CardContent>
