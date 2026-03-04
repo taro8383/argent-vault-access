@@ -55,16 +55,20 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
               {/* Bottle + Score */}
               <div className="flex items-center gap-8 mb-10">
                 {/* Bottle */}
-                <div className="wine-float flex flex-col items-center flex-shrink-0">
-                  <div className={`w-4 h-12 ${wine.color} rounded-t-sm`} />
-                  <div className="w-8 h-5 border border-primary/30 rounded-sm" />
-                  <div className={`w-20 h-56 ${wine.color} rounded-b-lg relative`}>
-                    <div className="absolute inset-x-3 top-10 bottom-10 border border-primary/20 rounded-sm flex flex-col items-center justify-center">
-                      <span className="text-primary text-[8px] tracking-[0.2em] uppercase font-sans-nav">GC</span>
-                      <span className="text-foreground/70 text-[7px] tracking-wider font-sans mt-1">{wine.vintage}</span>
+                {wine.image_url ? (
+                  <img src={wine.image_url} alt={wine.name} className="wine-float h-56 object-contain flex-shrink-0" />
+                ) : (
+                  <div className="wine-float flex flex-col items-center flex-shrink-0">
+                    <div className={`w-4 h-12 ${wine.color} rounded-t-sm`} />
+                    <div className="w-8 h-5 border border-primary/30 rounded-sm" />
+                    <div className={`w-20 h-56 ${wine.color} rounded-b-lg relative`}>
+                      <div className="absolute inset-x-3 top-10 bottom-10 border border-primary/20 rounded-sm flex flex-col items-center justify-center">
+                        <span className="text-primary text-[8px] tracking-[0.2em] uppercase font-sans-nav">GC</span>
+                        <span className="text-foreground/70 text-[7px] tracking-wider font-sans mt-1">{wine.vintage}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
 
                 {/* Details */}
                 <div className="space-y-4">
