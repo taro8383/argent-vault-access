@@ -1,0 +1,37 @@
+{
+  "sectionTag": "Pristup",
+  "sectionTitle": "Privatna Koncijerž",
+  "subtitle": "Zatražite privatni pristup našem kuriranom portfelju",
+  "form": {
+    "name": {
+      "label": "Puno Ime",
+      "placeholder": "Unesite svoje puno ime"
+    },
+    "company": {
+      "label": "Kompanija / Organizacija",
+      "placeholder": "Unesite svoju kompaniju"
+    },
+    "region": {
+      "label": "Region od Interesa",
+      "placeholder": "Unesite region od interesa"
+    },
+    "message": {
+      "label": "Vaš Upit",
+      "placeholder": "Recite nam o vašim zahtevima"
+    },
+    "security": "Šifrovano i Poverljivo",
+    "submit": "Pošalji Upit",
+    "submitting": "Slanje..."
+  },
+  "successModal": {
+    "title": "Dobrodošli u GC",
+    "message": "Vaš upit je primljen",
+    "response": "Naš tim koncijerža će vas kontaktirati u roku od",
+    "responseHighlight": " 24 sata",
+    "button": "Nastavi Pregled"
+  },
+  "toast": {
+    "title": "Upit Primljen",
+    "description": "Naš tim koncijerža će odgovoriti u roku od 24 sata."
+  }
+}

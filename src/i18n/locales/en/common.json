@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "bridge": "The Bridge",
+    "vault": "The Vault",
+    "operations": "Operations",
+    "access": "Access"
+  },
+  "cta": {
+    "privateInquiry": "Private Inquiry",
+    "learnMore": "Learn More",
+    "explore": "Explore",
+    "submit": "Submit",
+    "continue": "Continue Browsing"
+  },
+  "aria": {
+    "toggleMenu": "Toggle menu",
+    "closeMenu": "Close menu"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Oops! Page not found",
+    "returnHome": "Return to Home"
+  }
+}

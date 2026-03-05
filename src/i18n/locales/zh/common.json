@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "bridge": "桥梁",
+    "vault": "酒窖",
+    "operations": "运营",
+    "access": "联系"
+  },
+  "cta": {
+    "privateInquiry": "私人咨询",
+    "learnMore": "了解更多",
+    "explore": "探索",
+    "submit": "提交",
+    "continue": "继续浏览"
+  },
+  "aria": {
+    "toggleMenu": "切换菜单",
+    "closeMenu": "关闭菜单"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "哎呀！页面未找到",
+    "returnHome": "返回首页"
+  }
+}

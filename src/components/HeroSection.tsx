@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useMemo, useEffect } from "react";
+import { useRef, useMemo, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useSound } from "@/hooks/use-sound";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -50,14 +51,20 @@ const DustParticles = () => {
 };
 
 const HeroSection = () => {
+  const { t } = useTranslation("hero");
   const sectionRef = useRef<HTMLDivElement>(null);
   const { playAmbient } = useSound();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   // Auto-play ambient sound when hero mounts
   useEffect(() => {
     const timer = setTimeout(() => {
       playAmbient();
-    }, 1000); // Delay to let page load complete
+    }, 1000);
     return () => clearTimeout(timer);
   }, [playAmbient]);
 
@@ -75,18 +82,18 @@ const HeroSection = () => {
   const textOpacity = useTransform(scrollYProgress, [0, 0.35], [1, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.4], ["0px", "-60px"]);
 
-  // Map: fades in and rises from bottom, stays visible for full animation
+  // Map: fades in and rises from bottom
   const mapOpacity = useTransform(scrollYProgress, [0.1, 0.35, 0.8, 0.95], [0, 1, 1, 0]);
   const mapY = useTransform(scrollYProgress, [0.1, 0.4], ["120px", "0px"]);
 
-  // Sequential reveals for map elements (scroll-driven) - earlier timing
+  // Sequential reveals for map elements
   const usaOpacity = useTransform(scrollYProgress, [0.2, 0.32], [0, 1]);
   const pathProgress1 = useTransform(scrollYProgress, [0.28, 0.42], [0, 1]);
   const montenegroOpacity = useTransform(scrollYProgress, [0.38, 0.48], [0, 1]);
   const pathProgress2 = useTransform(scrollYProgress, [0.45, 0.58], [0, 1]);
   const asiaOpacity = useTransform(scrollYProgress, [0.52, 0.64], [0, 1]);
 
-  // Pulse glow for nodes - adjusted for earlier timing
+  // Pulse glow for nodes
   const nodeGlow1 = useTransform(scrollYProgress, [0.32, 0.4], [0, 1]);
   const nodeGlow2 = useTransform(scrollYProgress, [0.48, 0.55], [0, 1]);
   const nodeGlow3 = useTransform(scrollYProgress, [0.64, 0.72], [0, 1]);
@@ -98,30 +105,52 @@ const HeroSection = () => {
     >
       {/* Sticky container */}
       <div className="sticky top-0 h-screen overflow-hidden">
-        {/* Parallax Wine Cellar Background */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ y: bgY, opacity: bgOpacity }}
-          className="absolute inset-0 -top-20"
-        >
-          <img
-            src={heroBg}
-            alt="Wine cellar atmosphere"
-            className="w-full h-[120%] object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background/80" />
-          {/* Vignette overlay to focus attention toward center */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: "radial-gradient(ellipse at center, transparent 0%, hsl(0 0% 7% / 0.4) 100%)"
-            }}
-          />
-          {/* Ambient dust particles */}
-          <DustParticles />
-        </motion.div>
+        {/* Wine Cellar Background - Mobile: simple, Desktop: parallax */}
+        {isMobile ? (
+          // Mobile: Static background without motion transforms
+          <div className="absolute inset-0 -top-20">
+            <img
+              src={heroBg}
+              alt="Wine cellar atmosphere"
+              className="w-full h-full object-cover"
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              loading="eager"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background/80" />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse at center, transparent 0%, hsl(0 0% 7% / 0.4) 100%)"
+              }}
+            />
+          </div>
+        ) : (
+          // Desktop: Parallax background with motion
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ y: bgY, opacity: bgOpacity }}
+            className="absolute inset-0 -top-20"
+          >
+            <img
+              src={heroBg}
+              alt="Wine cellar atmosphere"
+              className="w-full h-[120%] object-cover"
+              loading="eager"
+              decoding="async"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background/80" />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: "radial-gradient(ellipse at center, transparent 0%, hsl(0 0% 7% / 0.4) 100%)"
+              }}
+            />
+            <DustParticles />
+          </motion.div>
+        )}
 
         {/* Text Content Layer - fades out on scroll */}
         <motion.div
@@ -134,11 +163,11 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
             className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-6"
           >
-            Argentine Heritage · Global Reach
+            {t("tagline")}
           </motion.p>
 
           <motion.h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-wide leading-tight mb-8">
-            {"The Argentine".split("").map((char, i) => (
+            {t("title.line1").split("").map((char, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -155,7 +184,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.4, ease: "easeOut" }}
             >
-              Bridge
+              {t("title.line2")}
             </motion.span>
           </motion.h1>
 
@@ -181,9 +210,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 1.9, ease: "easeOut" }}
             className="font-sans text-sm md:text-base tracking-wider text-muted-foreground max-w-2xl leading-relaxed"
           >
-            Financial Security in the USA. Balkans entry point in Montenegro.
-            <br className="hidden md:block" />
-            Cultural access to Asia's most refined markets.
+            {t("subtitle")}
           </motion.p>
 
           {/* Scroll indicator */}
@@ -325,7 +352,7 @@ const HeroSection = () => {
                 fontWeight="500"
                 letterSpacing="4"
               >
-                USA
+                {t("map.usa.label")}
               </text>
               <text
                 x="200" y="200"
@@ -336,7 +363,7 @@ const HeroSection = () => {
                 fontWeight="300"
                 letterSpacing="2"
               >
-                Financial Hub
+                {t("map.usa.description")}
               </text>
             </motion.g>
 
@@ -371,7 +398,7 @@ const HeroSection = () => {
                 fontWeight="500"
                 letterSpacing="4"
               >
-                MONTENEGRO
+                {t("map.montenegro.label")}
               </text>
               <text
                 x="520" y="180"
@@ -382,7 +409,7 @@ const HeroSection = () => {
                 fontWeight="300"
                 letterSpacing="2"
               >
-                Balkan Market
+                {t("map.montenegro.description")}
               </text>
             </motion.g>
 
@@ -417,7 +444,7 @@ const HeroSection = () => {
                 fontWeight="500"
                 letterSpacing="4"
               >
-                ASIA
+                {t("map.asia.label")}
               </text>
               <text
                 x="800" y="210"
@@ -428,7 +455,7 @@ const HeroSection = () => {
                 fontWeight="300"
                 letterSpacing="2"
               >
-                Japanese, Chinese and Singaporean markets
+                {t("map.asia.description")}
               </text>
             </motion.g>
           </svg>

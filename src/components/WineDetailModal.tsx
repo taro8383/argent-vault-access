@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Star, Mountain, User, Target } from "lucide-react";
 import { createPortal } from "react-dom";
+import { useTranslation } from "react-i18next";
 import type { WineItem } from "./WineVault";
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const WineDetailModal = ({ wine, onClose }: Props) => {
+  const { t } = useTranslation("vault");
   if (!wine || !wine.id) return null;
 
   return createPortal(
@@ -49,8 +51,8 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
               </p>
 
               {/* Name */}
-              <h2 className="font-serif text-4xl md:text-5xl mb-2">{wine.name || 'Untitled'}</h2>
-              <p className="text-sm text-muted-foreground tracking-wider mb-8">{wine.vintage || 'NV'} Vintage</p>
+              <h2 className="font-serif text-4xl md:text-5xl mb-2">{wine.name || t('wine.untitled')}</h2>
+              <p className="text-sm text-muted-foreground tracking-wider mb-8">{wine.vintage || 'NV'} {t('wine.vintage')}</p>
 
               <div className="gold-line w-full mb-8" />
 
@@ -77,27 +79,42 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
                   <div className="flex items-center gap-3">
                     <Star size={16} className="text-primary" />
                     <span className="font-serif text-4xl text-primary">{wine.score || '--'}</span>
-                    <span className="text-sm text-muted-foreground">points</span>
+                    <span className="text-sm text-muted-foreground">{t('wine.pointsFull')}</span>
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Mountain size={14} />
-                    <span className="text-sm tracking-wider">{wine.region || 'Unknown Region'}</span>
+                    <span className="text-sm tracking-wider">{wine.region || t('wine.unknownRegion')}</span>
                   </div>
-                  <p className="text-xs text-muted-foreground tracking-wider">{wine.altitude || '--'} Altitude</p>
+                  <p className="text-xs text-muted-foreground tracking-wider">
+                    {(() => {
+                      // Parse altitude to translate "meters" if present
+                      const altitudeStr = wine.altitude || '';
+                      const match = altitudeStr.match(/^([\d,\s–\-]+)\s*(meters?|metres?|m)?$/i);
+                      if (match) {
+                        const number = match[1].trim();
+                        const unit = match[2];
+                        if (unit) {
+                          return `${number} ${t('wine.meters', 'meters')}`;
+                        }
+                        return number;
+                      }
+                      return altitudeStr;
+                    })()}
+                  </p>
                 </div>
               </div>
 
               {/* Terroir Snapshot */}
               <div className="bg-secondary rounded-sm p-6 mb-8">
-                <h3 className="font-serif text-lg text-primary mb-3">Terroir Snapshot</h3>
-                <p className="text-sm text-secondary-foreground leading-relaxed">{wine.description || 'No description available.'}</p>
+                <h3 className="font-serif text-lg text-primary mb-3">{t('wine.terroir')}</h3>
+                <p className="text-sm text-secondary-foreground leading-relaxed">{wine.description || t('wine.noDescription')}</p>
               </div>
 
               {/* Market Rationale */}
               <div className="mb-8">
                 <div className="flex items-center gap-2 mb-3">
                   <Target size={14} className="text-primary" />
-                  <h3 className="font-serif text-lg text-primary">Market Rationale</h3>
+                  <h3 className="font-serif text-lg text-primary">{t('wine.rationale')}</h3>
                 </div>
                 <div className="text-sm text-muted-foreground leading-relaxed space-y-6">
                   {(() => {
@@ -163,7 +180,7 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
                       if (currentSection) sections.push(currentSection);
 
                       if (sections.length === 0) {
-                        return <p className="text-muted-foreground italic">No market rationale available.</p>;
+                        return <p className="text-muted-foreground italic">{t('wine.noRationale')}</p>;
                       }
 
                       return sections.map((section, i) => (
@@ -209,9 +226,9 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
               <div className="border-t border-border pt-8">
                 <div className="flex items-center gap-2 mb-3">
                   <User size={14} className="text-primary" />
-                  <h3 className="font-serif text-lg text-primary">The Winemaker</h3>
+                  <h3 className="font-serif text-lg text-primary">{t('wine.winemaker')}</h3>
                 </div>
-                <p className="text-sm text-muted-foreground tracking-wider">{wine.winemaker || 'Unknown Winemaker'}</p>
+                <p className="text-sm text-muted-foreground tracking-wider">{wine.winemaker || t('wine.unknownWinemaker')}</p>
               </div>
             </div>
           </motion.div>

@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "bridge": "ブリッジ",
+    "vault": "セラー",
+    "operations": "オペレーション",
+    "access": "お問い合わせ"
+  },
+  "cta": {
+    "privateInquiry": "プライベートお問い合わせ",
+    "learnMore": "詳細を見る",
+    "explore": "探索",
+    "submit": "送信",
+    "continue": "閲覧を続ける"
+  },
+  "aria": {
+    "toggleMenu": "メニューを開閉",
+    "closeMenu": "メニューを閉じる"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "ページが見つかりません",
+    "returnHome": "ホームに戻る"
+  }
+}

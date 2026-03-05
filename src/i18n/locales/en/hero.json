@@ -1,0 +1,22 @@
+{
+  "tagline": "Argentine Heritage · Global Reach",
+  "title": {
+    "line1": "The Argentine",
+    "line2": "Bridge"
+  },
+  "subtitle": "Financial Security in the USA. Balkans entry point in Montenegro. Cultural access to Asia's most refined markets.",
+  "map": {
+    "usa": {
+      "label": "USA",
+      "description": "Financial Hub"
+    },
+    "montenegro": {
+      "label": "MONTENEGRO",
+      "description": "Balkan Market"
+    },
+    "asia": {
+      "label": "ASIA",
+      "description": "Japanese, Chinese and Singaporean markets"
+    }
+  }
+}

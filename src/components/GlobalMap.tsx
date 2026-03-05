@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import worldMap from "../assets/en.png";
 
 interface Region {
@@ -13,39 +14,6 @@ interface Connection {
   from: string;
   to: string;
 }
-
-const regions: Region[] = [
-  {
-    name: "Singapore",
-    x: 68.5,
-    y: 70,
-    channels: ["Marina Bay Sands F&B Group", "Raffles Hotel Wine Program", "Private Collector Network"],
-  },
-  {
-    name: "Tokyo",
-    x: 82.2,
-    y: 50,
-    channels: ["Ginza Sommelier Alliance", "Michelin 3-Star Direct", "Premium Import Distributors"],
-  },
-  {
-    name: "Shanghai",
-    x: 70.6,
-    y: 45,
-    channels: ["Bund Luxury Hotels", "Private Wine Club Circuit", "High-Net-Worth Collectors"],
-  },
-  {
-    name: "Montenegro",
-    x: 56,
-    y: 36,
-    channels: ["Porto Montenegro Residences", "Adriatic Luxury Resorts", "Balkan Distribution Hub"],
-  },
-  {
-    name: "Buenos Aires",
-    x: 23.5,
-    y: 80.5,
-    channels: ["Source Vineyards · Mendoza", "Winemaker Partnerships", "Export Logistics Center"],
-  },
-];
 
 // Connection lines from Buenos Aires (source) to other regions
 const connections: Connection[] = [
@@ -257,10 +225,65 @@ const ConnectionLines = ({ regions, isInView }: { regions: Region[]; isInView: b
 };
 
 const GlobalMap = () => {
+  const { t } = useTranslation("map");
   const [activeRegion, setActiveRegion] = useState<Region | null>(null);
   const [hoveredRegion, setHoveredRegion] = useState<Region | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Translated regions data
+  const regions: Region[] = [
+    {
+      name: t("regions.singapore.name"),
+      x: 68.5,
+      y: 70,
+      channels: [
+        t("regions.singapore.channels.0"),
+        t("regions.singapore.channels.1"),
+        t("regions.singapore.channels.2"),
+      ],
+    },
+    {
+      name: t("regions.tokyo.name"),
+      x: 82.2,
+      y: 50,
+      channels: [
+        t("regions.tokyo.channels.0"),
+        t("regions.tokyo.channels.1"),
+        t("regions.tokyo.channels.2"),
+      ],
+    },
+    {
+      name: t("regions.shanghai.name"),
+      x: 70.6,
+      y: 45,
+      channels: [
+        t("regions.shanghai.channels.0"),
+        t("regions.shanghai.channels.1"),
+        t("regions.shanghai.channels.2"),
+      ],
+    },
+    {
+      name: t("regions.montenegro.name"),
+      x: 56,
+      y: 36,
+      channels: [
+        t("regions.montenegro.channels.0"),
+        t("regions.montenegro.channels.1"),
+        t("regions.montenegro.channels.2"),
+      ],
+    },
+    {
+      name: t("regions.buenosaires.name"),
+      x: 23.5,
+      y: 80.5,
+      channels: [
+        t("regions.buenosaires.channels.0"),
+        t("regions.buenosaires.channels.1"),
+        t("regions.buenosaires.channels.2"),
+      ],
+    },
+  ];
 
   return (
     <section id="operations" className="section-padding relative" ref={ref}>
@@ -271,9 +294,9 @@ const GlobalMap = () => {
         className="text-center mb-16"
       >
         <p className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-4">
-          Reach
+          {t("sectionTag")}
         </p>
-        <h2 className="font-serif text-4xl md:text-6xl">Global Operations</h2>
+        <h2 className="font-serif text-4xl md:text-6xl">{t("sectionTitle")}</h2>
         <motion.div
           className="gold-line w-16 mx-auto mt-6"
           animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
@@ -342,7 +365,7 @@ const GlobalMap = () => {
               >
                 <h3 className="font-serif text-xl text-primary mb-1">{activeRegion.name}</h3>
                 <p className="font-sans-nav text-[10px] tracking-[0.3em] uppercase text-muted-foreground mb-4">
-                  GC Exclusive Channels
+                  {t("infoPanel.title")}
                 </p>
                 <ul className="space-y-2">
                   {activeRegion.channels.map((ch) => (

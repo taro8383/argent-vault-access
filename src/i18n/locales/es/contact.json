@@ -1,0 +1,37 @@
+{
+  "sectionTag": "Acceso",
+  "sectionTitle": "Conserjería Privada",
+  "subtitle": "Solicite acceso privado a nuestro portafolio curado",
+  "form": {
+    "name": {
+      "label": "Nombre Completo",
+      "placeholder": "Ingrese su nombre completo"
+    },
+    "company": {
+      "label": "Empresa / Organización",
+      "placeholder": "Ingrese su empresa"
+    },
+    "region": {
+      "label": "Región de Interés",
+      "placeholder": "Ingrese región de interés"
+    },
+    "message": {
+      "label": "Su Consulta",
+      "placeholder": "Cuéntenos sus requerimientos"
+    },
+    "security": "Cifrado y Confidencial",
+    "submit": "Enviar Consulta",
+    "submitting": "Enviando..."
+  },
+  "successModal": {
+    "title": "Bienvenido a GC",
+    "message": "Su consulta ha sido recibida",
+    "response": "Nuestro equipo de conserjería se contactará dentro de",
+    "responseHighlight": " 24 horas",
+    "button": "Continuar Navegando"
+  },
+  "toast": {
+    "title": "Consulta Recibida",
+    "description": "Nuestro equipo de conserjería responderá dentro de 24 horas."
+  }
+}

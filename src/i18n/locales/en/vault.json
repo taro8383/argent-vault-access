@@ -1,0 +1,39 @@
+{
+  "sectionTag": "The Portfolio",
+  "sectionTitle": "The Curated Vault",
+  "categories": {
+    "all": "All",
+    "balkan": "The Balkan Powerhouses",
+    "washoku": "The Washoku Series (Japan)",
+    "french": "The French Connection Series (China)",
+    "tropical": "The Tropical Series (Singapore)"
+  },
+  "viewMode": {
+    "carousel": "Carousel View",
+    "grid": "View All",
+    "dragHint": "Drag to explore",
+    "navigate": "Navigate"
+  },
+  "wine": {
+    "points": "pts",
+    "pointsFull": "points",
+    "altitude": "Altitude",
+    "meters": "meters",
+    "vintage": "Vintage",
+    "vintageShort": "Vintage",
+    "category": "Category",
+    "region": "Region",
+    "winemaker": "The Winemaker",
+    "terroir": "Terroir Snapshot",
+    "rationale": "Market Rationale",
+    "noDescription": "No description available.",
+    "noRationale": "No market rationale available.",
+    "unknownRegion": "Unknown Region",
+    "unknownWinemaker": "Unknown Winemaker",
+    "untitled": "Untitled"
+  },
+  "hover": {
+    "score": "Score",
+    "region": "Region"
+  }
+}

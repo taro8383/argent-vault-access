@@ -1,5 +1,6 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import img1 from "../assets/1.png";
 import img2 from "../assets/2.png";
 import img3 from "../assets/3.png";
@@ -13,7 +14,12 @@ interface ParallaxImageProps {
 
 const ParallaxImage = ({ src, alt, delay = 0 }: ParallaxImageProps) => {
   const imageRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(imageRef, { once: true, margin: "-100px" });
+  const isInView = useInView(imageRef, { once: true, margin: "-50px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   // Track scroll progress for this element
   const { scrollYProgress } = useScroll({
@@ -31,48 +37,60 @@ const ParallaxImage = ({ src, alt, delay = 0 }: ParallaxImageProps) => {
   return (
     <motion.div
       ref={imageRef}
-      initial={{ opacity: 0, clipPath: "inset(100% 0 0 0)" }}
-      animate={isInView ? { opacity: 1, clipPath: "inset(0% 0 0 0)" } : {}}
-      transition={{ delay: 0.4 + delay, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: 0.2 + delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="w-full md:w-1/2 overflow-hidden rounded-sm"
       style={{
         filter: "drop-shadow(0 0 20px hsla(39, 52%, 56%, 0.15))",
         border: "1px solid hsla(39, 52%, 56%, 0.1)",
       }}
     >
-      <motion.div
-        style={{ y, scale }}
-        className="w-full h-full"
-      >
+      {isMobile ? (
+        // Simple image for mobile - no parallax to avoid rendering issues
         <img
           src={src}
           alt={alt}
-          className="w-full h-auto scale-110 paragraph-image"
-          style={{ transformOrigin: "center center" }}
+          className="w-full h-auto"
+          loading="lazy"
+          decoding="async"
         />
-      </motion.div>
+      ) : (
+        // Desktop with parallax
+        <motion.div style={{ y, scale }} className="w-full h-full">
+          <img
+            src={src}
+            alt={alt}
+            className="w-full h-auto scale-110 paragraph-image"
+            style={{ transformOrigin: "center center" }}
+            loading="lazy"
+            decoding="async"
+          />
+        </motion.div>
+      )}
     </motion.div>
   );
 };
 
 const NarrativeSection = () => {
+  const { t } = useTranslation("narrative");
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const paragraphs = [
     {
-      title: "Rooted in the Andes",
-      text: "Our founders Argentine heritage runs deep through the vineyards of Mendoza and the high-altitude terroirs of Gualtallary. Every bottle in our curation carries the soul of the Andes: Intense, complex, and profoundly authentic.",
+      title: t("paragraphs.0.title"),
+      text: t("paragraphs.0.text"),
       image: img1,
     },
     {
-      title: "The Last Mile Advantage",
-      text: "What sets GC Wines apart is exclusive 'Last Mile' access to F&B decision-makers across Asia, the Balkans, and beyond. Our network isn't built on cold outreach; it's forged through years of trust, cultural fluency, and shared dining tables.",
+      title: t("paragraphs.1.title"),
+      text: t("paragraphs.1.text"),
       image: img2,
     },
     {
-      title: "Four Continents, One Vision",
-      text: "From the financial infrastructure of the United States to the Balkan's gateway of Montenegro and the premium markets in Asia, every node in our operation is designed for one purpose: delivering Argentina's finest wines to the world's most discerning palates.",
+      title: t("paragraphs.2.title"),
+      text: t("paragraphs.2.text"),
       image: img3,
     },
   ];
@@ -88,9 +106,9 @@ const NarrativeSection = () => {
           className="text-center mb-20"
         >
           <p className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-4">
-            The Narrative
+            {t("sectionTag")}
           </p>
-          <h2 className="font-serif text-4xl md:text-6xl">The Bridge</h2>
+          <h2 className="font-serif text-4xl md:text-6xl">{t("sectionTitle")}</h2>
           <motion.div
             className="gold-line w-16 mx-auto mt-6"
             animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}

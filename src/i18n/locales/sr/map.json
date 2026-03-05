@@ -1,0 +1,49 @@
+{
+  "sectionTag": "Doseg",
+  "sectionTitle": "Globalne Operacije",
+  "regions": {
+    "singapore": {
+      "name": "Singapur",
+      "channels": [
+        "Marina Bay Sands F&B Grupa",
+        "Raffles Hotel Vinski Program",
+        "Mreža Privatnih Kolekcionara"
+      ]
+    },
+    "tokyo": {
+      "name": "Tokio",
+      "channels": [
+        "Ginza Savez Somelijera",
+        "Michelin 3-Zvezdice Direktno",
+        "Premijum Uvozni Distribucija"
+      ]
+    },
+    "shanghai": {
+      "name": "Šangaj",
+      "channels": [
+        "Hoteli Luksuza na Bundu",
+        "Krug Privatnih Vinskih Klubova",
+        "Kolekcionari Visoke Neto Vrednosti"
+      ]
+    },
+    "montenegro": {
+      "name": "Crna Gora",
+      "channels": [
+        "Rezidencije Porto Montenegro",
+        "Luksuzna Odmarališta Jadrana",
+        "Balkanski Distribucijski Centar"
+      ]
+    },
+    "buenosaires": {
+      "name": "Buenos Ajres",
+      "channels": [
+        "Izvorni Vinogradi · Mendoza",
+        "Partnerstva sa Vinarima",
+        "Izvozni Logistički Centar"
+      ]
+    }
+  },
+  "infoPanel": {
+    "title": "GC Ekskluzivni Kanali"
+  }
+}

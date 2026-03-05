@@ -1,0 +1,22 @@
+{
+  "tagline": "Herencia Argentina · Alcance Global",
+  "title": {
+    "line1": "El Puente",
+    "line2": "Argentino"
+  },
+  "subtitle": "Seguridad financiera en EE.UU. Punto de entrada a los Balcanes en Montenegro. Acceso cultural a los mercados más refinados de Asia.",
+  "map": {
+    "usa": {
+      "label": "EE.UU.",
+      "description": "Centro Financiero"
+    },
+    "montenegro": {
+      "label": "MONTENEGRO",
+      "description": "Mercado de los Balcanes"
+    },
+    "asia": {
+      "label": "ASIA",
+      "description": "Mercados de Japón, China y Singapur"
+    }
+  }
+}

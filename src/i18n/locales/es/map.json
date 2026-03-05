@@ -1,0 +1,49 @@
+{
+  "sectionTag": "Alcance",
+  "sectionTitle": "Operaciones Globales",
+  "regions": {
+    "singapore": {
+      "name": "Singapur",
+      "channels": [
+        "Grupo F&B Marina Bay Sands",
+        "Programa de Vinos Raffles Hotel",
+        "Red de Coleccionistas Privados"
+      ]
+    },
+    "tokyo": {
+      "name": "Tokio",
+      "channels": [
+        "Alianza de Sommeliers de Ginza",
+        "Directo a Michelin 3 Estrellas",
+        "Distribuidores Premium"
+      ]
+    },
+    "shanghai": {
+      "name": "Shanghái",
+      "channels": [
+        "Hoteles de Lujo del Bund",
+        "Circuito de Clubes de Vino Privados",
+        "Coleccionistas de Alto Patrimonio"
+      ]
+    },
+    "montenegro": {
+      "name": "Montenegro",
+      "channels": [
+        "Residencias Porto Montenegro",
+        "Resorts de Lujo del Adriático",
+        "Centro de Distribución de los Balcanes"
+      ]
+    },
+    "buenosaires": {
+      "name": "Buenos Aires",
+      "channels": [
+        "Viñedos de Origen · Mendoza",
+        "Alianzas con Enólogos",
+        "Centro de Logística de Exportación"
+      ]
+    }
+  },
+  "infoPanel": {
+    "title": "Canales Exclusivos GC"
+  }
+}

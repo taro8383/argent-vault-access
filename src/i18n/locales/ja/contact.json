@@ -1,0 +1,37 @@
+{
+  "sectionTag": "お問い合わせ",
+  "sectionTitle": "プライベートコンシェルジュ",
+  "subtitle": "キュレーテッドポートフォリオへのプライベートアクセスをリクエスト",
+  "form": {
+    "name": {
+      "label": "お名前",
+      "placeholder": "お名前を入力してください"
+    },
+    "company": {
+      "label": "会社 / 組織",
+      "placeholder": "会社名を入力してください"
+    },
+    "region": {
+      "label": "興味のある市場地域",
+      "placeholder": "興味のある地域を入力してください"
+    },
+    "message": {
+      "label": "お問い合わせ内容",
+      "placeholder": "ご要件をお聞かせください"
+    },
+    "security": "暗号化された機密通信",
+    "submit": "お問い合わせを送信",
+    "submitting": "送信中..."
+  },
+  "successModal": {
+    "title": "GCへようこそ",
+    "message": "お問い合わせを受け付けました",
+    "response": "コンシェルジュチームが",
+    "responseHighlight": "24時間以内",
+    "button": "閲覧を続ける"
+  },
+  "toast": {
+    "title": "お問い合わせ受付完了",
+    "description": "コンシェルジュチームが24時間以内にご連絡いたします。"
+  }
+}

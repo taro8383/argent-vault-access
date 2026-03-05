@@ -1,0 +1,22 @@
+{
+  "tagline": "Argentinska Baština · Globalni Doseg",
+  "title": {
+    "line1": "Argentinski",
+    "line2": "Most"
+  },
+  "subtitle": "Finansijska sigurnost u SAD. Ulazna tačka na Balkanu u Crnoj Gori. Kulturni pristup najrafiniranijim azijskim tržištima.",
+  "map": {
+    "usa": {
+      "label": "SAD",
+      "description": "Finansijski Centar"
+    },
+    "montenegro": {
+      "label": "CRNA GORA",
+      "description": "Balkansko Tržište"
+    },
+    "asia": {
+      "label": "AZIJA",
+      "description": "Tržišta Japana, Kine i Singapura"
+    }
+  }
+}

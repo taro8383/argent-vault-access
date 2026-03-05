@@ -1,0 +1,49 @@
+{
+  "sectionTag": "Reach",
+  "sectionTitle": "Global Operations",
+  "regions": {
+    "singapore": {
+      "name": "Singapore",
+      "channels": [
+        "Marina Bay Sands F&B Group",
+        "Raffles Hotel Wine Program",
+        "Private Collector Network"
+      ]
+    },
+    "tokyo": {
+      "name": "Tokyo",
+      "channels": [
+        "Ginza Sommelier Alliance",
+        "Michelin 3-Star Direct",
+        "Premium Import Distributors"
+      ]
+    },
+    "shanghai": {
+      "name": "Shanghai",
+      "channels": [
+        "Bund Luxury Hotels",
+        "Private Wine Club Circuit",
+        "High-Net-Worth Collectors"
+      ]
+    },
+    "montenegro": {
+      "name": "Montenegro",
+      "channels": [
+        "Porto Montenegro Residences",
+        "Adriatic Luxury Resorts",
+        "Balkan Distribution Hub"
+      ]
+    },
+    "buenosaires": {
+      "name": "Buenos Aires",
+      "channels": [
+        "Source Vineyards · Mendoza",
+        "Winemaker Partnerships",
+        "Export Logistics Center"
+      ]
+    }
+  },
+  "infoPanel": {
+    "title": "GC Exclusive Channels"
+  }
+}

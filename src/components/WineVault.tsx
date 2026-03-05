@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, useInView, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { Wine, Mountain, Star, GripHorizontal, LayoutGrid, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import WineDetailModal from "./WineDetailModal";
 import { useHoverSound } from "@/hooks/use-sound";
 import { supabase } from "@/lib/supabase";
@@ -103,6 +104,7 @@ const TiltCard = ({ children, className = "", onClick, onMouseEnter, 'data-wine-
 };
 
 const WineVault = () => {
+  const { t, i18n } = useTranslation(["vault", "wines"]);
   const [wines, setWines] = useState<WineItem[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedWine, setSelectedWine] = useState<WineItem | null>(null);
@@ -330,20 +332,30 @@ const WineVault = () => {
         }
 
         if (winesData) {
-          setWines(winesData.map((w: any) => ({
-            id: w.id,
-            name: w.name,
-            category: categoryMap.get(w.category_id) ?? 'Uncategorized',
-            region: w.region,
-            altitude: w.altitude,
-            score: w.score,
-            vintage: w.vintage,
-            description: w.description,
-            rationale: w.rationale,
-            winemaker: w.winemaker,
-            color: w.color,
-            image_url: w.image_url,
-          })));
+          // Get wine translations function
+          const getWineTranslation = (wineId: string, field: string, defaultValue: string) => {
+            const key = `wines:wines.${wineId}.${field}`;
+            const translated = t(key, { defaultValue: '' });
+            return translated || defaultValue;
+          };
+
+          setWines(winesData.map((w: any) => {
+            const categoryName = categoryMap.get(w.category_id) ?? 'Uncategorized';
+            return {
+              id: w.id,
+              name: w.name,
+              category: getWineTranslation(w.id, 'category', categoryName),
+              region: w.region,
+              altitude: w.altitude,
+              score: w.score,
+              vintage: w.vintage,
+              description: getWineTranslation(w.id, 'description', w.description),
+              rationale: getWineTranslation(w.id, 'rationale', w.rationale),
+              winemaker: w.winemaker,
+              color: w.color,
+              image_url: w.image_url,
+            };
+          }));
         }
       } catch (err) {
         console.error('Fetch error:', err);
@@ -351,9 +363,25 @@ const WineVault = () => {
     };
 
     fetchData();
-  }, []);
+  }, [i18n.language]);
 
-  const allCategories = ["All", ...categories];
+  // Helper to get translated category name for display
+  const getCategoryTranslation = (dbCategoryName: string): string => {
+    const categoryMap: Record<string, string> = {
+      "The Balkan Powerhouses": "categories.balkan",
+      "The Washoku Series (Japan)": "categories.washoku",
+      "The French Connection Series (China)": "categories.french",
+      "The Tropical Series (Singapore)": "categories.tropical",
+    };
+    const key = categoryMap[dbCategoryName];
+    return key ? t(key, dbCategoryName) : dbCategoryName;
+  };
+
+  // Store raw category names internally, translate only for display
+  const allCategoriesRaw = ["All", ...categories];
+  const allCategoriesDisplay = allCategoriesRaw.map(cat =>
+    cat === "All" ? t("categories.all") : getCategoryTranslation(cat)
+  );
 
   const filteredWines = activeCategory === "All"
     ? wines
@@ -370,9 +398,9 @@ const WineVault = () => {
           className="text-center mb-12 px-6"
         >
           <p className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-4">
-            The Portfolio
+            {t("sectionTag")}
           </p>
-          <h2 className="font-serif text-4xl md:text-6xl">The Curated Vault</h2>
+          <h2 className="font-serif text-4xl md:text-6xl">{t("sectionTitle")}</h2>
           <motion.div
             className="gold-line w-16 mx-auto mt-6"
             animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
@@ -387,18 +415,18 @@ const WineVault = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="flex justify-center gap-4 md:gap-8 mb-12 px-6 flex-wrap"
         >
-          {allCategories.map((cat) => (
+          {allCategoriesRaw.map((rawCat, index) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
+              key={rawCat}
+              onClick={() => setActiveCategory(rawCat)}
               onMouseEnter={playHoverSound}
               className={`font-sans-nav text-[10px] md:text-xs tracking-[0.2em] uppercase pb-1 transition-all duration-300 ${
-                activeCategory === cat
+                activeCategory === rawCat
                   ? "text-primary border-b border-primary"
                   : "text-muted-foreground hover:text-secondary-foreground"
               }`}
             >
-              {cat}
+              {allCategoriesDisplay[index]}
             </button>
           ))}
         </motion.div>
@@ -416,7 +444,7 @@ const WineVault = () => {
             className="flex items-center gap-2 font-sans-nav text-[10px] tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300 border-b border-transparent hover:border-primary pb-1"
           >
             <LayoutGrid size={14} />
-            {viewMode === "carousel" ? "View All" : "Carousel View"}
+            {viewMode === "carousel" ? t("viewMode.grid") : t("viewMode.carousel")}
           </button>
 
           {/* Keyboard Navigation (only in carousel mode) */}
@@ -428,7 +456,7 @@ const WineVault = () => {
                 exit={{ opacity: 0, x: -10 }}
                 className="flex items-center gap-2"
               >
-                <span className="text-[10px] text-muted-foreground tracking-wider mr-2">Navigate</span>
+                <span className="text-[10px] text-muted-foreground tracking-wider mr-2">{t("viewMode.navigate")}</span>
                 <button
                   onClick={() => scrollToCard("left")}
                   onMouseEnter={playHoverSound}
@@ -482,7 +510,7 @@ const WineVault = () => {
                 >
                   <GripHorizontal size={16} className="animate-pulse" />
                   <span className="font-sans-nav text-[10px] tracking-[0.3em] uppercase">
-                    Drag to explore
+                    {t("viewMode.dragHint")}
                   </span>
                 </motion.div>
 
@@ -534,13 +562,28 @@ const WineVault = () => {
                           <div className="flex items-center gap-2 mb-3">
                             <Star size={14} className="text-primary" />
                             <span className="font-serif text-3xl text-primary">{wine.score}</span>
-                            <span className="text-xs text-muted-foreground">pts</span>
+                            <span className="text-xs text-muted-foreground">{t("wine.points")}</span>
                           </div>
                           <div className="flex items-center gap-2 text-muted-foreground">
                             <Mountain size={12} />
                             <span className="text-xs tracking-wider">{wine.region}</span>
                           </div>
-                          <span className="text-[10px] tracking-wider text-muted-foreground mt-1">{wine.altitude} Altitude</span>
+                          <span className="text-[10px] tracking-wider text-muted-foreground mt-1">
+                            {(() => {
+                              // Parse altitude to translate "meters" if present
+                              const altitudeStr = wine.altitude || '';
+                              const match = altitudeStr.match(/^([\d,\s–\-]+)\s*(meters?|metres?|m)?$/i);
+                              if (match) {
+                                const number = match[1].trim();
+                                const unit = match[2];
+                                if (unit) {
+                                  return `${number} ${t("wine.meters", "meters")}`;
+                                }
+                                return number;
+                              }
+                              return altitudeStr;
+                            })()}
+                          </span>
                           <p className="text-xs text-secondary-foreground mt-4 text-center leading-relaxed">{wine.description}</p>
                         </div>
                       </TiltCard>
@@ -629,13 +672,28 @@ const WineVault = () => {
                         <div className="flex items-center gap-2 mb-2">
                           <Star size={14} className="text-primary" />
                           <span className="font-serif text-2xl text-primary">{wine.score}</span>
-                          <span className="text-xs text-muted-foreground">pts</span>
+                          <span className="text-xs text-muted-foreground">{t("wine.points")}</span>
                         </div>
                         <div className="flex items-center gap-2 text-muted-foreground">
                           <Mountain size={12} />
                           <span className="text-xs tracking-wider">{wine.region}</span>
                         </div>
-                        <span className="text-[10px] tracking-wider text-muted-foreground mt-1">{wine.altitude}</span>
+                        <span className="text-[10px] tracking-wider text-muted-foreground mt-1">
+                          {(() => {
+                            // Parse altitude to translate "meters" if present
+                            const altitudeStr = wine.altitude || '';
+                            const match = altitudeStr.match(/^(\d[,\s–\-]+)\s*(meters?|metres?|m)?$/i);
+                            if (match) {
+                              const number = match[1].trim();
+                              const unit = match[2];
+                              if (unit) {
+                                return `${number} ${t("wine.meters", "meters")}`;
+                              }
+                              return number;
+                            }
+                            return altitudeStr;
+                          })()}
+                        </span>
                       </div>
                     </div>
 

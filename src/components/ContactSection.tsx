@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Send, Lock, Check, User, Building2, Globe, Sparkles, Wine, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { useHoverSound } from "@/hooks/use-sound";
 import { useToast } from "@/hooks/use-toast";
 
@@ -294,14 +295,22 @@ const SuccessModal = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
+  const { t } = useTranslation("contact");
   const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => setShowConfetti(true), 200);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
     } else {
       setShowConfetti(false);
+      // Restore body scroll
+      document.body.style.overflow = '';
     }
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
 
   return (
@@ -311,9 +320,18 @@ const SuccessModal = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
           style={{
-            background: "hsla(0, 0%, 5%, 0.9)",
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 99999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '16px',
+            backgroundColor: "hsla(0, 0%, 5%, 0.95)",
             backdropFilter: "blur(20px)",
           }}
           onClick={onClose}
@@ -342,8 +360,11 @@ const SuccessModal = ({
                     ease: "easeOut",
                     delay: Math.random() * 0.3,
                   }}
-                  className="absolute w-2 h-2 rounded-full"
                   style={{
+                    position: 'absolute',
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
                     background: i % 2 === 0 ? "hsl(39, 52%, 56%)" : "hsl(0, 82%, 17%)",
                     left: "50%",
                     top: "50%",
@@ -358,13 +379,20 @@ const SuccessModal = ({
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.8, opacity: 0, y: 20 }}
             transition={{ type: "spring", damping: 20 }}
-            className="relative max-w-md w-full text-center"
+            style={{
+              position: 'relative',
+              maxWidth: '448px',
+              width: '100%',
+              textAlign: 'center',
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Glow ring */}
             <motion.div
-              className="absolute inset-0 rounded-2xl"
               style={{
+                position: 'absolute',
+                inset: 0,
+                borderRadius: '16px',
                 background: "linear-gradient(135deg, hsla(39, 52%, 56%, 0.3), hsla(0, 82%, 17%, 0.3))",
                 filter: "blur(40px)",
               }}
@@ -380,8 +408,10 @@ const SuccessModal = ({
             />
 
             <div
-              className="relative rounded-sm p-10"
               style={{
+                position: 'relative',
+                borderRadius: '4px',
+                padding: '40px',
                 background: "hsla(0, 0%, 8%, 0.95)",
                 border: "1px solid hsla(39, 52%, 56%, 0.3)",
                 boxShadow: "0 0 60px hsla(39, 52%, 56%, 0.2), inset 0 0 60px hsla(39, 52%, 56%, 0.05)",
@@ -392,14 +422,20 @@ const SuccessModal = ({
                 initial={{ scale: 0, rotate: -180 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: "spring", damping: 15, delay: 0.1 }}
-                className="mx-auto mb-6 w-20 h-20 rounded-full flex items-center justify-center"
                 style={{
+                  margin: '0 auto 24px',
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   background: "linear-gradient(135deg, hsla(39, 52%, 56%, 0.2), hsla(39, 52%, 56%, 0.1))",
                   border: "1px solid hsla(39, 52%, 56%, 0.4)",
                   boxShadow: "0 0 30px hsla(39, 52%, 56%, 0.3)",
                 }}
               >
-                <Wine size={32} className="text-primary" />
+                <Wine size={32} style={{ color: 'hsl(39, 52%, 56%)' }} />
               </motion.div>
 
               {/* Title */}
@@ -407,9 +443,14 @@ const SuccessModal = ({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="font-serif text-3xl text-primary mb-3"
+                style={{
+                  fontFamily: 'serif',
+                  fontSize: '30px',
+                  color: 'hsl(39, 52%, 56%)',
+                  marginBottom: '12px',
+                }}
               >
-                Welcome to GC
+                {t('successModal.title')}
               </motion.h3>
 
               {/* Message */}
@@ -417,19 +458,29 @@ const SuccessModal = ({
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-muted-foreground tracking-wider text-sm mb-2"
+                style={{
+                  color: 'hsl(0, 0%, 55%)',
+                  letterSpacing: '0.05em',
+                  fontSize: '14px',
+                  marginBottom: '8px',
+                }}
               >
-                Your inquiry has been received
+                {t('successModal.message')}
               </motion.p>
 
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-foreground tracking-wider text-sm mb-8"
+                style={{
+                  color: 'hsl(0, 0%, 80%)',
+                  letterSpacing: '0.05em',
+                  fontSize: '14px',
+                  marginBottom: '32px',
+                }}
               >
-                Our concierge team will contact you within
-                <span className="text-primary font-medium"> 24 hours</span>
+                {t('successModal.response')}
+                <span style={{ color: 'hsl(39, 52%, 56%)', fontWeight: 500 }}>{t('successModal.responseHighlight')}</span>
               </motion.p>
 
               {/* Sparkles */}
@@ -437,7 +488,12 @@ const SuccessModal = ({
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="flex justify-center gap-2 mb-8"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  marginBottom: '32px',
+                }}
               >
                 {[...Array(5)].map((_, i) => (
                   <motion.div
@@ -452,7 +508,7 @@ const SuccessModal = ({
                       delay: i * 0.2,
                     }}
                   >
-                    <Sparkles size={16} className="text-primary/60" />
+                    <Sparkles size={16} style={{ color: 'hsla(39, 52%, 56%, 0.6)' }} />
                   </motion.div>
                 ))}
               </motion.div>
@@ -463,12 +519,24 @@ const SuccessModal = ({
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
                 onClick={onClose}
-                className="font-sans-nav text-xs tracking-[0.2em] uppercase text-primary
-                  border border-primary px-8 py-3 flex items-center gap-2 mx-auto
-                  transition-all duration-300 hover:bg-primary hover:text-primary-foreground group"
+                style={{
+                  fontFamily: 'sans-serif',
+                  fontSize: '12px',
+                  letterSpacing: '0.2em',
+                  textTransform: 'uppercase',
+                  color: 'hsl(39, 52%, 56%)',
+                  border: "1px solid hsl(39, 52%, 56%)",
+                  padding: '12px 32px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  margin: '0 auto',
+                  background: 'transparent',
+                  cursor: 'pointer',
+                }}
               >
-                Continue Browsing
-                <ChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                {t('successModal.button')}
+                <ChevronRight size={14} />
               </motion.button>
             </div>
           </motion.div>
@@ -479,6 +547,7 @@ const SuccessModal = ({
 };
 
 const ContactSection = () => {
+  const { t } = useTranslation("contact");
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
@@ -503,8 +572,8 @@ const ContactSection = () => {
 
     // Also show toast as backup
     toast({
-      title: "Inquiry Received",
-      description: "Our concierge team will respond within 24 hours.",
+      title: t("toast.title"),
+      description: t("toast.description"),
     });
 
     setFormData({ name: "", company: "", region: "", message: "" });
@@ -526,16 +595,16 @@ const ContactSection = () => {
           className="text-center mb-16"
         >
           <p className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-4">
-            Access
+            {t("sectionTag")}
           </p>
-          <h2 className="font-serif text-4xl md:text-6xl">Private Concierge</h2>
+          <h2 className="font-serif text-4xl md:text-6xl">{t("sectionTitle")}</h2>
           <motion.div
             className="gold-line w-16 mx-auto mt-6 mb-6"
             animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
             transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
           />
           <p className="text-sm text-muted-foreground tracking-wider">
-            Request private access to our curated portfolio
+            {t("subtitle")}
           </p>
         </motion.div>
 
@@ -548,7 +617,7 @@ const ContactSection = () => {
         >
           <FormField
             id="name"
-            label="Full Name"
+            label={t("form.name.label")}
             value={formData.name}
             onChange={updateField("name")}
             required
@@ -557,7 +626,7 @@ const ContactSection = () => {
 
           <FormField
             id="company"
-            label="Company / Organization"
+            label={t("form.company.label")}
             value={formData.company}
             onChange={updateField("company")}
             icon={Building2}
@@ -565,7 +634,7 @@ const ContactSection = () => {
 
           <FormField
             id="region"
-            label="Market Region of Interest"
+            label={t("form.region.label")}
             value={formData.region}
             onChange={updateField("region")}
             required
@@ -574,7 +643,7 @@ const ContactSection = () => {
 
           <AutoExpandingTextarea
             id="message"
-            label="Your Inquiry"
+            label={t("form.message.label")}
             value={formData.message}
             onChange={updateField("message")}
             required
@@ -583,7 +652,7 @@ const ContactSection = () => {
           <div className="flex items-center justify-between pt-8">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Lock size={12} />
-              <span className="text-[10px] tracking-wider">Encrypted & Confidential</span>
+              <span className="text-[10px] tracking-wider">{t("form.security")}</span>
             </div>
             <MagneticButton
               type="submit"
@@ -598,7 +667,7 @@ const ContactSection = () => {
                 />
               ) : (
                 <span className="flex items-center gap-3">
-                  Submit Inquiry
+                  {t("form.submit")}
                   <Send size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
               )}

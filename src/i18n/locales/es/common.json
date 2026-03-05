@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "bridge": "El Puente",
+    "vault": "La Bodega",
+    "operations": "Operaciones",
+    "access": "Acceso"
+  },
+  "cta": {
+    "privateInquiry": "Consulta Privada",
+    "learnMore": "Saber Más",
+    "explore": "Explorar",
+    "submit": "Enviar",
+    "continue": "Continuar Navegando"
+  },
+  "aria": {
+    "toggleMenu": "Abrir/cerrar menú",
+    "closeMenu": "Cerrar menú"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "¡Ups! Página no encontrada",
+    "returnHome": "Volver al Inicio"
+  }
+}

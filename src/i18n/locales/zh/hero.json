@@ -1,0 +1,22 @@
+{
+  "tagline": "阿根廷传承 · 全球布局",
+  "title": {
+    "line1": "阿根廷",
+    "line2": "桥梁"
+  },
+  "subtitle": "美国金融安全。黑山巴尔干入口。通往亚洲精品市场的文化桥梁。",
+  "map": {
+    "usa": {
+      "label": "美国",
+      "description": "金融中心"
+    },
+    "montenegro": {
+      "label": "黑山",
+      "description": "巴尔干市场"
+    },
+    "asia": {
+      "label": "亚洲",
+      "description": "日本、中国和新加坡市场"
+    }
+  }
+}

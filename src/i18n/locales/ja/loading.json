@@ -1,0 +1,7 @@
+{
+  "preparing": "エクスペリエンスを準備中",
+  "loadingAssets": "アセットを読み込み中",
+  "optimizing": "画像を最適化中",
+  "finalizing": "最終処理中",
+  "welcome": "ようこそ"
+}

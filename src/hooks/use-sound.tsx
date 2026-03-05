@@ -25,12 +25,14 @@ export const SoundProvider = ({ children }: { children: React.ReactNode }) => {
     const handleFirstInteraction = () => {
       console.log('Initializing audio...');
       if (!hoverAudioRef.current) {
-        hoverAudioRef.current = new Audio("/assets/pop.mp3");
+        const baseUrl = import.meta.env.BASE_URL || "/";
+        hoverAudioRef.current = new Audio(`${baseUrl}assets/pop.mp3`);
         hoverAudioRef.current.volume = volume / 100;
         console.log('Hover audio loaded, volume:', volume + '%');
       }
       if (!ambientAudioRef.current) {
-        ambientAudioRef.current = new Audio("/assets/cellar.mp3");
+        const baseUrl = import.meta.env.BASE_URL || "/";
+        ambientAudioRef.current = new Audio(`${baseUrl}assets/cellar.mp3`);
         ambientAudioRef.current.loop = true;
         ambientAudioRef.current.volume = volume / 100;
         console.log('Ambient audio loaded, volume:', volume + '%');

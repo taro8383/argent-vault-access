@@ -1,0 +1,39 @@
+{
+  "sectionTag": "ポートフォリオ",
+  "sectionTitle": "キュレーテッド・セラー",
+  "categories": {
+    "all": "すべて",
+    "balkan": "バルカンの力強いワイン",
+    "washoku": "和食シリーズ（日本）",
+    "french": "フランスコネクションシリーズ（中国）",
+    "tropical": "トロピカルシリーズ（シンガポール）"
+  },
+  "viewMode": {
+    "carousel": "カルーセル表示",
+    "grid": "すべて表示",
+    "dragHint": "ドラッグして探索",
+    "navigate": "ナビゲート"
+  },
+  "wine": {
+    "points": "点",
+    "pointsFull": "点",
+    "altitude": "標高",
+    "meters": "メートル",
+    "vintage": "ヴィンテージ",
+    "vintageShort": "年",
+    "category": "カテゴリー",
+    "region": "産地",
+    "winemaker": "ワインメーカー",
+    "terroir": "テロワール概要",
+    "rationale": "市場ポジショニング",
+    "noDescription": "説明はありません。",
+    "noRationale": "市場ポジショニングはありません。",
+    "unknownRegion": "不明な産地",
+    "unknownWinemaker": "不明なワインメーカー",
+    "untitled": "無題"
+  },
+  "hover": {
+    "score": "スコア",
+    "region": "産地"
+  }
+}

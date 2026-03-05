@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import SoundToggle from "./SoundToggle";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { useHoverSound } from "@/hooks/use-sound";
 import logo from "../assets/logo 1.svg";
 
@@ -137,9 +139,17 @@ const MagneticLink = ({ children, href, className = "", isActive }: MagneticLink
 };
 
 const Header = () => {
+  const { t } = useTranslation("common");
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
+
+  // Scroll to top when mobile menu opens
+  useEffect(() => {
+    if (mobileOpen && window.innerWidth < 768) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [mobileOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -177,10 +187,10 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { label: "The Bridge", href: "#narrative" },
-    { label: "The Vault", href: "#vault" },
-    { label: "Operations", href: "#operations" },
-    { label: "Access", href: "#contact" },
+    { label: t("nav.bridge"), href: "#narrative" },
+    { label: t("nav.vault"), href: "#vault" },
+    { label: t("nav.operations"), href: "#operations" },
+    { label: t("nav.access"), href: "#contact" },
   ];
 
   return (
@@ -226,19 +236,24 @@ const Header = () => {
           <SoundToggle />
         </div>
 
+        {/* Language Switcher - Desktop */}
+        <div className="hidden md:flex items-center">
+          <LanguageSwitcher />
+        </div>
+
         {/* CTA */}
         <MagneticButton
           href="#contact"
           className="hidden md:inline-block font-sans-nav text-xs tracking-[0.2em] uppercase border border-primary text-primary px-6 py-2.5 transition-all duration-500 hover:bg-primary hover:text-primary-foreground"
         >
-          Private Inquiry
+          {t("cta.privateInquiry")}
         </MagneticButton>
 
         {/* Mobile Toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden text-primary"
-          aria-label="Toggle menu"
+          aria-label={t("aria.toggleMenu")}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -252,7 +267,8 @@ const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-0 z-40 bg-background/95 backdrop-blur-xl"
+            className="md:hidden fixed inset-0 z-[100] bg-background/95 backdrop-blur-xl"
+            style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
           >
             {/* Gold accent line that draws on open */}
             <motion.div
@@ -316,7 +332,7 @@ const Header = () => {
                 }}
                 className="font-sans-nav text-sm tracking-[0.2em] uppercase border border-primary text-primary px-8 py-4 mt-4 hover:bg-primary hover:text-primary-foreground transition-all duration-500"
               >
-                Private Inquiry
+                {t("cta.privateInquiry")}
               </motion.a>
             </div>
 
@@ -328,7 +344,7 @@ const Header = () => {
               transition={{ delay: 0.5 }}
               onClick={() => setMobileOpen(false)}
               className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Close menu"
+              aria-label={t("aria.closeMenu")}
             >
               <X size={24} />
             </motion.button>

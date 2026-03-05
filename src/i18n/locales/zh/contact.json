@@ -1,0 +1,37 @@
+{
+  "sectionTag": "联系",
+  "sectionTitle": "私人礼宾",
+  "subtitle": "申请访问我们的臻选酒单",
+  "form": {
+    "name": {
+      "label": "姓名",
+      "placeholder": "请输入您的姓名"
+    },
+    "company": {
+      "label": "公司 / 机构",
+      "placeholder": "请输入您的公司"
+    },
+    "region": {
+      "label": "感兴趣的市场区域",
+      "placeholder": "请输入感兴趣的区域"
+    },
+    "message": {
+      "label": "您的咨询",
+      "placeholder": "请告诉我们您的需求"
+    },
+    "security": "加密且保密",
+    "submit": "提交咨询",
+    "submitting": "提交中..."
+  },
+  "successModal": {
+    "title": "欢迎加入GC",
+    "message": "您的咨询已收到",
+    "response": "我们的礼宾团队将在",
+    "responseHighlight": "24小时内",
+    "button": "继续浏览"
+  },
+  "toast": {
+    "title": "咨询已收到",
+    "description": "我们的礼宾团队将在24小时内回复。"
+  }
+}

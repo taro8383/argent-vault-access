@@ -1,0 +1,24 @@
+{
+  "nav": {
+    "bridge": "Most",
+    "vault": "Vinarija",
+    "operations": "Operacije",
+    "access": "Pristup"
+  },
+  "cta": {
+    "privateInquiry": "Privatni Upit",
+    "learnMore": "Saznajte Više",
+    "explore": "Istražite",
+    "submit": "Pošalji",
+    "continue": "Nastavi Pregled"
+  },
+  "aria": {
+    "toggleMenu": "Otvori/zatvori meni",
+    "closeMenu": "Zatvori meni"
+  },
+  "notFound": {
+    "title": "404",
+    "message": "Ups! Stranica nije pronađena",
+    "returnHome": "Povratak na Početnu"
+  }
+}

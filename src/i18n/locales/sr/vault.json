@@ -1,0 +1,39 @@
+{
+  "sectionTag": "Portfelj",
+  "sectionTitle": "Kurirana Vinarija",
+  "categories": {
+    "all": "Sve",
+    "balkan": "Balkanski Giganti",
+    "washoku": "Vašoku Serija (Japan)",
+    "french": "Serija Francuske Veze (Kina)",
+    "tropical": "Tropska Serija (Singapur)"
+  },
+  "viewMode": {
+    "carousel": "Karousel Prikaz",
+    "grid": "Pogledaj Sve",
+    "dragHint": "Prevucite za istraživanje",
+    "navigate": "Navigacija"
+  },
+  "wine": {
+    "points": "poena",
+    "pointsFull": "poena",
+    "altitude": "Nadmorska Visina",
+    "meters": "metara",
+    "vintage": "Godina",
+    "vintageShort": "Godina",
+    "category": "Kategorija",
+    "region": "Region",
+    "winemaker": "Vinar",
+    "terroir": "Terroir Pregled",
+    "rationale": "Tržišna Opravdanost",
+    "noDescription": "Opis nije dostupan.",
+    "noRationale": "Tržišna opravdanost nije dostupna.",
+    "unknownRegion": "Nepoznat Region",
+    "unknownWinemaker": "Nepoznat Vinar",
+    "untitled": "Bez Naslova"
+  },
+  "hover": {
+    "score": "Ocena",
+    "region": "Region"
+  }
+}

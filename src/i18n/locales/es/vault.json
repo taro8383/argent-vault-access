@@ -1,0 +1,39 @@
+{
+  "sectionTag": "El Portafolio",
+  "sectionTitle": "La Bodega Curada",
+  "categories": {
+    "all": "Todos",
+    "balkan": "Los Gigantes de los Balcanes",
+    "washoku": "La Serie Washoku (Japón)",
+    "french": "La Serie Conexión Francesa (China)",
+    "tropical": "La Serie Tropical (Singapur)"
+  },
+  "viewMode": {
+    "carousel": "Vista Carrusel",
+    "grid": "Ver Todo",
+    "dragHint": "Arrastra para explorar",
+    "navigate": "Navegar"
+  },
+  "wine": {
+    "points": "pts",
+    "pointsFull": "puntos",
+    "altitude": "Altitud",
+    "meters": "metros",
+    "vintage": "Añada",
+    "vintageShort": "Añada",
+    "category": "Categoría",
+    "region": "Región",
+    "winemaker": "El Enólogo",
+    "terroir": "Perfil del Terroir",
+    "rationale": "Razón de Mercado",
+    "noDescription": "Descripción no disponible.",
+    "noRationale": "Razón de mercado no disponible.",
+    "unknownRegion": "Región Desconocida",
+    "unknownWinemaker": "Enólogo Desconocido",
+    "untitled": "Sin Título"
+  },
+  "hover": {
+    "score": "Puntuación",
+    "region": "Región"
+  }
+}

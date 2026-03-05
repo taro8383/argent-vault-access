@@ -1,0 +1,39 @@
+{
+  "sectionTag": "精品酒单",
+  "sectionTitle": "臻选酒窖",
+  "categories": {
+    "all": "全部",
+    "balkan": "巴尔干巨擘",
+    "washoku": "和食系列（日本）",
+    "french": "法式传承系列（中国）",
+    "tropical": "热带系列（新加坡）"
+  },
+  "viewMode": {
+    "carousel": "轮播视图",
+    "grid": "查看全部",
+    "dragHint": "拖动探索",
+    "navigate": "导航"
+  },
+  "wine": {
+    "points": "分",
+    "pointsFull": "分",
+    "altitude": "海拔",
+    "meters": "米",
+    "vintage": "年份",
+    "vintageShort": "年份",
+    "category": "类别",
+    "region": "产区",
+    "winemaker": "酿酒师",
+    "terroir": "风土概况",
+    "rationale": "市场定位",
+    "noDescription": "暂无描述。",
+    "noRationale": "暂无市场定位说明。",
+    "unknownRegion": "未知产区",
+    "unknownWinemaker": "未知酿酒师",
+    "untitled": "未命名"
+  },
+  "hover": {
+    "score": "评分",
+    "region": "产区"
+  }
+}
