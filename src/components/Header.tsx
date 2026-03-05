@@ -334,6 +334,21 @@ const Header = () => {
               >
                 {t("cta.privateInquiry")}
               </motion.a>
+
+              {/* Language Switcher - Mobile */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.1 + (navItems.length + 1) * 0.1,
+                  ease: "easeOut",
+                }}
+                className="mt-6"
+              >
+                <LanguageSwitcher />
+              </motion.div>
             </div>
 
             {/* Close button positioned at bottom */}
