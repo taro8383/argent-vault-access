@@ -7,6 +7,10 @@
       "label": "姓名",
       "placeholder": "请输入您的姓名"
     },
+    "email": {
+      "label": "电子邮箱",
+      "placeholder": "请输入您的电子邮箱"
+    },
     "company": {
       "label": "公司 / 机构",
       "placeholder": "请输入您的公司"
@@ -21,6 +25,7 @@
     },
     "security": "加密且保密",
     "submit": "提交咨询",
+    "submitShort": "提交",
     "submitting": "提交中..."
   },
   "successModal": {

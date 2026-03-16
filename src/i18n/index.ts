@@ -132,6 +132,11 @@ i18n
     defaultNS: 'common',
   });
 
+// Sync language change to HTML lang attribute for CSS :lang() selectors
+i18n.on('languageChanged', (lng) => {
+  document.documentElement.lang = lng;
+});
+
 export default i18n;
 
 // Language configuration

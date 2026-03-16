@@ -7,6 +7,10 @@
       "label": "お名前",
       "placeholder": "お名前を入力してください"
     },
+    "email": {
+      "label": "メールアドレス",
+      "placeholder": "メールアドレスを入力してください"
+    },
     "company": {
       "label": "会社 / 組織",
       "placeholder": "会社名を入力してください"
@@ -21,6 +25,7 @@
     },
     "security": "暗号化された機密通信",
     "submit": "お問い合わせを送信",
+    "submitShort": "送信",
     "submitting": "送信中..."
   },
   "successModal": {

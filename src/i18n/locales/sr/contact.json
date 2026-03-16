@@ -7,6 +7,10 @@
       "label": "Puno Ime",
       "placeholder": "Unesite svoje puno ime"
     },
+    "email": {
+      "label": "Email Adresa",
+      "placeholder": "Unesite vašu email adresu"
+    },
     "company": {
       "label": "Kompanija / Organizacija",
       "placeholder": "Unesite svoju kompaniju"
@@ -21,6 +25,7 @@
     },
     "security": "Šifrovano i Poverljivo",
     "submit": "Pošalji Upit",
+    "submitShort": "Pošalji",
     "submitting": "Slanje..."
   },
   "successModal": {

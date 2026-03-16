@@ -1,4 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Self-hosted Cormorant Garamond with FULL OpenType features (WOFF2 format) */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-latin-400-normal.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-latin-500-normal.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-latin-600-normal.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-latin-700-normal.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('/fonts/cormorant-garamond-latin-400-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -92,14 +133,77 @@
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: "kern" 1, "liga" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1;
+    font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
     letter-spacing: 0.04em;
-    font-feature-settings: "kern" 1, "liga" 1;
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1;
+    font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
+  }
+
+  /* Ensure ligatures work for all text elements across all languages */
+  p, span, a, li, label, button, input, textarea, div {
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1;
+    font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Explicitly target "st" ligature in Cormorant Garamond for all languages */
+  .font-serif-display,
+  h1, h2, h3, h4, h5, h6 {
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1, "hlig" 1 !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1;
+    -moz-font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1;
+  }
+
+  /* Language-specific discretionary ligatures */
+  /* Spanish: La, Ta ligatures */
+  :lang(es), [lang="es"] {
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1, "hlig" 1;
+  }
+
+  :lang(es) .font-serif-display,
+  :lang(es) h1, :lang(es) h2, :lang(es) h3 {
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1, "hlig" 1;
+    letter-spacing: 0.02em;
+  }
+
+  /* Serbian: Enable all discretionary ligatures including 'st' */
+  :lang(sr), [lang="sr"] {
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1;
+    font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
+    text-rendering: optimizeLegibility;
+  }
+
+  :lang(sr) .font-serif-display,
+  :lang(sr) h1, :lang(sr) h2, :lang(sr) h3, :lang(sr) h4, :lang(sr) h5, :lang(sr) h6 {
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1 !important;
+    font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
+    letter-spacing: 0.02em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1;
+    -moz-font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1;
+  }
+
+  /* Explicit 'st' ligature support for Serbian */
+  :lang(sr) [class*="font-serif"] {
+    font-feature-settings: "kern" 1, "liga" 1, "dlig" 1, "calt" 1 !important;
+    font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
+  }
+
+  /* Chinese - disable ligatures for CJK characters */
+  :lang(zh), [lang="zh"] {
+    font-feature-settings: "kern" 0, "liga" 0, "dlig" 0;
+  }
+
+  /* Japanese - disable ligatures for CJK characters */
+  :lang(ja), [lang="ja"] {
+    font-feature-settings: "kern" 0, "liga" 0, "dlig" 0;
   }
 }
 
@@ -274,6 +378,32 @@
       stroke-dashoffset: 0;
       opacity: 0.3;
     }
+  }
+
+  /* Manual ligature effect for "st" in Serbian */
+  :lang(sr) .ligature-st,
+  :lang(sr) [data-ligature="st"] {
+    letter-spacing: -0.08em;
+  }
+
+  :lang(sr) .ligature-st .char-s,
+  :lang(sr) [data-ligature="st"] .char-s {
+    position: relative;
+    display: inline-block;
+  }
+
+  :lang(sr) .ligature-st .char-s::after,
+  :lang(sr) [data-ligature="st"] .char-s::after {
+    content: '';
+    position: absolute;
+    right: -0.15em;
+    top: 50%;
+    width: 0.25em;
+    height: 0.08em;
+    background: currentColor;
+    opacity: 0.6;
+    transform: translateY(-50%) rotate(-5deg);
+    border-radius: 1px;
   }
 
   /* Hide default cursor on fine pointer devices */

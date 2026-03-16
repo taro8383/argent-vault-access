@@ -1,9 +1,26 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import worldMap from "../assets/en.png";
+import i18n from "../i18n";
+
+// Localized map images
+import worldMapEn from "../assets/en.webp";
+import worldMapEs from "../assets/es.webp";
+import worldMapSr from "../assets/sr.webp";
+import worldMapZh from "../assets/zh.webp";
+import worldMapJa from "../assets/jp.webp";
+
+// Map image mapping by language
+const localizedMaps: Record<string, string> = {
+  en: worldMapEn,
+  es: worldMapEs,
+  sr: worldMapSr,
+  zh: worldMapZh,
+  ja: worldMapJa,
+};
 
 interface Region {
+  id: string;
   name: string;
   x: number;
   y: number;
@@ -16,11 +33,12 @@ interface Connection {
 }
 
 // Connection lines from Buenos Aires (source) to other regions
+// Using stable IDs that don't change with language
 const connections: Connection[] = [
-  { from: "Buenos Aires", to: "Montenegro" },
-  { from: "Buenos Aires", to: "Singapore" },
-  { from: "Buenos Aires", to: "Shanghai" },
-  { from: "Buenos Aires", to: "Tokyo" },
+  { from: "buenosaires", to: "montenegro" },
+  { from: "buenosaires", to: "singapore" },
+  { from: "buenosaires", to: "shanghai" },
+  { from: "buenosaires", to: "tokyo" },
 ];
 
 // Region marker with tooltip component
@@ -41,8 +59,8 @@ const RegionMarker = ({
   onClick: () => void;
   onHover: (region: Region | null) => void;
 }) => {
-  const isActive = activeRegion?.name === region.name;
-  const isHovered = hoveredRegion?.name === region.name;
+  const isActive = activeRegion?.id === region.id;
+  const isHovered = hoveredRegion?.id === region.id;
 
   return (
     <motion.button
@@ -122,7 +140,7 @@ const TravelingDot = ({ pathD, delay, isInView }: { pathD: string; delay: number
   if (!isInView) return null;
 
   return (
-    <g>
+    <g key={`dot-${pathD}`}>
       <circle r="0.8" fill="hsl(39, 52%, 56%)" filter="url(#line-glow)">
         <animateMotion dur="3s" repeatCount="indefinite" begin={`${delay}s`} path={pathD} />
         <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite" begin={`${delay}s`} />
@@ -180,16 +198,17 @@ const ConnectionLines = ({ regions, isInView }: { regions: Region[]; isInView: b
 
       {/* Render connection lines */}
       {connections.map((conn, i) => {
-        const fromRegion = regions.find((r) => r.name === conn.from);
-        const toRegion = regions.find((r) => r.name === conn.to);
+        const fromRegion = regions.find((r) => r.id === conn.from);
+        const toRegion = regions.find((r) => r.id === conn.to);
 
         if (!fromRegion || !toRegion) return null;
 
         const pathD = getPathData(fromRegion, toRegion);
         const gradientId = `gradient-${conn.from}-${conn.to}`;
+        const pathKey = `${conn.from}-${conn.to}`;
 
         return (
-          <g key={`${conn.from}-${conn.to}`}>
+          <g key={pathKey}>
             {/* Base visible line */}
             <motion.path
               d={pathD}
@@ -231,9 +250,14 @@ const GlobalMap = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  // Translated regions data
+  // Get current language and select appropriate map image
+  const currentLang = i18n.language || 'en';
+  const worldMap = localizedMaps[currentLang] || localizedMaps['en'];
+
+  // Translated regions data with stable IDs for connection matching
   const regions: Region[] = [
     {
+      id: "singapore",
       name: t("regions.singapore.name"),
       x: 68.5,
       y: 70,
@@ -244,6 +268,7 @@ const GlobalMap = () => {
       ],
     },
     {
+      id: "tokyo",
       name: t("regions.tokyo.name"),
       x: 82.2,
       y: 50,
@@ -254,6 +279,7 @@ const GlobalMap = () => {
       ],
     },
     {
+      id: "shanghai",
       name: t("regions.shanghai.name"),
       x: 70.6,
       y: 45,
@@ -264,6 +290,7 @@ const GlobalMap = () => {
       ],
     },
     {
+      id: "montenegro",
       name: t("regions.montenegro.name"),
       x: 56,
       y: 36,
@@ -274,6 +301,7 @@ const GlobalMap = () => {
       ],
     },
     {
+      id: "buenosaires",
       name: t("regions.buenosaires.name"),
       x: 23.5,
       y: 80.5,
@@ -331,13 +359,13 @@ const GlobalMap = () => {
           {/* Region markers with tooltips */}
           {regions.map((region, i) => (
             <RegionMarker
-              key={region.name}
+              key={region.id}
               region={region}
               index={i}
               isInView={isInView}
               activeRegion={activeRegion}
               hoveredRegion={hoveredRegion}
-              onClick={() => setActiveRegion(activeRegion?.name === region.name ? null : region)}
+              onClick={() => setActiveRegion(activeRegion?.id === region.id ? null : region)}
               onHover={setHoveredRegion}
             />
           ))}
@@ -368,8 +396,8 @@ const GlobalMap = () => {
                   {t("infoPanel.title")}
                 </p>
                 <ul className="space-y-2">
-                  {activeRegion.channels.map((ch) => (
-                    <li key={ch} className="flex items-center gap-2">
+                  {activeRegion.channels.map((ch, idx) => (
+                    <li key={idx} className="flex items-center gap-2">
                       <span className="w-1 h-1 rounded-full bg-primary flex-shrink-0" />
                       <span className="text-xs text-secondary-foreground tracking-wider">{ch}</span>
                     </li>

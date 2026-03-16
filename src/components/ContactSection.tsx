@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { Send, Lock, Check, User, Building2, Globe, Sparkles, Wine, ChevronRight } from "lucide-react";
+import { createPortal } from "react-dom";
+import { Send, Lock, Check, User, Building2, Globe, Sparkles, Wine, ChevronRight, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useHoverSound } from "@/hooks/use-sound";
 import { useToast } from "@/hooks/use-toast";
@@ -90,16 +91,16 @@ const MagneticButton = ({ children, onClick, type = "button", className = "", di
         />
       ))}
 
-      <span className="relative block overflow-hidden h-[1.2em]">
+      <span className="relative block overflow-hidden h-6">
         <motion.span
-          className="block"
+          className="flex items-center justify-center h-full"
           animate={{ y: isHovered ? "-100%" : "0%" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
           {children}
         </motion.span>
         <motion.span
-          className="absolute top-full left-0 right-0 block"
+          className="absolute top-full left-0 right-0 flex items-center justify-center h-full"
           animate={{ y: isHovered ? "-100%" : "0%" }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
@@ -122,7 +123,7 @@ const AnimatedIcon = ({
 }) => {
   return (
     <motion.div
-      className="absolute left-0 top-3 text-muted-foreground"
+      className="absolute left-0 top-3 text-muted-foreground hidden md:block"
       animate={{
         color: isFocused
           ? "hsl(39, 52%, 56%)"
@@ -162,11 +163,11 @@ const FormField = ({ id, label, type = "text", value, onChange, required, icon }
       <label
         htmlFor={id}
         className={`
-          font-sans-nav text-[10px] tracking-[0.3em] uppercase absolute
-          transition-all duration-300 pointer-events-none origin-left
+          font-sans-nav text-[10px] tracking-[0.3em] uppercase absolute w-full
+          transition-all duration-300 pointer-events-none text-center md:text-left
           ${isActive
-            ? "-top-6 text-primary text-[8px] tracking-[0.2em] left-0"
-            : "top-3 text-muted-foreground left-6"
+            ? "-top-6 text-primary text-[8px] tracking-[0.2em] left-0 md:left-0"
+            : "top-3 text-muted-foreground left-0 md:left-6"
           }
         `}
       >
@@ -181,9 +182,9 @@ const FormField = ({ id, label, type = "text", value, onChange, required, icon }
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         required={required}
-        className="w-full bg-transparent border-b py-3 pl-6 pr-8 text-sm text-foreground tracking-wider
+        className="w-full bg-transparent border-b py-3 px-4 md:pl-6 md:pr-8 text-sm text-foreground tracking-wider
           focus:outline-none transition-all duration-300
-          placeholder:text-transparent
+          placeholder:text-transparent text-center md:text-left
           focus:border-primary border-border"
         style={{
           boxShadow: isFocused
@@ -199,7 +200,7 @@ const FormField = ({ id, label, type = "text", value, onChange, required, icon }
           scale: isValid && !isFocused ? 1 : 0.5,
         }}
         transition={{ duration: 0.2 }}
-        className="absolute right-0 top-3 text-primary"
+        className="absolute right-0 top-3 text-primary hidden md:block"
       >
         <Check size={14} />
       </motion.div>
@@ -241,11 +242,11 @@ const AutoExpandingTextarea = ({
       <label
         htmlFor={id}
         className={`
-          font-sans-nav text-[10px] tracking-[0.3em] uppercase absolute
-          transition-all duration-300 pointer-events-none origin-left
+          font-sans-nav text-[10px] tracking-[0.3em] uppercase absolute w-full
+          transition-all duration-300 pointer-events-none text-center md:text-left
           ${isActive
-            ? "-top-6 text-primary text-[8px] tracking-[0.2em]"
-            : "top-3 text-muted-foreground"
+            ? "-top-6 text-primary text-[8px] tracking-[0.2em] left-0 md:left-0"
+            : "top-3 text-muted-foreground left-0 md:left-0"
           }
         `}
       >
@@ -263,7 +264,7 @@ const AutoExpandingTextarea = ({
         rows={1}
         className="w-full bg-transparent border-b py-3 pr-8 text-sm text-foreground tracking-wider
           focus:outline-none transition-all duration-300 resize-none
-          placeholder:text-transparent min-h-[80px]
+          placeholder:text-transparent min-h-[80px] text-center md:text-left
           focus:border-primary border-border overflow-hidden"
         style={{
           boxShadow: isFocused
@@ -279,7 +280,7 @@ const AutoExpandingTextarea = ({
           scale: isValid && !isFocused ? 1 : 0.5,
         }}
         transition={{ duration: 0.2 }}
-        className="absolute right-0 top-3 text-primary"
+        className="absolute right-0 top-3 text-primary hidden md:block"
       >
         <Check size={14} />
       </motion.div>
@@ -313,7 +314,9 @@ const SuccessModal = ({
     };
   }, [isOpen]);
 
-  return (
+  if (!isOpen) return null;
+
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -542,7 +545,8 @@ const SuccessModal = ({
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 
@@ -555,6 +559,7 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
     company: "",
     region: "",
     message: "",
@@ -564,19 +569,48 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const response = await fetch("https://formspree.io/f/mkoqwaeb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          region: formData.region,
+          message: formData.message,
+        }),
+      });
 
-    setIsSubmitting(false);
-    setShowSuccess(true);
-
-    // Also show toast as backup
-    toast({
-      title: t("toast.title"),
-      description: t("toast.description"),
-    });
-
-    setFormData({ name: "", company: "", region: "", message: "" });
+      if (response.ok) {
+        setShowSuccess(true);
+        toast({
+          title: t("toast.title"),
+          description: t("toast.description"),
+        });
+        setFormData({ name: "", email: "", company: "", region: "", message: "" });
+      } else {
+        const data = await response.json();
+        console.error("Form error:", data);
+        toast({
+          title: "Error",
+          description: "Failed to send inquiry. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send inquiry. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const updateField = (key: keyof typeof formData) => (value: string) => {
@@ -625,6 +659,16 @@ const ContactSection = () => {
           />
 
           <FormField
+            id="email"
+            label={t("form.email.label")}
+            type="email"
+            value={formData.email}
+            onChange={updateField("email")}
+            required
+            icon={Mail}
+          />
+
+          <FormField
             id="company"
             label={t("form.company.label")}
             value={formData.company}
@@ -649,8 +693,8 @@ const ContactSection = () => {
             required
           />
 
-          <div className="flex items-center justify-between pt-8">
-            <div className="flex items-center gap-2 text-muted-foreground">
+          <div className="flex flex-col md:flex-row items-center justify-between pt-8 gap-4">
+            <div className="flex items-center justify-center gap-2 text-muted-foreground w-full md:w-auto">
               <Lock size={12} />
               <span className="text-[10px] tracking-wider">{t("form.security")}</span>
             </div>
@@ -667,8 +711,10 @@ const ContactSection = () => {
                 />
               ) : (
                 <span className="flex items-center gap-3">
-                  {t("form.submit")}
-                  <Send size={12} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  {/* Mobile: Short text / Desktop: Full text */}
+                  <span className="md:hidden">{t("form.submitShort", t("form.submit"))}</span>
+                  <span className="hidden md:inline">{t("form.submit")}</span>
+                  <Send size={12} className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0" />
                 </span>
               )}
             </MagneticButton>

@@ -46,18 +46,18 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
               </button>
 
               {/* Category */}
-              <p className="font-sans-nav text-[10px] tracking-[0.4em] uppercase text-primary mb-2">
+              <p className="font-sans-nav text-[10px] tracking-[0.4em] uppercase text-primary mb-2 text-center md:text-left">
                 {wine.category || 'Wine'}
               </p>
 
               {/* Name */}
-              <h2 className="font-serif text-4xl md:text-5xl mb-2">{wine.name || t('wine.untitled')}</h2>
-              <p className="text-sm text-muted-foreground tracking-wider mb-8">{wine.vintage || 'NV'} {t('wine.vintage')}</p>
+              <h2 className="font-serif text-4xl md:text-5xl mb-2 text-center md:text-left">{wine.name || t('wine.untitled')}</h2>
+              <p className="text-sm text-muted-foreground tracking-wider mb-8 text-center md:text-left">{wine.vintage || 'NV'} {t('wine.vintage')}</p>
 
               <div className="gold-line w-full mb-8" />
 
               {/* Bottle + Score */}
-              <div className="flex items-center gap-8 mb-10">
+              <div className="flex flex-col md:flex-row items-center gap-8 mb-10">
                 {/* Bottle */}
                 {wine.image_url ? (
                   <img src={wine.image_url} alt={wine.name || 'Wine'} className="wine-float h-56 object-contain flex-shrink-0" />
@@ -75,13 +75,13 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
                 )}
 
                 {/* Details */}
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
+                <div className="space-y-4 text-center md:text-left">
+                  <div className="flex items-center justify-center md:justify-start gap-3">
                     <Star size={16} className="text-primary" />
                     <span className="font-serif text-4xl text-primary">{wine.score || '--'}</span>
                     <span className="text-sm text-muted-foreground">{t('wine.pointsFull')}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
+                  <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground">
                     <Mountain size={14} />
                     <span className="text-sm tracking-wider">{wine.region || t('wine.unknownRegion')}</span>
                   </div>
@@ -105,18 +105,18 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
               </div>
 
               {/* Terroir Snapshot */}
-              <div className="bg-secondary rounded-sm p-6 mb-8">
+              <div className="bg-secondary rounded-sm p-6 mb-8 text-center md:text-left">
                 <h3 className="font-serif text-lg text-primary mb-3">{t('wine.terroir')}</h3>
                 <p className="text-sm text-secondary-foreground leading-relaxed">{wine.description || t('wine.noDescription')}</p>
               </div>
 
               {/* Market Rationale */}
               <div className="mb-8">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
                   <Target size={14} className="text-primary" />
                   <h3 className="font-serif text-lg text-primary">{t('wine.rationale')}</h3>
                 </div>
-                <div className="text-sm text-muted-foreground leading-relaxed space-y-6">
+                <div className="text-sm text-muted-foreground leading-relaxed space-y-6 text-center md:text-left">
                   {(() => {
                     try {
                       // Parse the structured rationale format
@@ -186,32 +186,30 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
                       return sections.map((section, i) => (
                         <div key={i} className="space-y-4">
                           {/* Main Section Heading */}
-                          <h4 className="font-sans-nav text-[10px] tracking-[0.25em] uppercase text-primary font-medium">
+                          <h4 className="font-sans-nav text-[10px] tracking-[0.25em] uppercase text-primary font-medium text-center md:text-left">
                             {section.heading}
                             </h4>
 
                           {/* Subsections */}
-                          {section.subsections?.length > 0 ? section.subsections.map((sub, j) => (
-                            <div key={j} className="space-y-2 pl-1">
+                          {section.subsections?.length > 0 && section.subsections.map((sub, j) => (
+                            <div key={j} className="space-y-2 pl-0 md:pl-1">
                               {sub.heading && (
-                                <h5 className="font-sans text-xs text-primary/70 font-medium">
+                                <h5 className="font-sans text-xs text-primary/70 font-medium text-center md:text-left">
                                   {sub.heading}
                                 </h5>
                               )}
                               {sub.bullets?.length > 0 && (
                                 <ul className="space-y-2">
                                   {sub.bullets.map((bullet, k) => (
-                                    <li key={k} className="flex items-start gap-3 text-muted-foreground leading-relaxed">
-                                      <span className="w-1 h-1 rounded-full bg-primary/50 mt-2 flex-shrink-0" />
-                                      <span>{bullet}</span>
+                                    <li key={k} className="flex items-start justify-center md:justify-start gap-3 text-muted-foreground leading-relaxed">
+                                      <span className="w-1 h-1 rounded-full bg-primary/50 mt-2 flex-shrink-0 hidden md:block" />
+                                      <span className="text-center md:text-left">{bullet}</span>
                                     </li>
                                   ))}
                                 </ul>
                               )}
                             </div>
-                          )) : (
-                            <p className="text-muted-foreground text-sm italic">No details available.</p>
-                          )}
+                          ))}
                         </div>
                       ));
                     } catch (err) {
@@ -224,11 +222,11 @@ const WineDetailModal = ({ wine, onClose }: Props) => {
 
               {/* Winemaker */}
               <div className="border-t border-border pt-8">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
                   <User size={14} className="text-primary" />
                   <h3 className="font-serif text-lg text-primary">{t('wine.winemaker')}</h3>
                 </div>
-                <p className="text-sm text-muted-foreground tracking-wider">{wine.winemaker || t('wine.unknownWinemaker')}</p>
+                <p className="text-sm text-muted-foreground tracking-wider text-center md:text-left">{wine.winemaker || t('wine.unknownWinemaker')}</p>
               </div>
             </div>
           </motion.div>

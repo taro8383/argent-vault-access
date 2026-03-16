@@ -144,11 +144,17 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
 
-  // Scroll to top when mobile menu opens
+  // Scroll to top and lock body scroll when mobile menu opens
   useEffect(() => {
     if (mobileOpen && window.innerWidth < 768) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [mobileOpen]);
 
   useEffect(() => {

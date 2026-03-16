@@ -7,6 +7,10 @@
       "label": "Full Name",
       "placeholder": "Enter your full name"
     },
+    "email": {
+      "label": "Email Address",
+      "placeholder": "Enter your email address"
+    },
     "company": {
       "label": "Company / Organization",
       "placeholder": "Enter your company"
@@ -21,6 +25,7 @@
     },
     "security": "Encrypted & Confidential",
     "submit": "Submit Inquiry",
+    "submitShort": "Submit",
     "submitting": "Submitting..."
   },
   "successModal": {

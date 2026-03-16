@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="section-padding pt-12 pb-12 border-t border-border">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex flex-col items-center md:items-start gap-2">
+        <div className="flex flex-col items-center text-center md:text-left md:items-start gap-2">
           <motion.img
             src={logo}
             alt="GC Wines"

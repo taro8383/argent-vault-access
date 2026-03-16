@@ -7,6 +7,10 @@
       "label": "Nombre Completo",
       "placeholder": "Ingrese su nombre completo"
     },
+    "email": {
+      "label": "Correo Electrónico",
+      "placeholder": "Ingrese su correo electrónico"
+    },
     "company": {
       "label": "Empresa / Organización",
       "placeholder": "Ingrese su empresa"
@@ -21,6 +25,7 @@
     },
     "security": "Cifrado y Confidencial",
     "submit": "Enviar Consulta",
+    "submitShort": "Enviar",
     "submitting": "Enviando..."
   },
   "successModal": {

@@ -1,9 +1,41 @@
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import img1 from "../assets/1.png";
-import img2 from "../assets/2.png";
-import img3 from "../assets/3.png";
+import i18n from "../i18n";
+
+// Default images (English)
+import img1 from "../assets/1.webp";
+import img2 from "../assets/2.webp";
+import img3 from "../assets/3.webp";
+
+// Spanish localized images
+import img1Es from "../assets/1es.webp";
+import img2Es from "../assets/2es.webp";
+import img3Es from "../assets/3es.webp";
+
+// Serbian localized images
+import img1Sr from "../assets/1sr.webp";
+import img2Sr from "../assets/2sr.webp";
+import img3Sr from "../assets/3sr.webp";
+
+// Chinese localized images
+import img1Zh from "../assets/1zh.webp";
+import img2Zh from "../assets/2zh.webp";
+import img3Zh from "../assets/3zh.webp";
+
+// Japanese localized images
+import img1Jp from "../assets/1jp.webp";
+import img2Jp from "../assets/2jp.webp";
+import img3Jp from "../assets/3jp.webp";
+
+// Image mapping by language
+const localizedImages: Record<string, { img1: string; img2: string; img3: string }> = {
+  en: { img1, img2, img3 },
+  es: { img1: img1Es, img2: img2Es, img3: img3Es },
+  sr: { img1: img1Sr, img2: img2Sr, img3: img3Sr },
+  zh: { img1: img1Zh, img2: img2Zh, img3: img3Zh },
+  ja: { img1: img1Jp, img2: img2Jp, img3: img3Jp },
+};
 
 // Parallax Image Component
 interface ParallaxImageProps {
@@ -77,21 +109,25 @@ const NarrativeSection = () => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
+  // Get current language and select appropriate images
+  const currentLang = i18n.language || 'en';
+  const images = localizedImages[currentLang] || localizedImages['en'];
+
   const paragraphs = [
     {
       title: t("paragraphs.0.title"),
       text: t("paragraphs.0.text"),
-      image: img1,
+      image: images.img1,
     },
     {
       title: t("paragraphs.1.title"),
       text: t("paragraphs.1.text"),
-      image: img2,
+      image: images.img2,
     },
     {
       title: t("paragraphs.2.title"),
       text: t("paragraphs.2.text"),
-      image: img3,
+      image: images.img3,
     },
   ];
 
@@ -108,7 +144,7 @@ const NarrativeSection = () => {
           <p className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-4">
             {t("sectionTag")}
           </p>
-          <h2 className="font-serif text-4xl md:text-6xl">{t("sectionTitle")}</h2>
+          <h2 className="font-serif text-4xl md:text-6xl" dangerouslySetInnerHTML={{ __html: t("sectionTitle") }} />
           <motion.div
             className="gold-line w-16 mx-auto mt-6"
             animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
@@ -136,7 +172,7 @@ const NarrativeSection = () => {
               />
 
               {/* Text Content */}
-              <div className={`w-full md:w-1/2 flex flex-col ${i % 2 === 1 ? "md:items-end md:text-right" : ""}`}>
+              <div className={`w-full md:w-1/2 flex flex-col items-center text-center ${i % 2 === 1 ? "md:items-end md:text-right" : "md:items-start md:text-left"}`}>
                 <h3 className="font-serif text-2xl md:text-3xl text-primary mb-4">
                   {p.title}
                 </h3>

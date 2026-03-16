@@ -2,7 +2,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useMemo, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSound } from "@/hooks/use-sound";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg.webp";
+import heroBgMobile from "@/assets/hero-bg-m.webp";
 
 // Ambient dust particles component
 const DustParticles = () => {
@@ -110,7 +111,7 @@ const HeroSection = () => {
           // Mobile: Static background without motion transforms
           <div className="absolute inset-0 -top-20">
             <img
-              src={heroBg}
+              src={heroBgMobile}
               alt="Wine cellar atmosphere"
               className="w-full h-full object-cover"
               style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
@@ -124,6 +125,7 @@ const HeroSection = () => {
                 background: "radial-gradient(ellipse at center, transparent 0%, hsl(0 0% 7% / 0.4) 100%)"
               }}
             />
+            <DustParticles />
           </div>
         ) : (
           // Desktop: Parallax background with motion

@@ -332,25 +332,57 @@ const WineVault = () => {
         }
 
         if (winesData) {
-          // Get wine translations function
-          const getWineTranslation = (wineId: string, field: string, defaultValue: string) => {
-            const key = `wines:wines.${wineId}.${field}`;
-            const translated = t(key, { defaultValue: '' });
-            return translated || defaultValue;
-          };
+          const currentLang = i18n.language;
+          let translationsMap = new Map();
+
+          // Fetch translations from Supabase for non-English languages
+          if (currentLang !== 'en') {
+            const wineIds = winesData.map((w: any) => w.id);
+            const { data: translationsData, error: translationsError } = await supabase
+              .from('wine_translations')
+              .select('*')
+              .in('wine_id', wineIds)
+              .eq('language', currentLang);
+
+            if (translationsError) {
+              console.error('Translations fetch error:', translationsError);
+            }
+
+            if (translationsData) {
+              translationsMap = new Map(
+                translationsData.map((t: any) => [t.wine_id, t])
+              );
+            }
+          }
 
           setWines(winesData.map((w: any) => {
             const categoryName = categoryMap.get(w.category_id) ?? 'Uncategorized';
+
+            // Get translation for this wine if available
+            const translation = translationsMap.get(w.id);
+
+            // For English, use base wine data; for other languages, use translation or fallback
+            const description = currentLang === 'en'
+              ? w.description
+              : (translation?.description || w.description);
+            const rationale = currentLang === 'en'
+              ? w.rationale
+              : (translation?.rationale || w.rationale);
+            const categoryDisplay = currentLang === 'en'
+              ? categoryName
+              : (translation?.category || categoryName);
+
             return {
               id: w.id,
               name: w.name,
-              category: getWineTranslation(w.id, 'category', categoryName),
+              category: categoryName, // Keep raw category for filtering
+              categoryDisplay: categoryDisplay, // Translated for display
               region: w.region,
               altitude: w.altitude,
               score: w.score,
               vintage: w.vintage,
-              description: getWineTranslation(w.id, 'description', w.description),
-              rationale: getWineTranslation(w.id, 'rationale', w.rationale),
+              description: description,
+              rationale: rationale,
               winemaker: w.winemaker,
               color: w.color,
               image_url: w.image_url,
@@ -591,7 +623,7 @@ const WineVault = () => {
                       {/* Wine info */}
                       <div className="space-y-2">
                         <p className="font-sans-nav text-[10px] tracking-[0.3em] uppercase text-primary">
-                          {wine.category}
+                          {wine.categoryDisplay}
                         </p>
                         <h3 className="font-serif text-xl group-hover:text-primary transition-colors duration-300">
                           {wine.name}
@@ -700,7 +732,7 @@ const WineVault = () => {
                     {/* Wine info */}
                     <div className="space-y-1">
                       <p className="font-sans-nav text-[10px] tracking-[0.3em] uppercase text-primary">
-                        {wine.category}
+                        {wine.categoryDisplay}
                       </p>
                       <h3 className="font-serif text-lg group-hover:text-primary transition-colors duration-300">
                         {wine.name}

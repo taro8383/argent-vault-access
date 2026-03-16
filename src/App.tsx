@@ -11,11 +11,12 @@ import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import logo from "./assets/logo 1.svg";
-import heroBg from "./assets/hero-bg.jpg";
-import img1 from "./assets/1.png";
-import img2 from "./assets/2.png";
-import img3 from "./assets/3.png";
-import enImg from "./assets/en.png";
+import heroBg from "./assets/hero-bg.webp";
+import img1 from "./assets/1.webp";
+import img2 from "./assets/2.webp";
+import img3 from "./assets/3.webp";
+import enImg from "./assets/en.webp";
+import completedSound from "./assets/completed.mp3";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,20 @@ const PageLoader = ({ onComplete }: { onComplete: () => void }) => {
   const { t } = useTranslation("loading");
   const [progress, setProgress] = useState(0);
   const [loadingText, setLoadingText] = useState(t("preparing"));
+  const [soundPlayed, setSoundPlayed] = useState(false);
+
+  // Play completion sound when progress reaches 100%
+  useEffect(() => {
+    if (progress === 100 && !soundPlayed) {
+      setSoundPlayed(true);
+      const audio = new Audio(completedSound);
+      audio.volume = 0.5;
+      audio.play().catch((err) => {
+        // Autoplay may be blocked by browser - that's fine
+        console.log("Sound playback prevented:", err);
+      });
+    }
+  }, [progress, soundPlayed]);
 
   useEffect(() => {
     const MIN_LOADING_TIME = 2000; // Minimum 2 seconds for animation
@@ -197,7 +212,7 @@ const App = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <BrowserRouter basename="/argent-vault-access/">
+              <BrowserRouter>
                 <Routes>
                   <Route path="/" element={<Index />} />
                   <Route path="/admin" element={<Admin />} />
