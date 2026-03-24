@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "title": "Trade Portal | GC Wines",
+    "description": "Apply for trade access to GC Wines portfolio"
+  },
+  "header": {
+    "eyebrow": "Trade Enquiries",
+    "title": "Apply for Trade Access",
+    "subtitle": "Our trade programme is by application only.",
+    "backToSite": "← Main Site"
+  },
+  "form": {
+    "section": {
+      "professional": "Professional Information",
+      "property": "Property Details",
+      "requirements": "Requirements"
+    },
+    "fields": {
+      "fullName": {
+        "label": "Full Name",
+        "placeholder": "Your full name"
+      },
+      "professionalTitle": {
+        "label": "Professional Title",
+        "placeholder": "e.g. Sommelier, Buyer"
+      },
+      "propertyName": {
+        "label": "Property Name",
+        "placeholder": "Hotel, restaurant, or business name"
+      },
+      "propertyType": {
+        "label": "Property Type",
+        "placeholder": "Select type…",
+        "options": {
+          "hotel": "Hotel",
+          "restaurant": "Restaurant",
+          "wine_bar": "Wine Bar",
+          "retailer": "Retailer",
+          "distributor": "Distributor",
+          "other": "Other"
+        }
+      },
+      "marketCountry": {
+        "label": "Market / Country",
+        "placeholder": "e.g. United Kingdom, Japan, Australia"
+      },
+      "annualSpend": {
+        "label": "Approximate Annual Spend (AUD)",
+        "placeholder": "Select range…",
+        "options": {
+          "under_50k": "Under $50,000",
+          "50k_150k": "$50,000 – $150,000",
+          "150k_500k": "$150,000 – $500,000",
+          "over_500k": "Over $500,000"
+        }
+      },
+      "referralSource": {
+        "label": "How did you hear about us?",
+        "placeholder": "Trade show, colleague, press…"
+      },
+      "requirements": {
+        "label": "What are you looking for?",
+        "placeholder": "Describe your programme needs, volume requirements, or any specific interests…"
+      }
+    },
+    "validation": {
+      "fullName": "Please enter your full name.",
+      "professionalTitle": "Please enter your professional title.",
+      "propertyName": "Please enter your property name.",
+      "propertyType": "Please select a property type.",
+      "marketCountry": "Please enter your market or country.",
+      "annualSpend": "Please select an annual spend range.",
+      "referralSource": "Please tell us how you heard about us.",
+      "requirements": "Please describe what you're looking for (at least 20 characters).",
+      "tosAccepted": "You must accept the Terms of Service.",
+      "privacyAccepted": "You must acknowledge the Privacy Notice."
+    },
+    "checkboxes": {
+      "tos": "I have read and accept the",
+      "tosLink": "Terms of Service",
+      "privacy": "I acknowledge the",
+      "privacyLink": "Privacy Notice"
+    },
+    "submit": {
+      "default": "Submit Application",
+      "sending": "Sending…",
+      "submitting": "Submitting…"
+    }
+  },
+  "success": {
+    "title": "Application Received",
+    "message": "Our team will review your application within 2 business days.",
+    "emailNote": "You will receive a confirmation at the email address provided.",
+    "continue": "Continue"
+  },
+  "footer": {
+    "alreadyApproved": "Already approved?",
+    "signIn": "Sign in ↗"
+  },
+  "signInModal": {
+    "title": "Trade Portal Sign In",
+    "subtitle": "Enter your approved email address to receive a secure sign-in link.",
+    "emailPlaceholder": "your@company.com",
+    "button": "Send Sign-In Link",
+    "sending": "Sending…",
+    "successTitle": "Check Your Email",
+    "successMessage": "We've sent a secure sign-in link to your email address. Please check your inbox and spam folder.",
+    "close": "Close",
+    "note": "Secure, passwordless sign-in. No password required."
+  }
+}

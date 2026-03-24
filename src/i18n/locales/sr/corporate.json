@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "title": "Korporativne Usluge | GC Wines",
+    "description": "Zatražite privatnu konsultaciju za usluge upravljanja podrumom"
+  },
+  "header": {
+    "eyebrow": "Privatne Usluge Podruma",
+    "title": "Zatražite Privatnu Konsultaciju",
+    "subtitle": "Naši programi upravljanja podrumom dizajnirani su za zahtevne kolekcionare koji zahtevaju diskretno, profesionalno staranje o njihovim vinskim aktivima.",
+    "backToSite": "← Glavni Sajt"
+  },
+  "form": {
+    "sections": {
+      "yourInfo": "Vaši Podaci",
+      "collection": "Profil Kolekcije",
+      "interest": "Interesovanje za Uslugu",
+      "preferences": "Preferencije Konsultacije"
+    },
+    "fields": {
+      "fullName": {
+        "label": "Puno Ime *",
+        "placeholder": "Vaše puno ime"
+      },
+      "email": {
+        "label": "Email *",
+        "placeholder": "vi@email.com"
+      },
+      "phone": {
+        "label": "Telefon",
+        "placeholder": "+1 (555) 000-0000"
+      },
+      "companyName": {
+        "label": "Naziv Kompanije",
+        "placeholder": "Opciono"
+      },
+      "collectionSize": {
+        "label": "Približan Broj Boca *",
+        "placeholder": "Izaberite opseg…",
+        "options": {
+          "under_500": "Ispod 500 boca",
+          "500_2000": "500 – 2,000 boca",
+          "2000_5000": "2,000 – 5,000 boca",
+          "over_5000": "Preko 5,000 boca"
+        }
+      },
+      "storage": {
+        "label": "Trenutno Rešenje za Skladištenje *",
+        "placeholder": "Izaberite tip…",
+        "options": {
+          "professional_cellar": "Profesionalni podrum sa kontrolom temperature",
+          "wine_fridge": "Frižideri za vino",
+          "mixed": "Mešoviti pristup",
+          "none": "Tražim smernice"
+        }
+      },
+      "annualBudget": {
+        "label": "Godišnji Budžet za Nabavku (AUD) *",
+        "placeholder": "Izaberite opseg…",
+        "options": {
+          "under_50k": "Ispod $50,000",
+          "50k_150k": "$50,000 – $150,000",
+          "150k_500k": "$150,000 – $500,000",
+          "over_500k": "Preko $500,000"
+        }
+      },
+      "tierInterest": {
+        "essentials": {
+          "name": "Program Osnove Podruma",
+          "price": "$5,000 / god",
+          "description": "Temelj za zahtevnog kolekcionara"
+        },
+        "management": {
+          "name": "Program Upravljanja Podrumom",
+          "price": "$10,000 / god",
+          "description": "Sveobuhvatno staranje za aktivne kolekcionare"
+        },
+        "excellence": {
+          "name": "Program Izvrsnosti Podruma",
+          "price": "$18,000 / god",
+          "description": "Vrhunac upravljanja kolekcijama vina"
+        },
+        "undecided": {
+          "name": "Neodlučan",
+          "price": "Vođena Konsultacija",
+          "description": "Pomozite nam da pronađemo pravi program"
+        }
+      },
+      "goals": {
+        "label": "Primarni Ciljevi *",
+        "options": {
+          "portfolio_growth": "Rast i kuriranje portfolija",
+          "cellar_optimization": "Optimizacija i organizacija podruma",
+          "investment": "Nabavka vina za investiciju",
+          "events": "Podrška za događaje i zabavu",
+          "other": "Ostalo"
+        }
+      },
+      "contactMethod": {
+        "label": "Poželjni Način Kontakta *",
+        "options": {
+          "email": "Email",
+          "phone": "Telefon",
+          "video_call": "Video Poziv"
+        }
+      },
+      "timeZone": {
+        "label": "Vremenska Zona",
+        "placeholder": "npr., GMT-5, AEDT"
+      },
+      "additionalNotes": {
+        "label": "Dodatne Napomene",
+        "placeholder": "Bilo kakvi specifični zahtevi ili pitanja koja biste želeli da razgovarate…"
+      }
+    },
+    "validation": {
+      "fullName": "Molimo unesite vaše puno ime.",
+      "email": "Molimo unesite validnu adresu email-a.",
+      "collectionSize": "Molimo izaberite veličinu vaše kolekcije.",
+      "storage": "Molimo izaberite vaše rešenje za skladištenje.",
+      "annualBudget": "Molimo izaberite opseg godišnjeg budžeta.",
+      "tierInterest": "Molimo izaberite program od interesa.",
+      "primaryGoals": "Molimo izaberite bar jedan cilj.",
+      "preferredContact": "Molimo izaberite poželjni način kontakta.",
+      "privacyAccepted": "Morate priznati Obaveštenje o Privatnosti."
+    },
+    "tierSummary": "Izabrali ste interesovanje za",
+    "billingNote": "Detalje o programu ćemo razgovarati tokom vaše konsultacije.",
+    "privacyCheckbox": "Priznajem",
+    "privacyLink": "Obaveštenje o Privatnosti",
+    "privacyNote": "i razumem da slanje ovog formulara ne predstavlja obavezu za uslugu.",
+    "submit": "Zatraži Konsultaciju",
+    "submitting": "Šaljem…"
+  },
+  "success": {
+    "title": "Zahtev Primljen",
+    "message": "Naš tim će vas kontaktirati u roku od 2 radna dana da zakaže vašu privatnu konsultaciju.",
+    "continue": "Nastavi"
+  },
+  "footer": {
+    "alreadyClient": "Već ste klijent?",
+    "signIn": "Prijavi se ↗"
+  },
+  "signInModal": {
+    "title": "Pristup Klijenta",
+    "subtitle": "Unesite vašu email adresu klijenta da biste dobili bezbedan link.",
+    "emailPlaceholder": "vi@email.com",
+    "button": "Pošalji Link za Pristup",
+    "sending": "Šaljem…",
+    "successTitle": "Proverite Vaš Email",
+    "successMessage": "Poslali smo bezbedan link na vašu adresu email-a. Molimo proverite vaše sanduče i fasciklu za nepoželjnu poštu.",
+    "close": "Zatvori",
+    "note": "Bezbedna prijava bez lozinke. Lozinka nije potrebna."
+  }
+}

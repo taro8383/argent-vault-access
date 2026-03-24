@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "title": "Corporate Services | GC Wines",
+    "description": "Request a private consultation for cellar management services"
+  },
+  "header": {
+    "eyebrow": "Private Cellar Services",
+    "title": "Request a Private Consultation",
+    "subtitle": "Our cellar management programmes are tailored to discerning collectors who require discreet, professional stewardship of their wine assets.",
+    "backToSite": "← Main Site"
+  },
+  "form": {
+    "sections": {
+      "yourInfo": "Your Information",
+      "collection": "Collection Profile",
+      "interest": "Service Interest",
+      "preferences": "Consultation Preferences"
+    },
+    "fields": {
+      "fullName": {
+        "label": "Full Name *",
+        "placeholder": "Your full name"
+      },
+      "email": {
+        "label": "Email Address *",
+        "placeholder": "your@email.com"
+      },
+      "phone": {
+        "label": "Phone Number",
+        "placeholder": "+1 (555) 000-0000"
+      },
+      "companyName": {
+        "label": "Company Name",
+        "placeholder": "Optional"
+      },
+      "collectionSize": {
+        "label": "Approximate Bottle Count *",
+        "placeholder": "Select range…",
+        "options": {
+          "under_500": "Under 500 bottles",
+          "500_2000": "500 – 2,000 bottles",
+          "2000_5000": "2,000 – 5,000 bottles",
+          "over_5000": "Over 5,000 bottles"
+        }
+      },
+      "storage": {
+        "label": "Current Storage Solution *",
+        "placeholder": "Select type…",
+        "options": {
+          "professional_cellar": "Professional temperature-controlled cellar",
+          "wine_fridge": "Wine refrigerators",
+          "mixed": "Mixed approach",
+          "none": "Seeking guidance"
+        }
+      },
+      "annualBudget": {
+        "label": "Annual Acquisition Budget (AUD) *",
+        "placeholder": "Select range…",
+        "options": {
+          "under_50k": "Under $50,000",
+          "50k_150k": "$50,000 – $150,000",
+          "150k_500k": "$150,000 – $500,000",
+          "over_500k": "Over $500,000"
+        }
+      },
+      "tierInterest": {
+        "essentials": {
+          "name": "The Cellar Essentials Program",
+          "price": "$5,000 / year",
+          "description": "Foundation for the discerning collector"
+        },
+        "management": {
+          "name": "The Cellar Management Program",
+          "price": "$10,000 / year",
+          "description": "Comprehensive stewardship for active collectors"
+        },
+        "excellence": {
+          "name": "The Cellar Excellence Program",
+          "price": "$18,000 / year",
+          "description": "The pinnacle of wine collection management"
+        },
+        "undecided": {
+          "name": "Undecided",
+          "price": "Guided Consultation",
+          "description": "Let us help you find the right programme"
+        }
+      },
+      "goals": {
+        "label": "Primary Goals *",
+        "options": {
+          "portfolio_growth": "Portfolio growth and curation",
+          "cellar_optimization": "Cellar optimization and organization",
+          "investment": "Investment-grade wine acquisition",
+          "events": "Event and entertainment support",
+          "other": "Other"
+        }
+      },
+      "contactMethod": {
+        "label": "Preferred Contact Method *",
+        "options": {
+          "email": "Email",
+          "phone": "Phone",
+          "video_call": "Video Call"
+        }
+      },
+      "timeZone": {
+        "label": "Time Zone",
+        "placeholder": "e.g., GMT-5, AEDT"
+      },
+      "additionalNotes": {
+        "label": "Additional Notes",
+        "placeholder": "Any specific requirements or questions you'd like to discuss..."
+      }
+    },
+    "validation": {
+      "fullName": "Please enter your full name.",
+      "email": "Please enter a valid email address.",
+      "collectionSize": "Please select your collection size.",
+      "storage": "Please select your storage solution.",
+      "annualBudget": "Please select an annual budget range.",
+      "tierInterest": "Please select a programme interest.",
+      "primaryGoals": "Please select at least one goal.",
+      "preferredContact": "Please select a preferred contact method.",
+      "privacyAccepted": "You must acknowledge the Privacy Notice."
+    },
+    "tierSummary": "You have selected interest in the",
+    "billingNote": "We will discuss programme details during your consultation.",
+    "privacyCheckbox": "I acknowledge the",
+    "privacyLink": "Privacy Notice",
+    "privacyNote": "and understand that submitting this form does not constitute a commitment to service.",
+    "submit": "Request Consultation",
+    "submitting": "Sending…"
+  },
+  "success": {
+    "title": "Request Received",
+    "message": "Our team will contact you within 2 business days to schedule your private consultation.",
+    "continue": "Continue"
+  },
+  "footer": {
+    "alreadyClient": "Already a client?",
+    "signIn": "Sign in"
+  },
+  "signInModal": {
+    "title": "Client Access",
+    "subtitle": "Enter your client email address to receive a secure sign-in link.",
+    "emailPlaceholder": "your@email.com",
+    "button": "Send Access Link",
+    "sending": "Sending…",
+    "successTitle": "Check Your Email",
+    "successMessage": "We've sent a secure access link to your email address. Please check your inbox and spam folder.",
+    "close": "Close",
+    "note": "Secure, passwordless sign-in. No password required."
+  }
+}

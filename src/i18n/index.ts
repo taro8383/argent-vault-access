@@ -12,6 +12,9 @@ import enContact from './locales/en/contact.json';
 import enFooter from './locales/en/footer.json';
 import enLoading from './locales/en/loading.json';
 import enWines from './locales/en/wines.json';
+import enTrade from './locales/en/trade.json';
+import enSociety from './locales/en/society.json';
+import enCorporate from './locales/en/corporate.json';
 
 import esCommon from './locales/es/common.json';
 import esHero from './locales/es/hero.json';
@@ -22,6 +25,9 @@ import esContact from './locales/es/contact.json';
 import esFooter from './locales/es/footer.json';
 import esLoading from './locales/es/loading.json';
 import esWines from './locales/es/wines.json';
+import esTrade from './locales/es/trade.json';
+import esSociety from './locales/es/society.json';
+import esCorporate from './locales/es/corporate.json';
 
 import srCommon from './locales/sr/common.json';
 import srHero from './locales/sr/hero.json';
@@ -32,6 +38,9 @@ import srContact from './locales/sr/contact.json';
 import srFooter from './locales/sr/footer.json';
 import srLoading from './locales/sr/loading.json';
 import srWines from './locales/sr/wines.json';
+import srTrade from './locales/sr/trade.json';
+import srSociety from './locales/sr/society.json';
+import srCorporate from './locales/sr/corporate.json';
 
 import zhCommon from './locales/zh/common.json';
 import zhHero from './locales/zh/hero.json';
@@ -42,6 +51,9 @@ import zhContact from './locales/zh/contact.json';
 import zhFooter from './locales/zh/footer.json';
 import zhLoading from './locales/zh/loading.json';
 import zhWines from './locales/zh/wines.json';
+import zhTrade from './locales/zh/trade.json';
+import zhSociety from './locales/zh/society.json';
+import zhCorporate from './locales/zh/corporate.json';
 
 import jaCommon from './locales/ja/common.json';
 import jaHero from './locales/ja/hero.json';
@@ -52,6 +64,9 @@ import jaContact from './locales/ja/contact.json';
 import jaFooter from './locales/ja/footer.json';
 import jaLoading from './locales/ja/loading.json';
 import jaWines from './locales/ja/wines.json';
+import jaTrade from './locales/ja/trade.json';
+import jaSociety from './locales/ja/society.json';
+import jaCorporate from './locales/ja/corporate.json';
 
 const resources = {
   en: {
@@ -64,6 +79,9 @@ const resources = {
     footer: enFooter,
     loading: enLoading,
     wines: enWines,
+    trade: enTrade,
+    society: enSociety,
+    corporate: enCorporate,
   },
   es: {
     common: esCommon,
@@ -75,6 +93,9 @@ const resources = {
     footer: esFooter,
     loading: esLoading,
     wines: esWines,
+    trade: esTrade,
+    society: esSociety,
+    corporate: esCorporate,
   },
   sr: {
     common: srCommon,
@@ -86,6 +107,9 @@ const resources = {
     footer: srFooter,
     loading: srLoading,
     wines: srWines,
+    trade: srTrade,
+    society: srSociety,
+    corporate: srCorporate,
   },
   zh: {
     common: zhCommon,
@@ -97,6 +121,9 @@ const resources = {
     footer: zhFooter,
     loading: zhLoading,
     wines: zhWines,
+    trade: zhTrade,
+    society: zhSociety,
+    corporate: zhCorporate,
   },
   ja: {
     common: jaCommon,
@@ -108,6 +135,9 @@ const resources = {
     footer: jaFooter,
     loading: jaLoading,
     wines: jaWines,
+    trade: jaTrade,
+    society: jaSociety,
+    corporate: jaCorporate,
   },
 };
 
@@ -128,7 +158,7 @@ i18n
       caches: ['localStorage'],
     },
 
-    ns: ['common', 'hero', 'narrative', 'vault', 'map', 'contact', 'footer', 'loading', 'wines'],
+    ns: ['common', 'hero', 'narrative', 'vault', 'map', 'contact', 'footer', 'loading', 'wines', 'trade', 'society', 'corporate'],
     defaultNS: 'common',
   });
 

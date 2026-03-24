@@ -2,8 +2,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import SoundToggle from "./SoundToggle";
-import LanguageSwitcher from "./LanguageSwitcher";
 import { useHoverSound } from "@/hooks/use-sound";
 import logo from "../assets/logo 1.svg";
 
@@ -196,7 +194,9 @@ const Header = () => {
     { label: t("nav.bridge"), href: "#narrative" },
     { label: t("nav.vault"), href: "#vault" },
     { label: t("nav.operations"), href: "#operations" },
-    { label: t("nav.access"), href: "#contact" },
+    { label: t("nav.trade"), href: "#trade" },
+    { label: t("nav.society"), href: "#society" },
+    { label: t("nav.corporate"), href: "#corporate" },
   ];
 
   return (
@@ -236,24 +236,6 @@ const Header = () => {
             );
           })}
         </nav>
-
-        {/* Sound Toggle - Desktop */}
-        <div className="hidden md:flex items-center">
-          <SoundToggle />
-        </div>
-
-        {/* Language Switcher - Desktop */}
-        <div className="hidden md:flex items-center">
-          <LanguageSwitcher />
-        </div>
-
-        {/* CTA */}
-        <MagneticButton
-          href="#contact"
-          className="hidden md:inline-block font-sans-nav text-xs tracking-[0.2em] uppercase border border-primary text-primary px-6 py-2.5 transition-all duration-500 hover:bg-primary hover:text-primary-foreground"
-        >
-          {t("cta.privateInquiry")}
-        </MagneticButton>
 
         {/* Mobile Toggle */}
         <button
@@ -325,36 +307,6 @@ const Header = () => {
                 );
               })}
 
-              <motion.a
-                href="#contact"
-                onClick={() => setMobileOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.1 + navItems.length * 0.1,
-                  ease: "easeOut",
-                }}
-                className="font-sans-nav text-sm tracking-[0.2em] uppercase border border-primary text-primary px-8 py-4 mt-4 hover:bg-primary hover:text-primary-foreground transition-all duration-500"
-              >
-                {t("cta.privateInquiry")}
-              </motion.a>
-
-              {/* Language Switcher - Mobile */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.1 + (navItems.length + 1) * 0.1,
-                  ease: "easeOut",
-                }}
-                className="mt-6"
-              >
-                <LanguageSwitcher />
-              </motion.div>
             </div>
 
             {/* Close button positioned at bottom */}

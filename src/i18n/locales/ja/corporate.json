@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "title": "企業サービス | GC Wines",
+    "description": "セラーマネジメントサービスのプライベートコンサルテーションをリクエスト"
+  },
+  "header": {
+    "eyebrow": "プライベートセラーサービス",
+    "title": "プライベートコンサルテーションをリクエスト",
+    "subtitle": "当社のセラーマネジメントプログラムは、ワイン資産の慎重でプロフェッショナルな管理を必要とする厳選されたコレクターのために設計されています。",
+    "backToSite": "← メインサイト"
+  },
+  "form": {
+    "sections": {
+      "yourInfo": "ご本人情報",
+      "collection": "コレクション概要",
+      "interest": "サービス意向",
+      "preferences": "コンサルテーションのご希望"
+    },
+    "fields": {
+      "fullName": {
+        "label": "フルネーム *",
+        "placeholder": "お名前"
+      },
+      "email": {
+        "label": "メールアドレス *",
+        "placeholder": "your@email.com"
+      },
+      "phone": {
+        "label": "電話番号",
+        "placeholder": "+1 (555) 000-0000"
+      },
+      "companyName": {
+        "label": "会社名",
+        "placeholder": "任意"
+      },
+      "collectionSize": {
+        "label": "概算ボトル数 *",
+        "placeholder": "範囲を選択…",
+        "options": {
+          "under_500": "500本未満",
+          "500_2000": "500 – 2,000本",
+          "2000_5000": "2,000 – 5,000本",
+          "over_5000": "5,000本以上"
+        }
+      },
+      "storage": {
+        "label": "現在の保管方法 *",
+        "placeholder": "タイプを選択…",
+        "options": {
+          "professional_cellar": "プロの温度管理セラー",
+          "wine_fridge": "ワイン冷蔵庫",
+          "mixed": "混合アプローチ",
+          "none": "ご相談希望"
+        }
+      },
+      "annualBudget": {
+        "label": "年間購入予算（AUD） *",
+        "placeholder": "範囲を選択…",
+        "options": {
+          "under_50k": "50,000ドル未満",
+          "50k_150k": "50,000 – 150,000ドル",
+          "150k_500k": "150,000 – 500,000ドル",
+          "over_500k": "500,000ドル以上"
+        }
+      },
+      "tierInterest": {
+        "essentials": {
+          "name": "セラーエッセンシャルプログラム",
+          "price": "年額 5,000ドル",
+          "description": "厳選されたコレクターの基盤"
+        },
+        "management": {
+          "name": "セラーマネジメントプログラム",
+          "price": "年額 10,000ドル",
+          "description": "アクティブなコレクター向けの包括的管理"
+        },
+        "excellence": {
+          "name": "セラーエクセレンスプログラム",
+          "price": "年額 18,000ドル",
+          "description": "ワインコレクション管理の頂点"
+        },
+        "undecided": {
+          "name": "未定",
+          "price": "ガイド付きコンサルテーション",
+          "description": "適切なプログラムの発見をお手伝いします"
+        }
+      },
+      "goals": {
+        "label": "主な目標 *",
+        "options": {
+          "portfolio_growth": "ポートフォリオの成長とキュレーション",
+          "cellar_optimization": "セラーの最適化と整理",
+          "investment": "投資グレードワインの購入",
+          "events": "イベントとエンターテイメントのサポート",
+          "other": "その他"
+        }
+      },
+      "contactMethod": {
+        "label": "希望連絡方法 *",
+        "options": {
+          "email": "メール",
+          "phone": "電話",
+          "video_call": "ビデオ通話"
+        }
+      },
+      "timeZone": {
+        "label": "タイムゾーン",
+        "placeholder": "例：GMT-5, AEDT"
+      },
+      "additionalNotes": {
+        "label": "追加メモ",
+        "placeholder": "ご相談したい具体的なご要望やご質問があれば…"
+      }
+    },
+    "validation": {
+      "fullName": "フルネームを入力してください。",
+      "email": "有効なメールアドレスを入力してください。",
+      "collectionSize": "コレクションの規模を選択してください。",
+      "storage": "保管方法を選択してください。",
+      "annualBudget": "年間予算範囲を選択してください。",
+      "tierInterest": "興味のあるプログラムを選択してください。",
+      "primaryGoals": "少なくとも1つの目標を選択してください。",
+      "preferredContact": "希望連絡方法を選択してください。",
+      "privacyAccepted": "プライバシー通知を確認する必要があります。"
+    },
+    "tierSummary": "以下への興味を選択しました",
+    "billingNote": "コンサルテーション中にプログラムの詳細をご説明します。",
+    "privacyCheckbox": "を確認します",
+    "privacyLink": "プライバシー通知",
+    "privacyNote": "このフォームの送信がサービスへのコミットメントを構成しないことを理解します。",
+    "submit": "コンサルテーションをリクエスト",
+    "submitting": "送信中…"
+  },
+  "success": {
+    "title": "リクエストを受け付けました",
+    "message": "当社チームが2営業日以内にご連絡し、プライベートコンサルテーションの日程調整をいたします。",
+    "continue": "続行"
+  },
+  "footer": {
+    "alreadyClient": "既にクライアントですか？",
+    "signIn": "サインイン ↗"
+  },
+  "signInModal": {
+    "title": "クライアントアクセス",
+    "subtitle": "クライアントメールアドレスを入力して、安全なアクセスリンクを受け取ってください。",
+    "emailPlaceholder": "your@email.com",
+    "button": "アクセスリンクを送信",
+    "sending": "送信中…",
+    "successTitle": "メールをご確認ください",
+    "successMessage": "安全なアクセスリンクをメールアドレスに送信しました。受信箱と迷惑メールフォルダをご確認ください。",
+    "close": "閉じる",
+    "note": "安全なパスワードレスサインイン。パスワードは不要です。"
+  }
+}

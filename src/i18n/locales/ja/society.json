@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "プライベートアロケーション協会 | GC Wines",
+    "description": "招待制でプライベートアロケーション協会に参加"
+  },
+  "public": {
+    "eyebrow": "招待制のみ",
+    "title": "プライベートアロケーション協会",
+    "description": "会員資格は、選ばれたコレクターと鑑定家のグループにのみ招待状で提供されます。",
+    "scarcity": "アクセスは購入できません——獲得する必要があります。",
+    "backToSite": "← メインサイト"
+  },
+  "waitingList": {
+    "title": "ウェイティングリストに参加",
+    "subtitle": "会員資格は選択的に開放されます。検討のためのお席を確保してください。",
+    "fields": {
+      "firstName": {
+        "label": "名",
+        "placeholder": "お名前"
+      },
+      "country": {
+        "label": "国",
+        "placeholder": "任意"
+      },
+      "email": {
+        "label": "メールアドレス",
+        "placeholder": "your@email.com"
+      }
+    },
+    "submit": "検討をリクエスト",
+    "submitting": "送信中…",
+    "success": {
+      "title": "リストに登録されました。",
+      "message": "ご連絡いたします。"
+    }
+  },
+  "invite": {
+    "validating": "招待状を確認中…",
+    "invalid": {
+      "title": "招待状は無効です",
+      "message": "この招待リンクは無効になっているか、既に使用されています。新しい招待状をリクエストするには、直接お問い合わせください。",
+      "contact": "お問い合わせ"
+    },
+    "valid": {
+      "badge": "プライベート招待状が確認されました",
+      "title": "ご招待されています",
+      "description": "会員申請を完了するには、ティアを選択し、配送プロファイルを提供してください。",
+      "emailNote": "この招待状は以下のアドレス宛です",
+      "button": "申請を開始"
+    }
+  },
+  "apply": {
+    "title": "申請を完了",
+    "steps": {
+      "details": "詳細情報",
+      "delivery": "配送プロファイル",
+      "membership": "会員資格"
+    },
+    "step1": {
+      "title": "詳細情報",
+      "fields": {
+        "fullName": "フルネーム",
+        "email": "メールアドレス",
+        "phone": "電話番号",
+        "birthDate": "生年月日"
+      },
+      "validation": {
+        "fullName": "フルネームは必須です",
+        "email": "有効なメールアドレスが必要です",
+        "phone": "電話番号は必須です",
+        "birthDate": "生年月日は必須です",
+        "age": "18歳以上である必要があります",
+        "ageVerified": "年齢確認が必要です"
+      },
+      "ageConfirm": "18歳以上であり、居住国で酒類の購入が法的に許可されていることを確認します。",
+      "continue": "続行"
+    },
+    "step2": {
+      "title": "配送プロファイル",
+      "address": {
+        "primary": "主要配送先住所",
+        "line1": "住所1",
+        "line2": "住所2（任意）",
+        "city": "市区町村",
+        "state": "都道府県",
+        "postcode": "郵便番号",
+        "country": "国"
+      },
+      "altAddress": {
+        "toggle": "別の配送先住所を追加",
+        "title": "別の住所"
+      },
+      "deliveryWindow": {
+        "label": "希望配送時間帯",
+        "options": {
+          "morning": "午前",
+          "morningTime": "8時 – 12時",
+          "afternoon": "午後",
+          "afternoonTime": "12時 – 17時",
+          "evening": "夕方",
+          "eveningTime": "17時 – 21時",
+          "any": "いつでも"
+        }
+      },
+      "buildingAccess": {
+        "label": "建物への入り方（任意）",
+        "placeholder": "例：コンシェルジュに預ける。4B号室。ゲートコード：1234。"
+      },
+      "storage": {
+        "label": "ワイン保管タイプ",
+        "options": {
+          "cellar": "温度管理されたセラー",
+          "fridge": "ワイン冷蔵庫",
+          "ambient": "常温保管（涼しく暗い部屋）",
+          "mixed": "混合"
+        }
+      },
+      "back": "戻る",
+      "continue": "続行"
+    },
+    "step3": {
+      "title": "会員資格を選択",
+      "pricingNote": "すべての価格は税込みです。",
+      "tiers": {
+        "founding": {
+          "label": "ファウンディングメンバー",
+          "price": "年額 2,500 AUD",
+          "allocations": "年4回・各6本",
+          "tastings": "年1回プライベートテイスティング",
+          "benefits": ["特別リリースへの優先アクセス"]
+        },
+        "private": {
+          "label": "プライベートメンバー",
+          "price": "年額 3,500 AUD",
+          "allocations": "年4回・各6本",
+          "tastings": "年2回プライベートテイスティング",
+          "benefits": ["追加購入アクセス", "年次ディナーへの招待"]
+        },
+        "collector": {
+          "label": "コレクターメンバー",
+          "price": "年額 10,500 AUD",
+          "allocations": "年12回（月次）・各6本",
+          "tastings": "無制限アクセス",
+          "benefits": [
+            "プレリリースワイン",
+            "醸造家との年次プライベートディナー",
+            "セラー相談",
+            "特注調達",
+            "トレードテイスティングへのゲスト招待"
+          ],
+          "featured": "おすすめ"
+        }
+      },
+      "selectionSummary": "選択したのは",
+      "billingNote": "年間請求。30日前の通知でいつでもキャンセル可能。",
+      "referral": {
+        "label": "当社を知ったきっかけは？（任意）",
+        "placeholder": "紹介、イベント、出版物…"
+      },
+      "checkboxes": {
+        "tos": "サービス利用規約を読み、同意します",
+        "privacy": "プライバシー通知を確認します"
+      },
+      "back": "戻る",
+      "submit": "申請を完了 →",
+      "submitting": "送信中…"
+    },
+    "success": {
+      "badge": "申請を受け付けました",
+      "title": "ありがとうございます",
+      "message": "当社チームが48時間以内に申請を審査します。ご指定のメールアドレスに確認メールをお送りします。",
+      "return": "協会に戻る ↗"
+    }
+  },
+  "footer": {
+    "alreadyMember": "既に会員ですか？",
+    "signIn": "サインイン ↗"
+  },
+  "signInModal": {
+    "title": "メンバーサインイン",
+    "subtitle": "会員メールアドレスを入力して、安全なサインインリンクを受け取ってください。",
+    "emailPlaceholder": "your@email.com",
+    "button": "サインインリンクを送信",
+    "sending": "送信中…",
+    "successTitle": "メールをご確認ください",
+    "successMessage": "安全なサインインリンクをメールアドレスに送信しました。受信箱と迷惑メールフォルダをご確認ください。",
+    "close": "閉じる",
+    "note": "安全なパスワードレスサインイン。パスワードは不要です。"
+  }
+}

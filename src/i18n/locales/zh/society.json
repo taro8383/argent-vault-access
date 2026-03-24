@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "私人配额协会 | GC Wines",
+    "description": "通过邀请加入私人配额协会"
+  },
+  "public": {
+    "eyebrow": "仅限邀请",
+    "title": "私人配额协会",
+    "description": "会员资格通过私人邀请授予精选的收藏家和鉴赏家群体。",
+    "scarcity": "访问权无法购买——必须获得。",
+    "backToSite": "← 主网站"
+  },
+  "waitingList": {
+    "title": "加入等待名单",
+    "subtitle": "我们选择性开放会员资格。确保您的候选位置。",
+    "fields": {
+      "firstName": {
+        "label": "名字",
+        "placeholder": "您的名字"
+      },
+      "country": {
+        "label": "国家",
+        "placeholder": "可选"
+      },
+      "email": {
+        "label": "电子邮箱",
+        "placeholder": "您的邮箱@email.com"
+      }
+    },
+    "submit": "请求考虑",
+    "submitting": "提交中…",
+    "success": {
+      "title": "您已在名单上。",
+      "message": "我们会与您联系。"
+    }
+  },
+  "invite": {
+    "validating": "正在验证您的邀请…",
+    "invalid": {
+      "title": "邀请不再有效",
+      "message": "此邀请链接已不再有效或已被使用。请直接联系我们请求新的邀请。",
+      "contact": "联系我们"
+    },
+    "valid": {
+      "badge": "您的私人邀请已确认",
+      "title": "您已被邀请",
+      "description": "要完成您的会员申请，请选择您的等级并提供您的配送资料。",
+      "emailNote": "此邀请发送至",
+      "button": "开始申请"
+    }
+  },
+  "apply": {
+    "title": "完成您的申请",
+    "steps": {
+      "details": "您的资料",
+      "delivery": "配送资料",
+      "membership": "您的会员资格"
+    },
+    "step1": {
+      "title": "您的资料",
+      "fields": {
+        "fullName": "全名",
+        "email": "电子邮箱",
+        "phone": "电话号码",
+        "birthDate": "出生日期"
+      },
+      "validation": {
+        "fullName": "全名是必填项",
+        "email": "需要有效的电子邮箱",
+        "phone": "电话号码是必填项",
+        "birthDate": "出生日期是必填项",
+        "age": "您必须年满18岁",
+        "ageVerified": "需要年龄验证"
+      },
+      "ageConfirm": "我确认我已年满18岁，并在我的居住国合法允许购买酒精饮料。",
+      "continue": "继续"
+    },
+    "step2": {
+      "title": "配送资料",
+      "address": {
+        "primary": "主要配送地址",
+        "line1": "地址第一行",
+        "line2": "地址第二行（可选）",
+        "city": "城市",
+        "state": "州/省",
+        "postcode": "邮政编码",
+        "country": "国家"
+      },
+      "altAddress": {
+        "toggle": "添加替代配送地址",
+        "title": "替代地址"
+      },
+      "deliveryWindow": {
+        "label": "首选配送时段",
+        "options": {
+          "morning": "上午",
+          "morningTime": "8点 – 12点",
+          "afternoon": "下午",
+          "afternoonTime": "12点 – 17点",
+          "evening": "晚上",
+          "eveningTime": "17点 – 21点",
+          "any": "任何时间"
+        }
+      },
+      "buildingAccess": {
+        "label": "建筑进入说明（可选）",
+        "placeholder": "例如：留给礼宾部。4B公寓。门禁密码：1234。"
+      },
+      "storage": {
+        "label": "葡萄酒储存类型",
+        "options": {
+          "cellar": "温控酒窖",
+          "fridge": "葡萄酒冰箱",
+          "ambient": "常温储存（阴凉暗室）",
+          "mixed": "混合"
+        }
+      },
+      "back": "返回",
+      "continue": "继续"
+    },
+    "step3": {
+      "title": "选择您的会员资格",
+      "pricingNote": "所有价格均已包含全部费用。",
+      "tiers": {
+        "founding": {
+          "label": "创始会员",
+          "price": "每年2,500澳元",
+          "allocations": "每年4次配额 · 每次6瓶",
+          "tastings": "每年1次私人品鉴",
+          "benefits": ["特别发布酒的优先访问权"]
+        },
+        "private": {
+          "label": "私人会员",
+          "price": "每年3,500澳元",
+          "allocations": "每年4次配额 · 每次6瓶",
+          "tastings": "每年2次私人品鉴",
+          "benefits": ["额外购买权限", "年度晚宴邀请"]
+        },
+        "collector": {
+          "label": "收藏家会员",
+          "price": "每年10,500澳元",
+          "allocations": "每年12次配额（每月）· 每次6瓶",
+          "tastings": "无限次访问",
+          "benefits": [
+            "预发布酒款",
+            "与酿酒师的年度私人晚宴",
+            "酒窖咨询",
+            "定制采购",
+            "贸易品鉴嘉宾邀请"
+          ],
+          "featured": "推荐"
+        }
+      },
+      "selectionSummary": "您已选择",
+      "billingNote": "年度计费。可随时提前30天通知取消。",
+      "referral": {
+        "label": "您是如何了解到我们的？（可选）",
+        "placeholder": "推荐、活动、出版物…"
+      },
+      "checkboxes": {
+        "tos": "我已阅读并接受服务条款",
+        "privacy": "我确认隐私声明"
+      },
+      "back": "返回",
+      "submit": "完成申请 →",
+      "submitting": "提交中…"
+    },
+    "success": {
+      "badge": "申请已收到",
+      "title": "谢谢您",
+      "message": "我们的团队将在48小时内审核您的申请。您将在提供的邮箱地址收到确认邮件。",
+      "return": "返回协会 ↗"
+    }
+  },
+  "footer": {
+    "alreadyMember": "已经是会员？",
+    "signIn": "登录 ↗"
+  },
+  "signInModal": {
+    "title": "会员登录",
+    "subtitle": "输入您的会员邮箱地址以接收安全登录链接。",
+    "emailPlaceholder": "您的邮箱@email.com",
+    "button": "发送登录链接",
+    "sending": "发送中…",
+    "successTitle": "查看您的邮箱",
+    "successMessage": "我们已向您的邮箱地址发送了安全登录链接。请检查您的收件箱和垃圾邮件文件夹。",
+    "close": "关闭",
+    "note": "安全无密码登录。无需密码。"
+  }
+}

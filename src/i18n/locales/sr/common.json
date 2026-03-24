@@ -3,7 +3,10 @@
     "bridge": "Most",
     "vault": "Vinarija",
     "operations": "Operacije",
-    "access": "Pristup"
+    "access": "Pristup",
+    "trade": "Trgovina",
+    "society": "Društvo",
+    "corporate": "Korporacija"
   },
   "cta": {
     "privateInquiry": "Privatni Upit",
@@ -20,5 +23,143 @@
     "title": "404",
     "message": "Ups! Stranica nije pronađena",
     "returnHome": "Povratak na Početnu"
+  },
+  "ui": {
+    "clickOrTapToFlip": "Kliknite ili dodirnite da okrenete",
+    "hover": "Zadržite",
+    "explore": "Istražite",
+    "tap": "Dodirnite",
+    "emailAddress": "Email Adresa",
+    "sending": "Šaljem…",
+    "close": "Zatvori",
+    "secureSignInNote": "Bezbedna prijava bez lozinke. Lozinka nije potrebna.",
+    "errorSendingLink": "Slanje linka nije uspelo. Pokušajte ponovo.",
+    "unexpectedError": "Došlo je do neočekivane greške. Pokušajte ponovo."
+  },
+  "signInModal": {
+    "trade": {
+      "title": "Prijava na Trgovinski Portal",
+      "subtitle": "Unesite vašu odobrenu email adresu da biste dobili bezbedan link za prijavu.",
+      "placeholder": "vas@kompanija.com",
+      "buttonText": "Pošalji Link za Prijavu",
+      "successTitle": "Proverite Vaš Email",
+      "successMessage": "Poslali smo bezbedan link za prijavu na vašu email adresu. Molimo proverite vaše sanduče i fasciklu za nepoželjnu poštu."
+    },
+    "society": {
+      "title": "Prijava Člana",
+      "subtitle": "Unesite vašu email adresu člana da biste dobili bezbedan link za prijavu.",
+      "placeholder": "vas@email.com",
+      "buttonText": "Pošalji Link za Prijavu",
+      "successTitle": "Proverite Vaš Email",
+      "successMessage": "Poslali smo bezbedan link za prijavu na vašu email adresu. Molimo proverite vaše sanduče i fasciklu za nepoželjnu poštu."
+    },
+    "corporate": {
+      "title": "Pristup Klijenta",
+      "subtitle": "Unesite vašu email adresu klijenta da biste dobili bezbedan link za pristup.",
+      "placeholder": "vas@email.com",
+      "buttonText": "Pošalji Link za Pristup",
+      "successTitle": "Proverite Vaš Email",
+      "successMessage": "Poslali smo bezbedan link za pristup na vašu email adresu. Molimo proverite vaše sanduče i fasciklu za nepoželjnu poštu."
+    }
+  },
+  "trade": {
+    "eyebrow": "Za Profesionalce u Vinu",
+    "headline": "Pristup Portfoliju za Trgovinu",
+    "subheadline": "Somelijeri, prodavci i restoranteri: otkrijte alokacije, cene i tržišnu inteligenciju rezervisane za naše profesionalne partnere.",
+    "description": "Trgovinski Portal je vaša direktna linija do našeg portfolija. Pristupite trenutnim alokacijama, cenama futuresa i ekskluzivnim tržišnim izveštajima.",
+    "benefits": [
+      "Dostupnost alokacija u realnom vremenu u četiri tržišta",
+      "Ekskluzivne trgovinske cene i pristup futuresima",
+      "Kvartalni izveštaji o tržišnoj inteligenciji",
+      "Upravljanje i praćenje direktnih narudžbi"
+    ],
+    "stats": {
+      "portfolio": "40+",
+      "portfolioLabel": "Vina u Portfoliju",
+      "markets": "4",
+      "marketsLabel": "Tržišta",
+      "approval": "24h",
+      "approvalLabel": "Pregled Prijave"
+    },
+    "cta": {
+      "eyebrow": "Privatni Pristup",
+      "title": "Zatražite Pristup Trgovini",
+      "subtitle": "Pridružite se našoj mreži profesionalnih partnera. Prijave se pregledaju unutar 24 sata.",
+      "apply": "Zatražite Pristup",
+      "signin": "Već odobreni? Prijava"
+    }
+  },
+  "society": {
+    "eyebrow": "Samo na Poziv",
+    "title": "Neka Vina Nikada ne Dostignu na Otvoreno Tržište",
+    "description": "Članstvo se pruža privatnim pozivom odabranoj grupi kolekcionara i poznavalaca. Otkrivamo vanredna vina — male parcele, stare čokote, vinari koji rade u tajnosti — i delimo ih sa našim članovima pre svih ostalih.",
+    "story": {
+      "discovery": { "title": "Otkriće", "desc": "Pronalazimo vina koja ne dospеvaju na otvoreno tržište. Jedan vinogradski blok u Mendozi, 47 godina stare čokote, manje od 800 kilograma voća godišnje. Ti prvi čuješ." },
+      "revelation": { "title": "Otkrovenje", "desc": "Samo prirodni kvasci. 22 meseca u starom francuskom hrastu. 13,2% prirodnog alkohola na 1.340 metara nadmorske visine. Tehnički detalji za one koji razumeju šta je važno." },
+      "scarcity": { "title": "Retkost", "desc": "Dvadeset boca. Dvadeset članova. Članovi Kolekcionari dobijaju alokacije zasnovane na stažu, angažovanju i zastupanju. Ne kupljeno — zarađeno." }
+    },
+    "scarcityNotice": { "eyebrow": "Strogo Ograničeno", "title": "Svaki nivo prihvata samo 20 članova po tržištu", "desc": "Kada se dostigne kapacitet, novi članovi se mogu priključiti samo pozivom postojećih članova — ili listom čekanja." },
+    "tiers": {
+      "founding": { "name": "Osниvački Član", "price": "USD $2.500", "period": "/god", "allocation": "4 alokacije godišnje", "bottles": "6 boca svaka" },
+      "private": { "name": "Privatni Član", "price": "USD $3.500", "period": "/god", "allocation": "4 alokacije godišnje", "bottles": "6 boca svaka" },
+      "collector": { "name": "Član Kolekcionar", "price": "USD $10.500", "period": "/god", "allocation": "12 alokacija godišnje", "bottles": "6 boca mesečno", "badge": "Najtraženiji" },
+      "scarcity": "20 članstava po tržištu", "allocationLabel": "Alokacija", "experiencesLabel": "Iskustva"
+    },
+    "experiences": {
+      "founding": ["Privatna degustacija trgovine", "Pristup programu porekla"],
+      "private": ["Privatna degustacija trgovine", "Večere sa vinarima", "Prioritetni pristup događajima"],
+      "collector": ["Ultra-retke alokacije", "Neograničene degustacije", "Prilagođeno nabavljanje"]
+    },
+    "cta": { "request": "Zatraži Razmatranje", "signin": "Već član? Prijava ↗", "quote": "Pristup se ne može kupiti — mora se zaraditi. Članstvo se pruža samo pozivom." }
+  },
+  "corporate": {
+    "eyebrow": "Samo sa Zakazivanjem",
+    "title": "Tvoje vino",
+    "titleItalic": "govori",
+    "titleEnd": "nešto.",
+    "reframe": "Kada tvoj investitor pita odakle dolazi vino, odgovor ne bi trebalo da bude supermarket.",
+    "scarcity": "Upravljamo kompletnim programima vina za maksimalno dvanaest korporativnih klijenata po tržištu. Samo argentinska vina. Butik proizvođači. Ograničene alokacije.",
+    "tiers": {
+      "essentials": { "name": "Osnove Podruma", "price": "USD $5.000", "period": "/god", "focus": "Nove firme koje grade svoju praksu zabave" },
+      "management": { "name": "Upravljanje Podrumom", "price": "USD $10.000", "period": "/god", "focus": "Uspostavljene firme gde zabava pokreće poslovni protok" },
+      "excellence": { "name": "Izvrsnost Podruma", "price": "USD $18.000", "period": "/god", "focus": "Lideri tržišta koji zahtevaju izuzetno" }
+    },
+    "cta": { "request": "Zatraži Privatnu Konsultaciju", "client": "Pristup Klijenta →" },
+    "footer": "Godišnji Retainer · Argentinska Vina · Diskretna Usluga"
+  },
+  "corporateTiers": {
+    "excellence": "Izvrsnost",
+    "management": "Upravljanje",
+    "essentials": "Osnove",
+    "excellenceName": "Program Izvrsnosti Podruma",
+    "managementName": "Program Upravljanja Podrumom",
+    "essentialsName": "Program Osnove Podruma",
+    "excellenceDesc": "Vrhunac upravljanja kolekcijama vina",
+    "managementDesc": "Sveobuhvatno staranje za aktivne kolekcionare",
+    "essentialsDesc": "Temelj za zahtevnog kolekcionara",
+    "excellenceFeatures": [
+      "Sve iz Upravljanja",
+      "Mesečni pregledi portfolija",
+      "Namenski WhatsApp koncijerž",
+      "Godišnji privatni događaj degustacije",
+      "Pristup programu prilagođenih etiketa",
+      "Zastupanje na klijentskim događajima",
+      "Direktna upoznavanja sa vinarima"
+    ],
+    "managementFeatures": [
+      "Sve iz Osnova",
+      "Personalizovani servis informisanja",
+      "Kvartalni pregledi performansi",
+      "Servis hitnih boca",
+      "Prioritetni pristup alokacijama",
+      "Ekskluzivne trgovinske cene"
+    ],
+    "essentialsFeatures": [
+      "Sveobuhvatna revizija podruma i inventar",
+      "Godišnje planiranje nabavke",
+      "Kvartalne preporuke za vina",
+      "Upravljanje nabavkom",
+      "Do 10 kutija po kvartalu"
+    ]
   }
 }

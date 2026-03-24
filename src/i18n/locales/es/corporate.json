@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "title": "Servicios Corporativos | GC Wines",
+    "description": "Solicite una consulta privada para servicios de gestión de bodega"
+  },
+  "header": {
+    "eyebrow": "Servicios Privados de Bodega",
+    "title": "Solicitar una Consulta Privada",
+    "subtitle": "Nuestros programas de gestión de bodega están diseñados para coleccionistas exigentes que requieren administración discreta y profesional de sus activos de vino.",
+    "backToSite": "← Sitio Principal"
+  },
+  "form": {
+    "sections": {
+      "yourInfo": "Su Información",
+      "collection": "Perfil de la Colección",
+      "interest": "Interés en el Servicio",
+      "preferences": "Preferencias de Consulta"
+    },
+    "fields": {
+      "fullName": {
+        "label": "Nombre Completo *",
+        "placeholder": "Su nombre completo"
+      },
+      "email": {
+        "label": "Correo Electrónico *",
+        "placeholder": "su@email.com"
+      },
+      "phone": {
+        "label": "Teléfono",
+        "placeholder": "+1 (555) 000-0000"
+      },
+      "companyName": {
+        "label": "Nombre de la Empresa",
+        "placeholder": "Opcional"
+      },
+      "collectionSize": {
+        "label": "Cantidad Aproximada de Botellas *",
+        "placeholder": "Seleccione rango…",
+        "options": {
+          "under_500": "Menos de 500 botellas",
+          "500_2000": "500 – 2,000 botellas",
+          "2000_5000": "2,000 – 5,000 botellas",
+          "over_5000": "Más de 5,000 botellas"
+        }
+      },
+      "storage": {
+        "label": "Solución de Almacenamiento Actual *",
+        "placeholder": "Seleccione tipo…",
+        "options": {
+          "professional_cellar": "Bodega profesional con control de temperatura",
+          "wine_fridge": "Refrigeradores de vino",
+          "mixed": "Enfoque mixto",
+          "none": "Buscando orientación"
+        }
+      },
+      "annualBudget": {
+        "label": "Presupuesto Anual de Adquisición (AUD) *",
+        "placeholder": "Seleccione rango…",
+        "options": {
+          "under_50k": "Menos de $50,000",
+          "50k_150k": "$50,000 – $150,000",
+          "150k_500k": "$150,000 – $500,000",
+          "over_500k": "Más de $500,000"
+        }
+      },
+      "tierInterest": {
+        "essentials": {
+          "name": "Programa Esenciales de Bodega",
+          "price": "$5,000 / año",
+          "description": "Fundamento para el coleccionista exigente"
+        },
+        "management": {
+          "name": "Programa Gestión de Bodega",
+          "price": "$10,000 / año",
+          "description": "Administración integral para coleccionistas activos"
+        },
+        "excellence": {
+          "name": "Programa Excelencia de Bodega",
+          "price": "$18,000 / año",
+          "description": "La cúspide de la gestión de colecciones de vino"
+        },
+        "undecided": {
+          "name": "Indeciso",
+          "price": "Consulta Guiada",
+          "description": "Déjenos ayudarle a encontrar el programa adecuado"
+        }
+      },
+      "goals": {
+        "label": "Objetivos Principales *",
+        "options": {
+          "portfolio_growth": "Crecimiento y curaduría de portafolio",
+          "cellar_optimization": "Optimización y organización de bodega",
+          "investment": "Adquisición de vinos para inversión",
+          "events": "Apoyo para eventos y entretenimiento",
+          "other": "Otro"
+        }
+      },
+      "contactMethod": {
+        "label": "Método de Contacto Preferido *",
+        "options": {
+          "email": "Correo Electrónico",
+          "phone": "Teléfono",
+          "video_call": "Videollamada"
+        }
+      },
+      "timeZone": {
+        "label": "Zona Horaria",
+        "placeholder": "ej., GMT-5, AEDT"
+      },
+      "additionalNotes": {
+        "label": "Notas Adicionales",
+        "placeholder": "Cualquier requisito específico o preguntas que le gustaría discutir..."
+      }
+    },
+    "validation": {
+      "fullName": "Por favor ingrese su nombre completo.",
+      "email": "Por favor ingrese un correo electrónico válido.",
+      "collectionSize": "Por favor seleccione el tamaño de su colección.",
+      "storage": "Por favor seleccione su solución de almacenamiento.",
+      "annualBudget": "Por favor seleccione un rango de presupuesto anual.",
+      "tierInterest": "Por favor seleccione un programa de interés.",
+      "primaryGoals": "Por favor seleccione al menos un objetivo.",
+      "preferredContact": "Por favor seleccione un método de contacto preferido.",
+      "privacyAccepted": "Debe reconocer el Aviso de Privacidad."
+    },
+    "tierSummary": "Ha seleccionado interés en el",
+    "billingNote": "Discutiremos los detalles del programa durante su consulta.",
+    "privacyCheckbox": "Reconozco el",
+    "privacyLink": "Aviso de Privacidad",
+    "privacyNote": "y entiendo que enviar este formulario no constituye un compromiso de servicio.",
+    "submit": "Solicitar Consulta",
+    "submitting": "Enviando…"
+  },
+  "success": {
+    "title": "Solicitud Recibida",
+    "message": "Nuestro equipo se pondrá en contacto con usted dentro de 2 días hábiles para programar su consulta privada.",
+    "continue": "Continuar"
+  },
+  "footer": {
+    "alreadyClient": "¿Ya es cliente?",
+    "signIn": "Iniciar sesión ↗"
+  },
+  "signInModal": {
+    "title": "Acceso de Cliente",
+    "subtitle": "Ingrese su correo de cliente para recibir un enlace seguro.",
+    "emailPlaceholder": "su@email.com",
+    "button": "Enviar Enlace de Acceso",
+    "sending": "Enviando…",
+    "successTitle": "Revise Su Correo",
+    "successMessage": "Hemos enviado un enlace seguro a su dirección de correo. Por favor revise su bandeja de entrada y carpeta de spam.",
+    "close": "Cerrar",
+    "note": "Acceso seguro sin contraseña. No se requiere contraseña."
+  }
+}

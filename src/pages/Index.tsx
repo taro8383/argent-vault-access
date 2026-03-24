@@ -5,9 +5,10 @@ import HeroSection from "@/components/HeroSection";
 import NarrativeSection from "@/components/NarrativeSection";
 import WineVault from "@/components/WineVault";
 import GlobalMap from "@/components/GlobalMap";
-import ContactSection from "@/components/ContactSection";
+import TradePortalSection from "@/components/TradePortalSection";
+import SocietySection from "@/components/SocietySection";
+import TierComparisonPyramid from "@/components/TierComparisonPyramid";
 import Footer from "@/components/Footer";
-import CustomCursor from "@/components/CustomCursor";
 
 // Section divider component with scroll-triggered fade in
 const SectionDivider = () => {
@@ -64,7 +65,6 @@ const ScrollVelocityWrapper = ({ children }: { children: React.ReactNode }) => {
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <CustomCursor />
       <Header />
       <ScrollVelocityWrapper>
         <HeroSection />
@@ -75,7 +75,11 @@ const Index = () => {
         <SectionDivider />
         <GlobalMap />
         <SectionDivider />
-        <ContactSection />
+        <TradePortalSection />
+        <SectionDivider />
+        <SocietySection />
+        <SectionDivider />
+        <TierComparisonPyramid />
         <Footer />
       </ScrollVelocityWrapper>
     </div>

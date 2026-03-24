@@ -3,7 +3,10 @@
     "bridge": "桥梁",
     "vault": "酒窖",
     "operations": "运营",
-    "access": "联系"
+    "access": "联系",
+    "trade": "贸易",
+    "society": "会员",
+    "corporate": "企业"
   },
   "cta": {
     "privateInquiry": "私人咨询",
@@ -20,5 +23,143 @@
     "title": "404",
     "message": "哎呀！页面未找到",
     "returnHome": "返回首页"
+  },
+  "trade": {
+    "eyebrow": "葡萄酒专业人士",
+    "headline": "业界专属产品组合访问",
+    "subheadline": "侍酒师、零售商和餐厅经营者：发现为我们的专业合作伙伴保留的配额、价格和市场情报。",
+    "description": "贸易门户是您通往我们产品组合的直接渠道。访问当前配额、期货价格和独家市场报告。",
+    "benefits": [
+      "四个市场的实时配额可用性",
+      "独家贸易价格和期货访问",
+      "季度市场情报报告",
+      "直接订单管理和跟踪"
+    ],
+    "stats": {
+      "portfolio": "40+",
+      "portfolioLabel": "产品组合酒款",
+      "markets": "4",
+      "marketsLabel": "服务市场",
+      "approval": "24小时",
+      "approvalLabel": "申请审核"
+    },
+    "cta": {
+      "eyebrow": "专属访问",
+      "title": "申请贸易访问",
+      "subtitle": "加入我们的专业合作伙伴网络。申请在24小时内审核。",
+      "apply": "申请访问",
+      "signin": "已批准？登录"
+    }
+  },
+  "society": {
+    "eyebrow": "仅受邀者",
+    "title": "有些葡萄酒永远不会进入公开市场",
+    "description": "会员资格通过私人邀请扩展到一群精选的收藏家和鉴赏家。我们发现非凡的葡萄酒——小地块、老藤、秘密工作的酿酒师——并在其他人之前与我们的会员分享。",
+    "story": {
+      "discovery": { "title": "发现", "desc": "我们寻找不进入公开市场的葡萄酒。门多萨的一个单一葡萄园地块，47年的老藤，每年少于800公斤的水果。你是第一个听到的。" },
+      "revelation": { "title": "启示", "desc": "仅天然酵母。旧法国橡木桶中22个月。海拔1,340米处13.2%的天然酒精。为懂行的人提供的技术细节。" },
+      "scarcity": { "title": "稀缺", "desc": "二十瓶。二十位会员。收藏家会员根据资历、参与度和推荐获得配额。非购买——乃赢得。" }
+    },
+    "scarcityNotice": { "eyebrow": "严格限量", "title": "每个级别每个市场仅接受20名会员", "desc": "当容量达到时，新会员只能通过现有会员的邀请加入——或通过候补名单。" },
+    "tiers": {
+      "founding": { "name": "创始会员", "price": "USD $2,500", "period": "/年", "allocation": "每年4次配额", "bottles": "每次6瓶" },
+      "private": { "name": "私人会员", "price": "USD $3,500", "period": "/年", "allocation": "每年4次配额", "bottles": "每次6瓶" },
+      "collector": { "name": "收藏家会员", "price": "USD $10,500", "period": "/年", "allocation": "每年12次配额", "bottles": "每月6瓶", "badge": "最受欢迎" },
+      "scarcity": "每个市场20个会员资格", "allocationLabel": "配额", "experiencesLabel": "体验"
+    },
+    "experiences": {
+      "founding": ["私人贸易品鉴", "原产地计划访问"],
+      "private": ["私人贸易品鉴", "酿酒师晚宴", "优先活动访问"],
+      "collector": ["超稀有配额", "无限次品鉴", "定制采购"]
+    },
+    "cta": { "request": "申请考虑", "signin": "已是会员？登录 ↗", "quote": "访问权无法购买——必须赢得。会员资格仅通过邀请扩展。" }
+  },
+  "corporate": {
+    "eyebrow": "仅预约",
+    "title": "您的葡萄酒",
+    "titleItalic": "正在诉说",
+    "titleEnd": "着什么。",
+    "reframe": "当您的投资者问葡萄酒来自哪里时，答案不应该是超市。",
+    "scarcity": "我们为每个市场最多十二位企业客户管理完整的葡萄酒计划。仅阿根廷葡萄酒。精品生产商。限量配额。",
+    "tiers": {
+      "essentials": { "name": "酒窖精华", "price": "USD $5,000", "period": "/年", "focus": "建立娱乐实践的新兴公司" },
+      "management": { "name": "酒窖管理", "price": "USD $10,000", "period": "/年", "focus": "娱乐推动交易流的成熟公司" },
+      "excellence": { "name": "酒窖卓越", "price": "USD $18,000", "period": "/年", "focus": "追求卓越的市场领导者" }
+    },
+    "cta": { "request": "申请私人咨询", "client": "客户访问 →" },
+    "footer": "年度聘用金 · 阿根廷葡萄酒 · discreet服务"
+  },
+  "ui": {
+    "clickOrTapToFlip": "点击或轻触翻转",
+    "hover": "悬停",
+    "explore": "探索",
+    "tap": "轻触",
+    "emailAddress": "电子邮件地址",
+    "sending": "发送中…",
+    "close": "关闭",
+    "secureSignInNote": "安全无密码登录。无需密码。",
+    "errorSendingLink": "发送链接时出错。请重试。",
+    "unexpectedError": "发生意外错误。请重试。"
+  },
+  "signInModal": {
+    "trade": {
+      "title": "贸易门户访问",
+      "subtitle": "输入您批准的贸易电子邮件以接收安全链接。",
+      "placeholder": "you@company.com",
+      "buttonText": "发送访问链接",
+      "successTitle": "查看您的电子邮件",
+      "successMessage": "我们已向您的电子邮件地址发送了安全链接。请检查您的收件箱和垃圾邮件文件夹。"
+    },
+    "society": {
+      "title": "会员访问",
+      "subtitle": "输入您的会员电子邮件地址以接收安全链接。",
+      "placeholder": "you@email.com",
+      "buttonText": "发送访问链接",
+      "successTitle": "查看您的电子邮件",
+      "successMessage": "我们已向您的电子邮件地址发送了安全链接。请检查您的收件箱和垃圾邮件文件夹。"
+    },
+    "corporate": {
+      "title": "客户访问",
+      "subtitle": "输入您的客户电子邮件地址以接收安全链接。",
+      "placeholder": "you@email.com",
+      "buttonText": "发送访问链接",
+      "successTitle": "查看您的电子邮件",
+      "successMessage": "我们已向您的电子邮件地址发送了安全链接。请检查您的收件箱和垃圾邮件文件夹。"
+    }
+  },
+  "corporateTiers": {
+    "excellence": "卓越",
+    "management": "管理",
+    "essentials": "精华",
+    "excellenceName": "酒窖卓越计划",
+    "managementName": "酒窖管理计划",
+    "essentialsName": "酒窖精华计划",
+    "excellenceDesc": "葡萄酒收藏管理的巅峰",
+    "managementDesc": "为活跃收藏家提供的全面管理",
+    "essentialsDesc": "为挑剔收藏家打造的基础",
+    "excellenceFeatures": [
+      "包含管理的所有内容",
+      "月度投资组合审查",
+      "专属WhatsApp礼宾服务",
+      "年度私人品鉴活动",
+      "定制标签计划访问",
+      "客户活动代表",
+      "直接介绍酿酒师"
+    ],
+    "managementFeatures": [
+      "包含精华的所有内容",
+      "个人简报服务",
+      "季度绩效审查",
+      "紧急瓶装服务",
+      "优先配额访问",
+      "独家贸易价格"
+    ],
+    "essentialsFeatures": [
+      "全面的酒窖审计和库存",
+      "年度收购计划",
+      "季度葡萄酒推荐",
+      "采购管理",
+      "每季度最多10箱"
+    ]
   }
 }

@@ -510,7 +510,7 @@ const WineVault = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Carousel View */}
+        {/* Grid View - Full width */}
         <AnimatePresence mode="wait">
           {viewMode === "carousel" ? (
             <motion.div
@@ -553,7 +553,7 @@ const WineVault = () => {
                       initial={{ opacity: 0, y: 40 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ delay: 0.4 + i * 0.1, duration: 0.7 }}
-                      className="group w-[280px] md:w-[320px] flex-shrink-0"
+                      className="group w-[300px] md:w-[360px] flex-shrink-0"
                     >
                       {/* Wine bottle visualization with 3D tilt */}
                       <TiltCard

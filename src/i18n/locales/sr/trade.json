@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "title": "Trgovinski Portal | GC Wines",
+    "description": "Prijavite se za trgovinski pristup portfoliju GC Wines"
+  },
+  "header": {
+    "eyebrow": "Trgovinski Upiti",
+    "title": "Zatražite Trgovinski Pristup",
+    "subtitle": "Naš trgovinski program je samo na prijavu.",
+    "backToSite": "← Glavni Sajt"
+  },
+  "form": {
+    "section": {
+      "professional": "Profesionalni Podaci",
+      "property": "Detalji o Imovini",
+      "requirements": "Zahtevi"
+    },
+    "fields": {
+      "fullName": {
+        "label": "Puno Ime",
+        "placeholder": "Vaše puno ime"
+      },
+      "professionalTitle": {
+        "label": "Profesionalna Titula",
+        "placeholder": "npr. Somelijer, Kupac"
+      },
+      "propertyName": {
+        "label": "Naziv Imovine",
+        "placeholder": "Hotel, restoran ili kompanija"
+      },
+      "propertyType": {
+        "label": "Tip Imovine",
+        "placeholder": "Izaberite tip…",
+        "options": {
+          "hotel": "Hotel",
+          "restaurant": "Restoran",
+          "wine_bar": "Vinski Bar",
+          "retailer": "Maloprodaja",
+          "distributor": "Distributer",
+          "other": "Ostalo"
+        }
+      },
+      "marketCountry": {
+        "label": "Tržište / Država",
+        "placeholder": "npr. Ujedinjeno Kraljevstvo, Japan, Australija"
+      },
+      "annualSpend": {
+        "label": "Približna Godišnja Potrošnja (AUD)",
+        "placeholder": "Izaberite opseg…",
+        "options": {
+          "under_50k": "Ispod $50,000",
+          "50k_150k": "$50,000 – $150,000",
+          "150k_500k": "$150,000 – $500,000",
+          "over_500k": "Preko $500,000"
+        }
+      },
+      "referralSource": {
+        "label": "Kako ste čuli za nas?",
+        "placeholder": "Sajam, kolega, štampa…"
+      },
+      "requirements": {
+        "label": "Šta tražite?",
+        "placeholder": "Opišite potrebe vašeg programa, zahteve za zapreminu ili specifična interesovanja…"
+      }
+    },
+    "validation": {
+      "fullName": "Molimo unesite vaše puno ime.",
+      "professionalTitle": "Molimo unesite vašu profesionalnu titulu.",
+      "propertyName": "Molimo unesite naziv vaše imovine.",
+      "propertyType": "Molimo izaberite tip imovine.",
+      "marketCountry": "Molimo unesite vaše tržište ili državu.",
+      "annualSpend": "Molimo izaberite opseg godišnje potrošnje.",
+      "referralSource": "Molimo navedite kako ste čuli za nas.",
+      "requirements": "Molimo opišite šta tražite (najmanje 20 karaktera).",
+      "tosAccepted": "Morate prihvatiti Uslove Korišćenja.",
+      "privacyAccepted": "Morate priznati Obaveštenje o Privatnosti."
+    },
+    "checkboxes": {
+      "tos": "Pročitao/la sam i prihvatam",
+      "tosLink": "Uslove Korišćenja",
+      "privacy": "Priznajem",
+      "privacyLink": "Obaveštenje o Privatnosti"
+    },
+    "submit": {
+      "default": "Pošaljite Prijavu",
+      "sending": "Šaljem…",
+      "submitting": "Šaljem…"
+    }
+  },
+  "success": {
+    "title": "Prijava Primljena",
+    "message": "Naš tim će pregledati vašu prijavu u roku od 2 radna dana.",
+    "emailNote": "Dobićete potvrdu na navedenu adresu email-a.",
+    "continue": "Nastavi"
+  },
+  "footer": {
+    "alreadyApproved": "Već ste odobreni?",
+    "signIn": "Prijavi se ↗"
+  },
+  "signInModal": {
+    "title": "Pristup Trgovinskom Portalu",
+    "subtitle": "Unesite vašu odobrenu adresu email-a da biste dobili bezbedan link.",
+    "emailPlaceholder": "vi@kompanija.com",
+    "button": "Pošalji Link za Pristup",
+    "sending": "Šaljem…",
+    "successTitle": "Proverite Vaš Email",
+    "successMessage": "Poslali smo bezbedan link na vašu adresu email-a. Molimo proverite vaše sanduče i fasciklu za nepoželjnu poštu.",
+    "close": "Zatvori",
+    "note": "Bezbedna prijava bez lozinke. Lozinka nije potrebna."
+  }
+}

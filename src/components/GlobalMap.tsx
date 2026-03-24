@@ -332,7 +332,7 @@ const GlobalMap = () => {
         />
       </motion.div>
 
-      <div className="max-w-5xl mx-auto relative">
+      <div className="w-full px-6 md:px-12 lg:px-24 relative">
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}

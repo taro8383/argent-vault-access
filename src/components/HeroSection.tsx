@@ -163,12 +163,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-            className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-6"
+            className="font-sans-nav text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] uppercase text-primary mb-6"
           >
             {t("tagline")}
           </motion.p>
 
-          <motion.h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-wide leading-tight mb-8">
+          <motion.h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-wide leading-tight mb-8">
             {t("title.line1").split("").map((char, i) => (
               <motion.span
                 key={i}
@@ -210,7 +210,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.9, ease: "easeOut" }}
-            className="font-sans text-sm md:text-base tracking-wider text-muted-foreground max-w-2xl leading-relaxed"
+            className="font-sans text-xs sm:text-sm md:text-base tracking-wider text-muted-foreground max-w-2xl leading-relaxed px-4 sm:px-0"
           >
             {t("subtitle")}
           </motion.p>
@@ -359,7 +359,7 @@ const HeroSection = () => {
               <text
                 x="200" y="200"
                 textAnchor="middle"
-                fill="hsl(0, 0%, 55%)"
+                fill="hsl(0, 0%, 78%)"
                 fontSize="9"
                 fontFamily="Montserrat, sans-serif"
                 fontWeight="300"
@@ -405,7 +405,7 @@ const HeroSection = () => {
               <text
                 x="520" y="180"
                 textAnchor="middle"
-                fill="hsl(0, 0%, 55%)"
+                fill="hsl(0, 0%, 78%)"
                 fontSize="9"
                 fontFamily="Montserrat, sans-serif"
                 fontWeight="300"
@@ -451,7 +451,7 @@ const HeroSection = () => {
               <text
                 x="800" y="210"
                 textAnchor="middle"
-                fill="hsl(0, 0%, 55%)"
+                fill="hsl(0, 0%, 78%)"
                 fontSize="9"
                 fontFamily="Montserrat, sans-serif"
                 fontWeight="300"

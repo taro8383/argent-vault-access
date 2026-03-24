@@ -1,0 +1,154 @@
+{
+  "metadata": {
+    "title": "企业服务 | GC Wines",
+    "description": "请求私人咨询以获取酒窖管理服务"
+  },
+  "header": {
+    "eyebrow": "私人酒窖服务",
+    "title": "请求私人咨询",
+    "subtitle": "我们的酒窖管理计划专为需要谨慎、专业管理其葡萄酒资产的挑剔收藏家而设计。",
+    "backToSite": "← 主网站"
+  },
+  "form": {
+    "sections": {
+      "yourInfo": "您的信息",
+      "collection": "收藏概况",
+      "interest": "服务意向",
+      "preferences": "咨询偏好"
+    },
+    "fields": {
+      "fullName": {
+        "label": "全名 *",
+        "placeholder": "您的全名"
+      },
+      "email": {
+        "label": "电子邮箱 *",
+        "placeholder": "您的邮箱@email.com"
+      },
+      "phone": {
+        "label": "电话号码",
+        "placeholder": "+1 (555) 000-0000"
+      },
+      "companyName": {
+        "label": "公司名称",
+        "placeholder": "可选"
+      },
+      "collectionSize": {
+        "label": "大约酒瓶数量 *",
+        "placeholder": "选择范围…",
+        "options": {
+          "under_500": "少于500瓶",
+          "500_2000": "500 – 2,000瓶",
+          "2000_5000": "2,000 – 5,000瓶",
+          "over_5000": "超过5,000瓶"
+        }
+      },
+      "storage": {
+        "label": "当前储存方案 *",
+        "placeholder": "选择类型…",
+        "options": {
+          "professional_cellar": "专业温控酒窖",
+          "wine_fridge": "葡萄酒冰箱",
+          "mixed": "混合方案",
+          "none": "寻求指导"
+        }
+      },
+      "annualBudget": {
+        "label": "年度采购预算（澳元） *",
+        "placeholder": "选择范围…",
+        "options": {
+          "under_50k": "低于50,000澳元",
+          "50k_150k": "50,000 – 150,000澳元",
+          "150k_500k": "150,000 – 500,000澳元",
+          "over_500k": "超过500,000澳元"
+        }
+      },
+      "tierInterest": {
+        "essentials": {
+          "name": "酒窖基础计划",
+          "price": "每年5,000澳元",
+          "description": "为挑剔收藏家奠定的基础"
+        },
+        "management": {
+          "name": "酒窖管理计划",
+          "price": "每年10,000澳元",
+          "description": "为活跃收藏家提供全面管理"
+        },
+        "excellence": {
+          "name": "酒窖卓越计划",
+          "price": "每年18,000澳元",
+          "description": "葡萄酒收藏管理的巅峰"
+        },
+        "undecided": {
+          "name": "尚未决定",
+          "price": "指导咨询",
+          "description": "让我们帮助您找到合适的计划"
+        }
+      },
+      "goals": {
+        "label": "主要目标 *",
+        "options": {
+          "portfolio_growth": "组合增长与策划",
+          "cellar_optimization": "酒窖优化与整理",
+          "investment": "投资级葡萄酒采购",
+          "events": "活动与娱乐支持",
+          "other": "其他"
+        }
+      },
+      "contactMethod": {
+        "label": "首选联系方式 *",
+        "options": {
+          "email": "电子邮件",
+          "phone": "电话",
+          "video_call": "视频通话"
+        }
+      },
+      "timeZone": {
+        "label": "时区",
+        "placeholder": "例如：GMT-5, AEDT"
+      },
+      "additionalNotes": {
+        "label": "附加说明",
+        "placeholder": "任何您想讨论的具体要求或问题…"
+      }
+    },
+    "validation": {
+      "fullName": "请输入您的全名。",
+      "email": "请输入有效的电子邮箱地址。",
+      "collectionSize": "请选择您的收藏规模。",
+      "storage": "请选择您的储存方案。",
+      "annualBudget": "请选择年度预算范围。",
+      "tierInterest": "请选择感兴趣的计划。",
+      "primaryGoals": "请至少选择一个目标。",
+      "preferredContact": "请选择首选联系方式。",
+      "privacyAccepted": "您必须确认隐私声明。"
+    },
+    "tierSummary": "您已选择对以下计划的兴趣",
+    "billingNote": "我们将在咨询期间讨论计划详情。",
+    "privacyCheckbox": "我确认",
+    "privacyLink": "隐私声明",
+    "privacyNote": "并理解提交此表格不构成服务承诺。",
+    "submit": "请求咨询",
+    "submitting": "发送中…"
+  },
+  "success": {
+    "title": "请求已收到",
+    "message": "我们的团队将在2个工作日内与您联系，安排您的私人咨询。",
+    "continue": "继续"
+  },
+  "footer": {
+    "alreadyClient": "已经是客户？",
+    "signIn": "登录 ↗"
+  },
+  "signInModal": {
+    "title": "客户访问",
+    "subtitle": "输入您的客户邮箱地址以接收安全访问链接。",
+    "emailPlaceholder": "您的邮箱@email.com",
+    "button": "发送访问链接",
+    "sending": "发送中…",
+    "successTitle": "查看您的邮箱",
+    "successMessage": "我们已向您的邮箱地址发送了安全访问链接。请检查您的收件箱和垃圾邮件文件夹。",
+    "close": "关闭",
+    "note": "安全无密码登录。无需密码。"
+  }
+}

@@ -3,7 +3,10 @@
     "bridge": "El Puente",
     "vault": "La Bodega",
     "operations": "Operaciones",
-    "access": "Acceso"
+    "access": "Acceso",
+    "trade": "Sector",
+    "society": "Círculo",
+    "corporate": "Empresas"
   },
   "cta": {
     "privateInquiry": "Consulta Privada",
@@ -20,5 +23,199 @@
     "title": "404",
     "message": "¡Ups! Página no encontrada",
     "returnHome": "Volver al Inicio"
+  },
+  "trade": {
+    "eyebrow": "Para Profesionales del Vino",
+    "headline": "Acceso al Portfolio para el Sector",
+    "subheadline": "Sommeliers, minoristas y restauradores: descubra asignaciones, precios e inteligencia de mercado reservados para nuestros socios profesionales.",
+    "description": "El Portal de Trade es su línea directa a nuestro portfolio. Acceda a asignaciones actuales, precios de futuros e informes de mercado exclusivos—todo lo que necesita para construir un programa de vinos argentinos de clase mundial.",
+    "benefits": [
+      "Disponibilidad de asignaciones en tiempo real en cuatro mercados",
+      "Precios exclusivos para el sector y acceso a futuros",
+      "Informes trimestrales de inteligencia de mercado",
+      "Gestión y seguimiento de pedidos directos"
+    ],
+    "stats": {
+      "portfolio": "40+",
+      "portfolioLabel": "Vinos en Portfolio",
+      "markets": "4",
+      "marketsLabel": "Mercados Atendidos",
+      "approval": "24h",
+      "approvalLabel": "Revisión de Solicitud"
+    },
+    "cta": {
+      "eyebrow": "Acceso Privado",
+      "title": "Solicitar Acceso al Sector",
+      "subtitle": "Únase a nuestra red de socios profesionales. Solicitudes revisadas dentro de 24 horas.",
+      "apply": "Solicitar Acceso",
+      "signin": "¿Ya aprobado? Iniciar sesión"
+    }
+  },
+  "society": {
+    "eyebrow": "Solo con Invitación",
+    "title": "Algunos Vinos Nunca Llegan al Mercado Abierto",
+    "description": "La membresía se extiende por invitación privada a un grupo selecto de coleccionistas y conocedores. Descubrimos vinos extraordinarios — parcelas pequeñas, viñas viejas, enólogos trabajando en secreto — y los compartimos con nuestros miembros antes que nadie.",
+    "story": {
+      "discovery": {
+        "title": "El Descubrimiento",
+        "desc": "Encontramos vinos que no llegan al mercado abierto. Un solo viñedo en Mendoza, viñas de 47 años, menos de 800 kilogramos de fruta por año. Tú lo escuchas primero."
+      },
+      "revelation": {
+        "title": "La Revelación",
+        "desc": "Solo levaduras nativas. 22 meses en roble francés viejo. 13,2% de alcohol natural a 1,340 metros de altitud. Detalles técnicos para quienes entienden lo que importa."
+      },
+      "scarcity": {
+        "title": "La Escasez",
+        "desc": "Veinte botellas. Veinte miembros. Los miembros Coleccionistas reciben asignaciones basadas en antigüedad, compromiso y defensa. No comprado — ganado."
+      }
+    },
+    "scarcityNotice": {
+      "eyebrow": "Estrictamente Limitado",
+      "title": "Cada nivel acepta solo 20 miembros por mercado",
+      "desc": "Cuando se alcanza la capacidad, los nuevos miembros solo pueden unirse por invitación de miembros existentes — o por lista de espera."
+    },
+    "tiers": {
+      "founding": {
+        "name": "Miembro Fundador",
+        "price": "USD $2,500",
+        "period": "/año",
+        "allocation": "4 asignaciones por año",
+        "bottles": "6 botellas cada una"
+      },
+      "private": {
+        "name": "Miembro Privado",
+        "price": "USD $3,500",
+        "period": "/año",
+        "allocation": "4 asignaciones por año",
+        "bottles": "6 botellas cada una"
+      },
+      "collector": {
+        "name": "Miembro Coleccionista",
+        "price": "USD $10,500",
+        "period": "/año",
+        "allocation": "12 asignaciones por año",
+        "bottles": "6 botellas mensuales",
+        "badge": "Más Buscado"
+      },
+      "scarcity": "20 membresías por mercado",
+      "allocationLabel": "Asignación",
+      "experiencesLabel": "Experiencias"
+    },
+    "experiences": {
+      "founding": ["Catas privadas de trade", "Acceso al programa de origen"],
+      "private": ["Catas privadas de trade", "Cenas con enólogos", "Acceso prioritario a eventos"],
+      "collector": ["Asignaciones ultra-raras", "Catas ilimitadas", "Sourcing personalizado"]
+    },
+    "cta": {
+      "request": "Solicitar Consideración",
+      "signin": "¿Ya eres miembro? Iniciar sesión ↗",
+      "quote": "El acceso no puede comprarse — debe ganarse. La membresía se extiende solo por invitación."
+    }
+  },
+  "corporate": {
+    "eyebrow": "Solo con Cita",
+    "title": "Tu vino",
+    "titleItalic": "está diciendo",
+    "titleEnd": "algo.",
+    "reframe": "Cuando tu inversionista pregunta de dónde viene el vino, la respuesta no debería ser un supermercado.",
+    "scarcity": "Gestionamos programas de vino completos para un máximo de doce clientes corporativos por mercado. Solo vinos argentinos. Productores boutique. Asignaciones limitadas.",
+    "tiers": {
+      "essentials": {
+        "name": "Esenciales de Bodega",
+        "price": "USD $5,000",
+        "period": "/año",
+        "focus": "Empresas emergentes construyendo su práctica de entretenimiento"
+      },
+      "management": {
+        "name": "Gestión de Bodega",
+        "price": "USD $10,000",
+        "period": "/año",
+        "focus": "Empresas establecidas donde el entretenimiento impulsa el flujo de negocios"
+      },
+      "excellence": {
+        "name": "Excelencia de Bodega",
+        "price": "USD $18,000",
+        "period": "/año",
+        "focus": "Líderes de mercado que exigen lo excepcional"
+      }
+    },
+    "cta": {
+      "request": "Solicitar Consulta Privada",
+      "client": "Acceso Cliente →"
+    },
+    "footer": "Retenedor Anual · Vinos Argentinos · Servicio Discreto"
+  },
+  "ui": {
+    "clickOrTapToFlip": "Haz clic o toca para girar",
+    "hover": "Pasa el cursor",
+    "explore": "Explora",
+    "tap": "Toca",
+    "emailAddress": "Correo Electrónico",
+    "sending": "Enviando…",
+    "close": "Cerrar",
+    "secureSignInNote": "Inicio de sesión seguro sin contraseña. No se requiere contraseña.",
+    "errorSendingLink": "Error al enviar el enlace. Por favor, inténtalo de nuevo.",
+    "unexpectedError": "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
+  },
+  "signInModal": {
+    "trade": {
+      "title": "Acceso al Portal de Trade",
+      "subtitle": "Introduce tu correo de trade aprobado para recibir un enlace seguro.",
+      "placeholder": "tu@empresa.com",
+      "buttonText": "Enviar Enlace de Acceso",
+      "successTitle": "Revisa tu Correo",
+      "successMessage": "Hemos enviado un enlace seguro a tu dirección de correo. Por favor, revisa tu bandeja de entrada y spam."
+    },
+    "society": {
+      "title": "Acceso de Miembro",
+      "subtitle": "Introduce tu correo de miembro para recibir un enlace seguro.",
+      "placeholder": "tu@email.com",
+      "buttonText": "Enviar Enlace de Acceso",
+      "successTitle": "Revisa tu Correo",
+      "successMessage": "Hemos enviado un enlace seguro a tu dirección de correo. Por favor, revisa tu bandeja de entrada y spam."
+    },
+    "corporate": {
+      "title": "Acceso de Cliente",
+      "subtitle": "Introduce tu correo de cliente para recibir un enlace seguro.",
+      "placeholder": "tu@email.com",
+      "buttonText": "Enviar Enlace de Acceso",
+      "successTitle": "Revisa tu Correo",
+      "successMessage": "Hemos enviado un enlace seguro a tu dirección de correo. Por favor, revisa tu bandeja de entrada y spam."
+    }
+  },
+  "corporateTiers": {
+    "excellence": "Excelencia",
+    "management": "Gestión",
+    "essentials": "Esenciales",
+    "excellenceName": "Programa Excelencia de Bodega",
+    "managementName": "Programa Gestión de Bodega",
+    "essentialsName": "Programa Esenciales de Bodega",
+    "excellenceDesc": "La cúspide de la gestión de colecciones de vino",
+    "managementDesc": "Administración integral para coleccionistas activos",
+    "essentialsDesc": "Fundamento para el coleccionista exigente",
+    "excellenceFeatures": [
+      "Todo lo de Gestión",
+      "Revisiones mensuales de portfolio",
+      "Concierge dedicado por WhatsApp",
+      "Evento anual de cata privada",
+      "Acceso al programa de etiquetas personalizadas",
+      "Representación en eventos de clientes",
+      "Introducciones directas con enólogos"
+    ],
+    "managementFeatures": [
+      "Todo lo de Esenciales",
+      "Servicio de informes personalizados",
+      "Revisiones trimestrales de rendimiento",
+      "Servicio de botellas de emergencia",
+      "Acceso prioritario a asignaciones",
+      "Precios exclusivos para el sector"
+    ],
+    "essentialsFeatures": [
+      "Auditoría integral de bodega e inventario",
+      "Planificación anual de adquisiciones",
+      "Recomendaciones trimestrales de vinos",
+      "Gestión de adquisiciones",
+      "Hasta 10 cajas por trimestre"
+    ]
   }
 }

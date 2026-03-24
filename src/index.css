@@ -76,10 +76,10 @@
     --primary-foreground: 0 0% 7%;
 
     --secondary: 0 0% 15%;
-    --secondary-foreground: 39 20% 85%;
+    --secondary-foreground: 39 20% 88%;
 
     --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 55%;
+    --muted-foreground: 0 0% 78%;
 
     --accent: 0 82% 17%;
     --accent-foreground: 39 20% 90%;
@@ -94,7 +94,7 @@
     --radius: 0.25rem;
 
     --sidebar-background: 0 0% 8%;
-    --sidebar-foreground: 39 20% 85%;
+    --sidebar-foreground: 39 20% 88%;
     --sidebar-primary: 39 52% 56%;
     --sidebar-primary-foreground: 0 0% 7%;
     --sidebar-accent: 0 82% 17%;
@@ -412,4 +412,38 @@
       cursor: none !important;
     }
   }
+}
+
+/* Custom Gold Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 10%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(39 30% 35%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(39 52% 56%);
+}
+
+::-webkit-scrollbar-corner {
+  background: hsl(0 0% 10%);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(39 30% 35%) hsl(0 0% 10%);
+}
+
+/* Hover state for Firefox */
+*:hover {
+  scrollbar-color: hsl(39 52% 56%) hsl(0 0% 10%);
 }

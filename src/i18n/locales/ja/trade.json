@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "title": "トレードポータル | GC Wines",
+    "description": "GC Winesポートフォリオへのトレードアクセスを申請"
+  },
+  "header": {
+    "eyebrow": "トレードお問い合わせ",
+    "title": "トレードアクセスを申請",
+    "subtitle": "当社のトレードプログラムは申請制です。",
+    "backToSite": "← メインサイト"
+  },
+  "form": {
+    "section": {
+      "professional": "職業情報",
+      "property": "施設詳細",
+      "requirements": "ご要望"
+    },
+    "fields": {
+      "fullName": {
+        "label": "フルネーム",
+        "placeholder": "お名前"
+      },
+      "professionalTitle": {
+        "label": "職業名",
+        "placeholder": "例：ソムリエ、バイヤー"
+      },
+      "propertyName": {
+        "label": "施設名",
+        "placeholder": "ホテル、レストラン、会社名"
+      },
+      "propertyType": {
+        "label": "施設タイプ",
+        "placeholder": "タイプを選択…",
+        "options": {
+          "hotel": "ホテル",
+          "restaurant": "レストラン",
+          "wine_bar": "ワインバー",
+          "retailer": "小売業者",
+          "distributor": "ディストリビューター",
+          "other": "その他"
+        }
+      },
+      "marketCountry": {
+        "label": "市場/国",
+        "placeholder": "例：英国、日本、オーストラリア"
+      },
+      "annualSpend": {
+        "label": "年間概算支出（AUD）",
+        "placeholder": "範囲を選択…",
+        "options": {
+          "under_50k": "50,000ドル未満",
+          "50k_150k": "50,000 – 150,000ドル",
+          "150k_500k": "150,000 – 500,000ドル",
+          "over_500k": "500,000ドル以上"
+        }
+      },
+      "referralSource": {
+        "label": "当社を知ったきっかけは？",
+        "placeholder": "展示会、同僚、メディア…"
+      },
+      "requirements": {
+        "label": "ご要望をお聞かせください",
+        "placeholder": "プログラムのご要望、数量要件、特別なご興味などをご記入ください…"
+      }
+    },
+    "validation": {
+      "fullName": "フルネームを入力してください。",
+      "professionalTitle": "職業名を入力してください。",
+      "propertyName": "施設名を入力してください。",
+      "propertyType": "施設タイプを選択してください。",
+      "marketCountry": "市場または国を入力してください。",
+      "annualSpend": "年間支出範囲を選択してください。",
+      "referralSource": "当社を知ったきっかけを教えてください。",
+      "requirements": "ご要望を記入してください（20文字以上）。",
+      "tosAccepted": "サービス利用規約に同意する必要があります。",
+      "privacyAccepted": "プライバシー通知を確認する必要があります。"
+    },
+    "checkboxes": {
+      "tos": "を読み、同意します",
+      "tosLink": "サービス利用規約",
+      "privacy": "を確認します",
+      "privacyLink": "プライバシー通知"
+    },
+    "submit": {
+      "default": "申請を送信",
+      "sending": "送信中…",
+      "submitting": "送信中…"
+    }
+  },
+  "success": {
+    "title": "申請を受け付けました",
+    "message": "当社チームが2営業日以内に申請を審査します。",
+    "emailNote": "ご指定のメールアドレスに確認メールをお送りします。",
+    "continue": "続行"
+  },
+  "footer": {
+    "alreadyApproved": "既に承認済みですか？",
+    "signIn": "サインイン ↗"
+  },
+  "signInModal": {
+    "title": "トレードポータルサインイン",
+    "subtitle": "承認済みのメールアドレスを入力して、安全なサインインリンクを受け取ってください。",
+    "emailPlaceholder": "your@company.com",
+    "button": "サインインリンクを送信",
+    "sending": "送信中…",
+    "successTitle": "メールをご確認ください",
+    "successMessage": "安全なサインインリンクをメールアドレスに送信しました。受信箱と迷惑メールフォルダをご確認ください。",
+    "close": "閉じる",
+    "note": "安全なパスワードレスサインイン。パスワードは不要です。"
+  }
+}

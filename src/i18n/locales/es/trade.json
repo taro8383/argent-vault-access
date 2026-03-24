@@ -1,0 +1,111 @@
+{
+  "metadata": {
+    "title": "Portal de Comercio | GC Wines",
+    "description": "Solicite acceso comercial al portafolio de GC Wines"
+  },
+  "header": {
+    "eyebrow": "Consultas Comerciales",
+    "title": "Solicitar Acceso Comercial",
+    "subtitle": "Nuestro programa comercial es solo por aplicación.",
+    "backToSite": "← Sitio Principal"
+  },
+  "form": {
+    "section": {
+      "professional": "Información Profesional",
+      "property": "Detalles de la Propiedad",
+      "requirements": "Requisitos"
+    },
+    "fields": {
+      "fullName": {
+        "label": "Nombre Completo",
+        "placeholder": "Su nombre completo"
+      },
+      "professionalTitle": {
+        "label": "Título Profesional",
+        "placeholder": "ej. Sommelier, Comprador"
+      },
+      "propertyName": {
+        "label": "Nombre de la Propiedad",
+        "placeholder": "Hotel, restaurante o empresa"
+      },
+      "propertyType": {
+        "label": "Tipo de Propiedad",
+        "placeholder": "Seleccione tipo…",
+        "options": {
+          "hotel": "Hotel",
+          "restaurant": "Restaurante",
+          "wine_bar": "Bar de Vinos",
+          "retailer": "Minorista",
+          "distributor": "Distribuidor",
+          "other": "Otro"
+        }
+      },
+      "marketCountry": {
+        "label": "Mercado / País",
+        "placeholder": "ej. Reino Unido, Japón, Australia"
+      },
+      "annualSpend": {
+        "label": "Gasto Anual Aproximado (AUD)",
+        "placeholder": "Seleccione rango…",
+        "options": {
+          "under_50k": "Menos de $50,000",
+          "50k_150k": "$50,000 – $150,000",
+          "150k_500k": "$150,000 – $500,000",
+          "over_500k": "Más de $500,000"
+        }
+      },
+      "referralSource": {
+        "label": "¿Cómo se enteró de nosotros?",
+        "placeholder": "Feria comercial, colega, prensa…"
+      },
+      "requirements": {
+        "label": "¿Qué está buscando?",
+        "placeholder": "Describa las necesidades de su programa, requisitos de volumen o intereses específicos…"
+      }
+    },
+    "validation": {
+      "fullName": "Por favor ingrese su nombre completo.",
+      "professionalTitle": "Por favor ingrese su título profesional.",
+      "propertyName": "Por favor ingrese el nombre de su propiedad.",
+      "propertyType": "Por favor seleccione un tipo de propiedad.",
+      "marketCountry": "Por favor ingrese su mercado o país.",
+      "annualSpend": "Por favor seleccione un rango de gasto anual.",
+      "referralSource": "Por favor indique cómo se enteró de nosotros.",
+      "requirements": "Por favor describa lo que busca (al menos 20 caracteres).",
+      "tosAccepted": "Debe aceptar los Términos de Servicio.",
+      "privacyAccepted": "Debe reconocer el Aviso de Privacidad."
+    },
+    "checkboxes": {
+      "tos": "He leído y acepto los",
+      "tosLink": "Términos de Servicio",
+      "privacy": "Reconozco el",
+      "privacyLink": "Aviso de Privacidad"
+    },
+    "submit": {
+      "default": "Enviar Solicitud",
+      "sending": "Enviando…",
+      "submitting": "Enviando…"
+    }
+  },
+  "success": {
+    "title": "Solicitud Recibida",
+    "message": "Nuestro equipo revisará su solicitud dentro de 2 días hábiles.",
+    "emailNote": "Recibirá una confirmación en la dirección de correo proporcionada.",
+    "continue": "Continuar"
+  },
+  "footer": {
+    "alreadyApproved": "¿Ya está aprobado?",
+    "signIn": "Iniciar sesión ↗"
+  },
+  "signInModal": {
+    "title": "Acceso al Portal Comercial",
+    "subtitle": "Ingrese su dirección de correo aprobada para recibir un enlace seguro.",
+    "emailPlaceholder": "su@empresa.com",
+    "button": "Enviar Enlace de Acceso",
+    "sending": "Enviando…",
+    "successTitle": "Revise Su Correo",
+    "successMessage": "Hemos enviado un enlace seguro a su dirección de correo. Por favor revise su bandeja de entrada y carpeta de spam.",
+    "close": "Cerrar",
+    "note": "Acceso seguro sin contraseña. No se requiere contraseña."
+  }
+}

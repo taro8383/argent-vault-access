@@ -10,7 +10,6 @@ import {
   Plus, Trash2, Save, ChevronDown, ChevronUp, Upload, X, Image, Layers, Copy, Languages, Download,
 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-import CustomCursor from "@/components/CustomCursor";
 import { useTranslations } from "@/hooks/use-translations";
 
 const WINE_COLORS = [
@@ -691,7 +690,6 @@ const Admin = () => {
 
   return (
     <>
-      <CustomCursor />
       <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <div className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-primary/20 px-6 py-4">

@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Sociedad de Asignación Privada | GC Wines",
+    "description": "Únase a la Sociedad de Asignación Privada por invitación"
+  },
+  "public": {
+    "eyebrow": "Solo por Invitación",
+    "title": "La Sociedad de Asignación Privada",
+    "description": "La membresía se extiende por invitación privada a un grupo selecto de coleccionistas y conocedores.",
+    "scarcity": "El acceso no se puede comprar — debe ganarse.",
+    "backToSite": "← Sitio Principal"
+  },
+  "waitingList": {
+    "title": "Únase a la Lista de Espera",
+    "subtitle": "Abrimos membresía selectivamente. Asegure su lugar para ser considerado.",
+    "fields": {
+      "firstName": {
+        "label": "Nombre",
+        "placeholder": "Su nombre"
+      },
+      "country": {
+        "label": "País",
+        "placeholder": "Opcional"
+      },
+      "email": {
+        "label": "Correo Electrónico",
+        "placeholder": "su@email.com"
+      }
+    },
+    "submit": "Solicitar Consideración",
+    "submitting": "Enviando…",
+    "success": {
+      "title": "Está en la lista.",
+      "message": "Nos pondremos en contacto."
+    }
+  },
+  "invite": {
+    "validating": "Verificando su invitación…",
+    "invalid": {
+      "title": "Invitación No Válida",
+      "message": "Este enlace de invitación ya no es válido o ya ha sido utilizado. Por favor contáctenos directamente para solicitar una nueva invitación.",
+      "contact": "Contáctenos"
+    },
+    "valid": {
+      "badge": "Su invitación privada ha sido confirmada",
+      "title": "Ha Sido Invitado",
+      "description": "Para completar su solicitud de membresía, seleccione su nivel y proporcione su perfil de entrega.",
+      "emailNote": "Esta invitación está dirigida a",
+      "button": "Comenzar Solicitud"
+    }
+  },
+  "apply": {
+    "title": "Complete Su Solicitud",
+    "steps": {
+      "details": "Sus Datos",
+      "delivery": "Perfil de Entrega",
+      "membership": "Su Membresía"
+    },
+    "step1": {
+      "title": "Sus Datos",
+      "fields": {
+        "fullName": "Nombre Completo",
+        "email": "Correo Electrónico",
+        "phone": "Teléfono",
+        "birthDate": "Fecha de Nacimiento"
+      },
+      "validation": {
+        "fullName": "Nombre completo requerido",
+        "email": "Correo válido requerido",
+        "phone": "Teléfono requerido",
+        "birthDate": "Fecha de nacimiento requerida",
+        "age": "Debe tener 18 años o más",
+        "ageVerified": "Verificación de edad requerida"
+      },
+      "ageConfirm": "Confirmo que tengo 18 años o más y legalmente permitido para comprar alcohol en mi país de residencia.",
+      "continue": "Continuar"
+    },
+    "step2": {
+      "title": "Perfil de Entrega",
+      "address": {
+        "primary": "Dirección Principal de Entrega",
+        "line1": "Dirección Línea 1",
+        "line2": "Dirección Línea 2 (opcional)",
+        "city": "Ciudad",
+        "state": "Estado / Provincia",
+        "postcode": "Código Postal",
+        "country": "País"
+      },
+      "altAddress": {
+        "toggle": "Agregar Dirección Alternativa",
+        "title": "Dirección Alternativa"
+      },
+      "deliveryWindow": {
+        "label": "Ventana de Entrega Preferida",
+        "options": {
+          "morning": "Mañana",
+          "morningTime": "8am – 12pm",
+          "afternoon": "Tarde",
+          "afternoonTime": "12pm – 5pm",
+          "evening": "Noche",
+          "eveningTime": "5pm – 9pm",
+          "any": "Cualquier Hora"
+        }
+      },
+      "buildingAccess": {
+        "label": "Instrucciones de Acceso al Edificio (opcional)",
+        "placeholder": "ej. Dejar con conserje. Apartamento 4B. Código: 1234."
+      },
+      "storage": {
+        "label": "Tipo de Almacenamiento de Vinos",
+        "options": {
+          "cellar": "Bodega con control de temperatura",
+          "fridge": "Refrigerador de vinos",
+          "ambient": "Almacenamiento ambiental (habitación fresca y oscura)",
+          "mixed": "Mixto"
+        }
+      },
+      "back": "Atrás",
+      "continue": "Continuar"
+    },
+    "step3": {
+      "title": "Elija Su Membresía",
+      "pricingNote": "Todos los precios incluyen todo.",
+      "tiers": {
+        "founding": {
+          "label": "Miembro Fundador",
+          "price": "AUD $2,500 / año",
+          "allocations": "4 por año · 6 botellas cada una",
+          "tastings": "1 cata privada anual",
+          "benefits": ["Primer acceso a lanzamientos especiales"]
+        },
+        "private": {
+          "label": "Miembro Privado",
+          "price": "AUD $3,500 / año",
+          "allocations": "4 por año · 6 botellas cada una",
+          "tastings": "2 catas privadas anuales",
+          "benefits": ["Acceso a compras adicionales", "Invitación a cena anual"]
+        },
+        "collector": {
+          "label": "Miembro Coleccionista",
+          "price": "AUD $10,500 / año",
+          "allocations": "12 por año (mensual) · 6 botellas cada una",
+          "tastings": "Acceso ilimitado",
+          "benefits": [
+            "Vinos pre-lanzamiento",
+            "Cena privada anual con el enólogo",
+            "Consulta de bodega",
+            "Búsqueda a medida",
+            "Invitaciones a catas comerciales"
+          ],
+          "featured": "Destacado"
+        }
+      },
+      "selectionSummary": "Ha seleccionado el",
+      "billingNote": "Facturación anual. Cancele en cualquier momento con 30 días de aviso.",
+      "referral": {
+        "label": "¿Cómo se enteró de nosotros? (opcional)",
+        "placeholder": "Referencia, evento, publicación…"
+      },
+      "checkboxes": {
+        "tos": "He leído y acepto los Términos de Servicio",
+        "privacy": "Reconozco el Aviso de Privacidad"
+      },
+      "back": "Atrás",
+      "submit": "Completar Solicitud →",
+      "submitting": "Enviando…"
+    },
+    "success": {
+      "badge": "Solicitud Recibida",
+      "title": "Gracias",
+      "message": "Nuestro equipo revisará su solicitud dentro de 48 horas. Recibirá una confirmación en la dirección de correo proporcionada.",
+      "return": "Volver a la Sociedad ↗"
+    }
+  },
+  "footer": {
+    "alreadyMember": "¿Ya es miembro?",
+    "signIn": "Iniciar sesión ↗"
+  },
+  "signInModal": {
+    "title": "Acceso de Miembro",
+    "subtitle": "Ingrese su correo de miembro para recibir un enlace seguro.",
+    "emailPlaceholder": "su@email.com",
+    "button": "Enviar Enlace de Acceso",
+    "sending": "Enviando…",
+    "successTitle": "Revise Su Correo",
+    "successMessage": "Hemos enviado un enlace seguro a su dirección de correo. Por favor revise su bandeja de entrada y carpeta de spam.",
+    "close": "Cerrar",
+    "note": "Acceso seguro sin contraseña. No se requiere contraseña."
+  }
+}

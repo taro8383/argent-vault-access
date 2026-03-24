@@ -72,7 +72,7 @@ const ParallaxImage = ({ src, alt, delay = 0 }: ParallaxImageProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: 0.2 + delay, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="w-full md:w-1/2 overflow-hidden rounded-sm"
+      className="w-full overflow-hidden rounded-sm"
       style={{
         filter: "drop-shadow(0 0 20px hsla(39, 52%, 56%, 0.15))",
         border: "1px solid hsla(39, 52%, 56%, 0.1)",
@@ -133,7 +133,7 @@ const NarrativeSection = () => {
 
   return (
     <section id="narrative" className="section-padding relative" ref={ref}>
-      <div className="max-w-4xl mx-auto">
+      <div className="w-full px-6 md:px-12 lg:px-24">
         {/* Section heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -141,10 +141,10 @@ const NarrativeSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <p className="font-sans-nav text-xs tracking-[0.4em] uppercase text-primary mb-4">
+          <p className="font-sans-nav text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.4em] uppercase text-primary mb-4">
             {t("sectionTag")}
           </p>
-          <h2 className="font-serif text-4xl md:text-6xl" dangerouslySetInnerHTML={{ __html: t("sectionTitle") }} />
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-6xl" dangerouslySetInnerHTML={{ __html: t("sectionTitle") }} />
           <motion.div
             className="gold-line w-16 mx-auto mt-6"
             animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
@@ -153,34 +153,36 @@ const NarrativeSection = () => {
         </motion.div>
 
         {/* Paragraphs */}
-        <div className="space-y-24">
+        <div className="space-y-32">
           {paragraphs.map((p, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 + i * 0.2, duration: 0.8 }}
-              className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 ${
-                i % 2 === 1 ? "md:flex-row-reverse" : ""
+              className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${
+                i % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
             >
-              {/* Image with Parallax */}
-              <ParallaxImage
-                src={p.image}
-                alt={p.title}
-                delay={i * 0.2}
-              />
+              {/* Image with Parallax - larger */}
+              <div className="w-full lg:w-3/5">
+                <ParallaxImage
+                  src={p.image}
+                  alt={p.title}
+                  delay={i * 0.2}
+                />
+              </div>
 
-              {/* Text Content */}
-              <div className={`w-full md:w-1/2 flex flex-col items-center text-center ${i % 2 === 1 ? "md:items-end md:text-right" : "md:items-start md:text-left"}`}>
-                <h3 className="font-serif text-2xl md:text-3xl text-primary mb-4">
+              {/* Text Content - wider */}
+              <div className={`w-full lg:w-2/5 flex flex-col items-center text-center ${i % 2 === 1 ? "lg:items-end lg:text-right" : "lg:items-start lg:text-left"}`}>
+                <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-primary mb-6">
                   {p.title}
                 </h3>
-                <p className="font-sans text-sm md:text-base leading-relaxed text-muted-foreground max-w-xl">
+                <p className="font-sans text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground">
                   {p.text}
                 </p>
                 <motion.div
-                  className={`gold-line w-12 mt-6 ${i % 2 === 1 ? "ml-auto" : ""}`}
+                  className={`gold-line w-12 mt-8 mx-auto ${i % 2 === 1 ? "lg:ml-auto" : "lg:mr-auto"}`}
                   animate={{ scaleX: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
                   transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
                 />

@@ -1,0 +1,190 @@
+{
+  "metadata": {
+    "title": "Private Allocation Society | GC Wines",
+    "description": "Join the Private Allocation Society by invitation"
+  },
+  "public": {
+    "eyebrow": "By Invitation Only",
+    "title": "The Private Allocation Society",
+    "description": "Membership is extended by private invitation to a curated group of collectors and connoisseurs.",
+    "scarcity": "Access cannot be purchased — it must be earned.",
+    "backToSite": "← Main Site"
+  },
+  "waitingList": {
+    "title": "Join the Waiting List",
+    "subtitle": "We open membership selectively. Secure your place for consideration.",
+    "fields": {
+      "firstName": {
+        "label": "First Name",
+        "placeholder": "Your first name"
+      },
+      "country": {
+        "label": "Country",
+        "placeholder": "Optional"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      }
+    },
+    "submit": "Request Consideration",
+    "submitting": "Submitting…",
+    "success": {
+      "title": "You are on the list.",
+      "message": "We will be in touch."
+    }
+  },
+  "invite": {
+    "validating": "Verifying your invitation…",
+    "invalid": {
+      "title": "Invitation No Longer Valid",
+      "message": "This invitation link is no longer valid or has already been used. Please contact us directly to request a new invitation.",
+      "contact": "Contact Us"
+    },
+    "valid": {
+      "badge": "Your private invitation has been confirmed",
+      "title": "You Have Been Invited",
+      "description": "To complete your membership application, please select your tier and provide your delivery profile.",
+      "emailNote": "This invitation is addressed to",
+      "button": "Begin Application"
+    }
+  },
+  "apply": {
+    "title": "Complete Your Application",
+    "steps": {
+      "details": "Your Details",
+      "delivery": "Delivery Profile",
+      "membership": "Your Membership"
+    },
+    "step1": {
+      "title": "Your Details",
+      "fields": {
+        "fullName": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone Number",
+        "birthDate": "Date of Birth"
+      },
+      "validation": {
+        "fullName": "Full name is required",
+        "email": "Valid email required",
+        "phone": "Phone number required",
+        "birthDate": "Date of birth required",
+        "age": "You must be 18 or older",
+        "ageVerified": "Age verification required"
+      },
+      "ageConfirm": "I confirm I am 18 years of age or older and legally permitted to purchase alcohol in my country of residence.",
+      "continue": "Continue"
+    },
+    "step2": {
+      "title": "Delivery Profile",
+      "address": {
+        "primary": "Primary Delivery Address",
+        "line1": "Address Line 1",
+        "line2": "Address Line 2 (optional)",
+        "city": "City",
+        "state": "State / Province",
+        "postcode": "Postcode",
+        "country": "Country"
+      },
+      "altAddress": {
+        "toggle": "Add Alternative Delivery Address",
+        "title": "Alternative Address"
+      },
+      "deliveryWindow": {
+        "label": "Preferred Delivery Window",
+        "options": {
+          "morning": "Morning",
+          "morningTime": "8am – 12pm",
+          "afternoon": "Afternoon",
+          "afternoonTime": "12pm – 5pm",
+          "evening": "Evening",
+          "eveningTime": "5pm – 9pm",
+          "any": "Any Time"
+        }
+      },
+      "buildingAccess": {
+        "label": "Building Access Instructions (optional)",
+        "placeholder": "e.g. Leave with concierge. Apartment 4B. Gate code: 1234."
+      },
+      "storage": {
+        "label": "Wine Storage Type",
+        "options": {
+          "cellar": "Temperature-controlled cellar",
+          "fridge": "Wine fridge",
+          "ambient": "Ambient storage (cool, dark room)",
+          "mixed": "Mixed"
+        }
+      },
+      "back": "Back",
+      "continue": "Continue"
+    },
+    "step3": {
+      "title": "Choose Your Membership",
+      "pricingNote": "All pricing is all-inclusive.",
+      "tiers": {
+        "founding": {
+          "label": "Founding Member",
+          "price": "AUD $2,500 / year",
+          "allocations": "4 per year · 6 bottles each",
+          "tastings": "1 private tasting annually",
+          "benefits": ["First access to special releases"]
+        },
+        "private": {
+          "label": "Private Member",
+          "price": "AUD $3,500 / year",
+          "allocations": "4 per year · 6 bottles each",
+          "tastings": "2 private tastings annually",
+          "benefits": ["Additional purchase access", "Annual dinner invitation"]
+        },
+        "collector": {
+          "label": "Collector Member",
+          "price": "AUD $10,500 / year",
+          "allocations": "12 per year (monthly) · 6 bottles each",
+          "tastings": "Unlimited access",
+          "benefits": [
+            "Pre-release wines",
+            "Annual private dinner with the winemaker",
+            "Cellar consultation",
+            "Bespoke sourcing",
+            "Trade tasting guest invites"
+          ],
+          "featured": "Featured"
+        }
+      },
+      "selectionSummary": "You have selected the",
+      "billingNote": "Annual billing. Cancel anytime with 30 days notice.",
+      "referral": {
+        "label": "How did you hear about us? (optional)",
+        "placeholder": "Referral, event, publication…"
+      },
+      "checkboxes": {
+        "tos": "I have read and accept the Terms of Service",
+        "privacy": "I acknowledge the Privacy Notice"
+      },
+      "back": "Back",
+      "submit": "Complete Application →",
+      "submitting": "Submitting…"
+    },
+    "success": {
+      "badge": "Application Received",
+      "title": "Thank You",
+      "message": "Our team will review your application within 48 hours. You will receive a confirmation at the email address provided.",
+      "return": "Return to Society ↗"
+    }
+  },
+  "footer": {
+    "alreadyMember": "Already a member?",
+    "signIn": "Sign in ↗"
+  },
+  "signInModal": {
+    "title": "Member Sign In",
+    "subtitle": "Enter your member email address to receive a secure sign-in link.",
+    "emailPlaceholder": "your@email.com",
+    "button": "Send Sign-In Link",
+    "sending": "Sending…",
+    "successTitle": "Check Your Email",
+    "successMessage": "We've sent a secure sign-in link to your email address. Please check your inbox and spam folder.",
+    "close": "Close",
+    "note": "Secure, passwordless sign-in. No password required."
+  }
+}

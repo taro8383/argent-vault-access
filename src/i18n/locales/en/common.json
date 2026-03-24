@@ -3,7 +3,10 @@
     "bridge": "The Bridge",
     "vault": "The Vault",
     "operations": "Operations",
-    "access": "Access"
+    "access": "Access",
+    "trade": "Trade",
+    "society": "Society",
+    "corporate": "Corporate"
   },
   "cta": {
     "privateInquiry": "Private Inquiry",
@@ -20,5 +23,199 @@
     "title": "404",
     "message": "Oops! Page not found",
     "returnHome": "Return to Home"
+  },
+  "trade": {
+    "eyebrow": "For Wine Professionals",
+    "headline": "Portfolio Access for the Trade",
+    "subheadline": "Sommeliers, retailers, and restaurateurs: discover allocations, pricing, and market intelligence reserved for our professional partners.",
+    "description": "The Trade Portal is your direct line to our portfolio. Access current allocations, futures pricing, and exclusive market reports—everything you need to build a world-class Argentine wine program.",
+    "benefits": [
+      "Real-time allocation availability across four markets",
+      "Exclusive trade pricing and futures access",
+      "Quarterly market intelligence reports",
+      "Direct order management and tracking"
+    ],
+    "stats": {
+      "portfolio": "40+",
+      "portfolioLabel": "Wines in Portfolio",
+      "markets": "4",
+      "marketsLabel": "Markets Served",
+      "approval": "24h",
+      "approvalLabel": "Application Review"
+    },
+    "cta": {
+      "eyebrow": "Private Access",
+      "title": "Apply for Trade Access",
+      "subtitle": "Join our network of professional partners. Applications reviewed within 24 hours.",
+      "apply": "Request Access",
+      "signin": "Already approved? Sign in"
+    }
+  },
+  "society": {
+    "eyebrow": "By Invitation Only",
+    "title": "Some Wines Never Reach the Open Market",
+    "description": "Membership is extended by private invitation to a curated group of collectors and connoisseurs. We discover extraordinary wines—small parcels, old vines, winemakers working in secrecy—and share them with our members before anyone else.",
+    "story": {
+      "discovery": {
+        "title": "The Discovery",
+        "desc": "We find wines that don't reach the open market. A single vineyard block in Mendoza, 47-year-old vines, fewer than 800 kilograms of fruit per year. You hear about it first."
+      },
+      "revelation": {
+        "title": "The Revelation",
+        "desc": "Native yeasts only. 22 months in old French oak. 13.2% natural alcohol at 1,340 meters altitude. Technical detail for those who understand what matters."
+      },
+      "scarcity": {
+        "title": "The Scarcity",
+        "desc": "Twenty bottles. Twenty members. Collector members receive allocations based on tenure, engagement, and advocacy. Not purchased—earned."
+      }
+    },
+    "scarcityNotice": {
+      "eyebrow": "Strictly Limited",
+      "title": "Each tier accepts only 20 members per market",
+      "desc": "When capacity is reached, new members may only join by invitation from existing members—or by waitlist."
+    },
+    "tiers": {
+      "founding": {
+        "name": "Founding Member",
+        "price": "USD $2,500",
+        "period": "/yr",
+        "allocation": "4 allocations per year",
+        "bottles": "6 bottles each"
+      },
+      "private": {
+        "name": "Private Member",
+        "price": "USD $3,500",
+        "period": "/yr",
+        "allocation": "4 allocations per year",
+        "bottles": "6 bottles each"
+      },
+      "collector": {
+        "name": "Collector Member",
+        "price": "USD $10,500",
+        "period": "/yr",
+        "allocation": "12 allocations per year",
+        "bottles": "6 bottles monthly",
+        "badge": "Most Sought After"
+      },
+      "scarcity": "20 memberships per market",
+      "allocationLabel": "Allocation",
+      "experiencesLabel": "Experiences"
+    },
+    "experiences": {
+      "founding": ["Private trade tastings", "Origin programme access"],
+      "private": ["Private trade tastings", "Winemaker dinners", "Priority event access"],
+      "collector": ["Ultra-rare allocations", "Unlimited tastings", "Bespoke sourcing"]
+    },
+    "cta": {
+      "request": "Request Consideration",
+      "signin": "Already a member? Sign in",
+      "quote": "Access cannot be purchased—it must be earned. Membership is extended by invitation only."
+    }
+  },
+  "corporate": {
+    "eyebrow": "By Appointment Only",
+    "title": "Your wine",
+    "titleItalic": "is saying",
+    "titleEnd": "something.",
+    "reframe": "When your investor asks where the wine came from, the answer should not be a supermarket.",
+    "scarcity": "We manage complete wine programs for a maximum of twelve corporate clients per market. Argentine wines only. Boutique producers. Limited allocations.",
+    "tiers": {
+      "essentials": {
+        "name": "Cellar Essentials",
+        "price": "USD $5,000",
+        "period": "/yr",
+        "focus": "Emerging firms building their entertainment practice"
+      },
+      "management": {
+        "name": "Cellar Management",
+        "price": "USD $10,000",
+        "period": "/yr",
+        "focus": "Established firms where entertainment drives deal flow"
+      },
+      "excellence": {
+        "name": "Cellar Excellence",
+        "price": "USD $18,000",
+        "period": "/yr",
+        "focus": "Market leaders who demand the exceptional"
+      }
+    },
+    "cta": {
+      "request": "Request Private Consultation",
+      "client": "Client Access"
+    },
+    "footer": "Annual Retainer · Argentine Wines · Discrete Service"
+  },
+  "ui": {
+    "clickOrTapToFlip": "Click or tap to flip",
+    "hover": "Hover",
+    "explore": "Explore",
+    "tap": "Tap",
+    "emailAddress": "Email Address",
+    "sending": "Sending…",
+    "close": "Close",
+    "secureSignInNote": "Secure passwordless sign-in. No password required.",
+    "errorSendingLink": "Error sending link. Please try again.",
+    "unexpectedError": "An unexpected error occurred. Please try again."
+  },
+  "signInModal": {
+    "trade": {
+      "title": "Trade Portal Access",
+      "subtitle": "Enter your approved trade email to receive a secure link.",
+      "placeholder": "you@company.com",
+      "buttonText": "Send Access Link",
+      "successTitle": "Check Your Email",
+      "successMessage": "We've sent a secure link to your email address. Please check your inbox and spam folder."
+    },
+    "society": {
+      "title": "Member Access",
+      "subtitle": "Enter your member email address to receive a secure link.",
+      "placeholder": "you@email.com",
+      "buttonText": "Send Access Link",
+      "successTitle": "Check Your Email",
+      "successMessage": "We've sent a secure link to your email address. Please check your inbox and spam folder."
+    },
+    "corporate": {
+      "title": "Client Access",
+      "subtitle": "Enter your client email address to receive a secure link.",
+      "placeholder": "you@email.com",
+      "buttonText": "Send Access Link",
+      "successTitle": "Check Your Email",
+      "successMessage": "We've sent a secure link to your email address. Please check your inbox and spam folder."
+    }
+  },
+  "corporateTiers": {
+    "excellence": "Excellence",
+    "management": "Management",
+    "essentials": "Essentials",
+    "excellenceName": "The Cellar Excellence Program",
+    "managementName": "The Cellar Management Program",
+    "essentialsName": "The Cellar Essentials Program",
+    "excellenceDesc": "The pinnacle of wine collection management",
+    "managementDesc": "Comprehensive stewardship for active collectors",
+    "essentialsDesc": "Foundation for the discerning collector",
+    "excellenceFeatures": [
+      "Everything in Management",
+      "Monthly portfolio reviews",
+      "Dedicated WhatsApp concierge",
+      "Annual private tasting event",
+      "Custom label program access",
+      "Client event representation",
+      "Direct winemaker introductions"
+    ],
+    "managementFeatures": [
+      "Everything in Essentials",
+      "Personal briefing service",
+      "Quarterly performance reviews",
+      "Emergency bottle service",
+      "Priority allocation access",
+      "Exclusive trade pricing"
+    ],
+    "essentialsFeatures": [
+      "Comprehensive cellar audit & inventory",
+      "Annual acquisition planning",
+      "Quarterly wine recommendations",
+      "Procurement management",
+      "Up to 10 cases per quarter"
+    ]
   }
 }

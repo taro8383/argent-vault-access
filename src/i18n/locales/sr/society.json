@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "title": "Društvo Privatne Raspodele | GC Wines",
+    "description": "Pridružite se Društvu Privatne Raspodele pozivnicom"
+  },
+  "public": {
+    "eyebrow": "Samo na Poziv",
+    "title": "Društvo Privatne Raspodele",
+    "description": "Članstvo se pruža privatnim pozivom odabranoj grupi kolekcionara i poznavalaca.",
+    "scarcity": "Pristup se ne može kupiti — mora se zaslužiti.",
+    "backToSite": "← Glavni Sajt"
+  },
+  "waitingList": {
+    "title": "Pridružite se Listi Čekanja",
+    "subtitle": "Članstvo otvaramo selektivno. Osigurajte vaše mesto za razmatranje.",
+    "fields": {
+      "firstName": {
+        "label": "Ime",
+        "placeholder": "Vaše ime"
+      },
+      "country": {
+        "label": "Država",
+        "placeholder": "Opciono"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "vi@email.com"
+      }
+    },
+    "validation": {
+      "required": "Ime i email su obavezni.",
+      "error": "Slanje nije uspelo. Pokušajte ponovo."
+    },
+    "submit": "Zatraži Razmatranje",
+    "submitting": "Šaljem…",
+    "success": {
+      "title": "Na listi ste.",
+      "message": "Javićemo vam se."
+    }
+  },
+  "invite": {
+    "validating": "Proveravamo vaš poziv…",
+    "invalid": {
+      "title": "Pozivnica Više Nije Validna",
+      "message": "Ovaj link pozivnice više nije validan ili je već iskorišćen. Molimo kontaktirajte nas direktno da zatražite novu pozivnicu.",
+      "contact": "Kontaktirajte Nas"
+    },
+    "valid": {
+      "badge": "Vaša privatna pozivnica je potvrđena",
+      "title": "Pozvani Ste",
+      "description": "Da biste završili prijavu za članstvo, izaberite vaš nivo i dostavite vaš profil za isporuku.",
+      "emailNote": "Ova pozivnica je upućena",
+      "button": "Započni Prijavu"
+    }
+  },
+  "apply": {
+    "title": "Završite Vašu Prijavu",
+    "steps": {
+      "details": "Vaši Podaci",
+      "delivery": "Profil Isporuke",
+      "membership": "Vaše Članstvo"
+    },
+    "step1": {
+      "title": "Vaši Podaci",
+      "fields": {
+        "fullName": "Puno Ime",
+        "email": "Adresa Email-a",
+        "phone": "Telefon",
+        "birthDate": "Datum Rođenja"
+      },
+      "validation": {
+        "fullName": "Puno ime je obavezno",
+        "email": "Validna email adresa je obavezna",
+        "phone": "Telefon je obavezan",
+        "birthDate": "Datum rođenja je obavezan",
+        "age": "Morate imati 18 ili više godina",
+        "ageVerified": "Verifikacija godina je obavezna"
+      },
+      "ageConfirm": "Potvrđujem da imam 18 ili više godina i da mi je zakonito dozvoljeno da kupujem alkohol u mojoj državi prebivališta.",
+      "continue": "Nastavi"
+    },
+    "step2": {
+      "title": "Profil Isporuke",
+      "address": {
+        "primary": "Primarna Adresa za Isporuku",
+        "line1": "Adresa Red 1",
+        "line2": "Adresa Red 2 (opciono)",
+        "city": "Grad",
+        "state": "Država / Pokrajina",
+        "postcode": "Poštanski Broj",
+        "country": "Država"
+      },
+      "altAddress": {
+        "toggle": "Dodaj Alternativnu Adresu",
+        "title": "Alternativna Adresa"
+      },
+      "deliveryWindow": {
+        "label": "Poželjni Termin Isporuke",
+        "options": {
+          "morning": "Jutro",
+          "morningTime": "8h – 12h",
+          "afternoon": "Poslepodne",
+          "afternoonTime": "12h – 17h",
+          "evening": "Veče",
+          "eveningTime": "17h – 21h",
+          "any": "Bilo Kada"
+        }
+      },
+      "buildingAccess": {
+        "label": "Instrukcije za Pristup Zgradi (opciono)",
+        "placeholder": "npr. Ostaviti sa koncijeržom. Stan 4B. Kod: 1234."
+      },
+      "storage": {
+        "label": "Tip Skladištenja Vina",
+        "options": {
+          "cellar": "Podrum sa kontrolom temperature",
+          "fridge": "Frižider za vino",
+          "ambient": "Ambijentalno skladištenje (hladna, tamna soba)",
+          "mixed": "Mešovito"
+        }
+      },
+      "back": "Nazad",
+      "continue": "Nastavi"
+    },
+    "step3": {
+      "title": "Izaberite Vaše Članstvo",
+      "pricingNote": "Sve cene su sveobuhvatne.",
+      "tiers": {
+        "founding": {
+          "label": "Osniavački Član",
+          "price": "AUD $2,500 / god",
+          "allocations": "4 godišnje · po 6 boca",
+          "tastings": "1 privatna degustacija godišnje",
+          "benefits": ["Prvi pristup specijalnim izdanjima"]
+        },
+        "private": {
+          "label": "Privatni Član",
+          "price": "AUD $3,500 / god",
+          "allocations": "4 godišnje · po 6 boca",
+          "tastings": "2 privatne degustacije godišnje",
+          "benefits": ["Pristup dodatnim kupovinama", "Godišnja pozivnica za večeru"]
+        },
+        "collector": {
+          "label": "Kolekcionarski Član",
+          "price": "AUD $10,500 / god",
+          "allocations": "12 godišnje (mesečno) · po 6 boca",
+          "tastings": "Neograničen pristup",
+          "benefits": [
+            "Vina pre izdanja",
+            "Godišnja privatna večera sa vinarom",
+            "Konsultacija o podrumu",
+            "Prilagođena nabavka",
+            "Pozivnice za trgovinske degustacije"
+          ],
+          "featured": "Istaknuto"
+        }
+      },
+      "selectionSummary": "Izabrali ste",
+      "billingNote": "Godišnja naplata. Otkaz u bilo kom trenutku sa 30 dana najave.",
+      "referral": {
+        "label": "Kako ste čuli za nas? (opciono)",
+        "placeholder": "Preporuka, događaj, publikacija…"
+      },
+      "checkboxes": {
+        "tos": "Pročitao/la sam i prihvatam Uslove Korišćenja",
+        "privacy": "Priznajem Obaveštenje o Privatnosti"
+      },
+      "back": "Nazad",
+      "submit": "Završi Prijavu →",
+      "submitting": "Šaljem…"
+    },
+    "success": {
+      "badge": "Prijava Primljena",
+      "title": "Hvala Vam",
+      "message": "Naš tim će pregledati vašu prijavu u roku od 48 sati. Dobićete potvrdu na navedenu adresu email-a.",
+      "return": "Nazad u Društvo ↗"
+    }
+  },
+  "footer": {
+    "alreadyMember": "Već ste član?",
+    "signIn": "Prijavi se ↗"
+  },
+  "signInModal": {
+    "title": "Pristup Člana",
+    "subtitle": "Unesite vašu email adresu člana da biste dobili bezbedan link.",
+    "emailPlaceholder": "vi@email.com",
+    "button": "Pošalji Link za Pristup",
+    "sending": "Šaljem…",
+    "successTitle": "Proverite Vaš Email",
+    "successMessage": "Poslali smo bezbedan link na vašu adresu email-a. Molimo proverite vaše sanduče i fasciklu za nepoželjnu poštu.",
+    "close": "Zatvori",
+    "note": "Bezbedna prijava bez lozinke. Lozinka nije potrebna."
+  }
+}
